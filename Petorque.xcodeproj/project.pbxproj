@@ -1,0 +1,589 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5787ECDA244E2F2B00EE7A14 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5787ECD9244E2F2B00EE7A14 /* AppDelegate.swift */; };
+		5787ECDC244E2F2B00EE7A14 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5787ECDB244E2F2B00EE7A14 /* SceneDelegate.swift */; };
+		5787ECDE244E2F2B00EE7A14 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5787ECDD244E2F2B00EE7A14 /* ViewController.swift */; };
+		5787ECE1244E2F2B00EE7A14 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5787ECDF244E2F2B00EE7A14 /* Main.storyboard */; };
+		5787ECE3244E2F3100EE7A14 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5787ECE2244E2F3100EE7A14 /* Assets.xcassets */; };
+		5787ECE6244E2F3100EE7A14 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5787ECE4244E2F3100EE7A14 /* LaunchScreen.storyboard */; };
+		5787ECF1244E2F3100EE7A14 /* PetorqueTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5787ECF0244E2F3100EE7A14 /* PetorqueTests.swift */; };
+		5787ECFC244E2F3100EE7A14 /* PetorqueUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5787ECFB244E2F3100EE7A14 /* PetorqueUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5787ECED244E2F3100EE7A14 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5787ECCE244E2F2B00EE7A14 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5787ECD5244E2F2B00EE7A14;
+			remoteInfo = Petorque;
+		};
+		5787ECF8244E2F3100EE7A14 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5787ECCE244E2F2B00EE7A14 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5787ECD5244E2F2B00EE7A14;
+			remoteInfo = Petorque;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		5787ECD6244E2F2B00EE7A14 /* Petorque.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Petorque.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5787ECD9244E2F2B00EE7A14 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		5787ECDB244E2F2B00EE7A14 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		5787ECDD244E2F2B00EE7A14 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		5787ECE0244E2F2B00EE7A14 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		5787ECE2244E2F3100EE7A14 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5787ECE5244E2F3100EE7A14 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		5787ECE7244E2F3100EE7A14 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5787ECEC244E2F3100EE7A14 /* PetorqueTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PetorqueTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5787ECF0244E2F3100EE7A14 /* PetorqueTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetorqueTests.swift; sourceTree = "<group>"; };
+		5787ECF2244E2F3100EE7A14 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5787ECF7244E2F3100EE7A14 /* PetorqueUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PetorqueUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5787ECFB244E2F3100EE7A14 /* PetorqueUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetorqueUITests.swift; sourceTree = "<group>"; };
+		5787ECFD244E2F3100EE7A14 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5787ECD3244E2F2B00EE7A14 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5787ECE9244E2F3100EE7A14 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5787ECF4244E2F3100EE7A14 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5787ECCD244E2F2B00EE7A14 = {
+			isa = PBXGroup;
+			children = (
+				5787ECD8244E2F2B00EE7A14 /* Petorque */,
+				5787ECEF244E2F3100EE7A14 /* PetorqueTests */,
+				5787ECFA244E2F3100EE7A14 /* PetorqueUITests */,
+				5787ECD7244E2F2B00EE7A14 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		5787ECD7244E2F2B00EE7A14 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5787ECD6244E2F2B00EE7A14 /* Petorque.app */,
+				5787ECEC244E2F3100EE7A14 /* PetorqueTests.xctest */,
+				5787ECF7244E2F3100EE7A14 /* PetorqueUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5787ECD8244E2F2B00EE7A14 /* Petorque */ = {
+			isa = PBXGroup;
+			children = (
+				5787ECD9244E2F2B00EE7A14 /* AppDelegate.swift */,
+				5787ECDB244E2F2B00EE7A14 /* SceneDelegate.swift */,
+				5787ECDD244E2F2B00EE7A14 /* ViewController.swift */,
+				5787ECDF244E2F2B00EE7A14 /* Main.storyboard */,
+				5787ECE2244E2F3100EE7A14 /* Assets.xcassets */,
+				5787ECE4244E2F3100EE7A14 /* LaunchScreen.storyboard */,
+				5787ECE7244E2F3100EE7A14 /* Info.plist */,
+			);
+			path = Petorque;
+			sourceTree = "<group>";
+		};
+		5787ECEF244E2F3100EE7A14 /* PetorqueTests */ = {
+			isa = PBXGroup;
+			children = (
+				5787ECF0244E2F3100EE7A14 /* PetorqueTests.swift */,
+				5787ECF2244E2F3100EE7A14 /* Info.plist */,
+			);
+			path = PetorqueTests;
+			sourceTree = "<group>";
+		};
+		5787ECFA244E2F3100EE7A14 /* PetorqueUITests */ = {
+			isa = PBXGroup;
+			children = (
+				5787ECFB244E2F3100EE7A14 /* PetorqueUITests.swift */,
+				5787ECFD244E2F3100EE7A14 /* Info.plist */,
+			);
+			path = PetorqueUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5787ECD5244E2F2B00EE7A14 /* Petorque */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5787ED00244E2F3100EE7A14 /* Build configuration list for PBXNativeTarget "Petorque" */;
+			buildPhases = (
+				5787ECD2244E2F2B00EE7A14 /* Sources */,
+				5787ECD3244E2F2B00EE7A14 /* Frameworks */,
+				5787ECD4244E2F2B00EE7A14 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Petorque;
+			productName = Petorque;
+			productReference = 5787ECD6244E2F2B00EE7A14 /* Petorque.app */;
+			productType = "com.apple.product-type.application";
+		};
+		5787ECEB244E2F3100EE7A14 /* PetorqueTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5787ED03244E2F3100EE7A14 /* Build configuration list for PBXNativeTarget "PetorqueTests" */;
+			buildPhases = (
+				5787ECE8244E2F3100EE7A14 /* Sources */,
+				5787ECE9244E2F3100EE7A14 /* Frameworks */,
+				5787ECEA244E2F3100EE7A14 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5787ECEE244E2F3100EE7A14 /* PBXTargetDependency */,
+			);
+			name = PetorqueTests;
+			productName = PetorqueTests;
+			productReference = 5787ECEC244E2F3100EE7A14 /* PetorqueTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		5787ECF6244E2F3100EE7A14 /* PetorqueUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5787ED06244E2F3100EE7A14 /* Build configuration list for PBXNativeTarget "PetorqueUITests" */;
+			buildPhases = (
+				5787ECF3244E2F3100EE7A14 /* Sources */,
+				5787ECF4244E2F3100EE7A14 /* Frameworks */,
+				5787ECF5244E2F3100EE7A14 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5787ECF9244E2F3100EE7A14 /* PBXTargetDependency */,
+			);
+			name = PetorqueUITests;
+			productName = PetorqueUITests;
+			productReference = 5787ECF7244E2F3100EE7A14 /* PetorqueUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5787ECCE244E2F2B00EE7A14 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1130;
+				LastUpgradeCheck = 1130;
+				ORGANIZATIONNAME = Petorqueiros;
+				TargetAttributes = {
+					5787ECD5244E2F2B00EE7A14 = {
+						CreatedOnToolsVersion = 11.3.1;
+					};
+					5787ECEB244E2F3100EE7A14 = {
+						CreatedOnToolsVersion = 11.3.1;
+						TestTargetID = 5787ECD5244E2F2B00EE7A14;
+					};
+					5787ECF6244E2F3100EE7A14 = {
+						CreatedOnToolsVersion = 11.3.1;
+						TestTargetID = 5787ECD5244E2F2B00EE7A14;
+					};
+				};
+			};
+			buildConfigurationList = 5787ECD1244E2F2B00EE7A14 /* Build configuration list for PBXProject "Petorque" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 5787ECCD244E2F2B00EE7A14;
+			productRefGroup = 5787ECD7244E2F2B00EE7A14 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5787ECD5244E2F2B00EE7A14 /* Petorque */,
+				5787ECEB244E2F3100EE7A14 /* PetorqueTests */,
+				5787ECF6244E2F3100EE7A14 /* PetorqueUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5787ECD4244E2F2B00EE7A14 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5787ECE6244E2F3100EE7A14 /* LaunchScreen.storyboard in Resources */,
+				5787ECE3244E2F3100EE7A14 /* Assets.xcassets in Resources */,
+				5787ECE1244E2F2B00EE7A14 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5787ECEA244E2F3100EE7A14 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5787ECF5244E2F3100EE7A14 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5787ECD2244E2F2B00EE7A14 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5787ECDE244E2F2B00EE7A14 /* ViewController.swift in Sources */,
+				5787ECDA244E2F2B00EE7A14 /* AppDelegate.swift in Sources */,
+				5787ECDC244E2F2B00EE7A14 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5787ECE8244E2F3100EE7A14 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5787ECF1244E2F3100EE7A14 /* PetorqueTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5787ECF3244E2F3100EE7A14 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5787ECFC244E2F3100EE7A14 /* PetorqueUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5787ECEE244E2F3100EE7A14 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5787ECD5244E2F2B00EE7A14 /* Petorque */;
+			targetProxy = 5787ECED244E2F3100EE7A14 /* PBXContainerItemProxy */;
+		};
+		5787ECF9244E2F3100EE7A14 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5787ECD5244E2F2B00EE7A14 /* Petorque */;
+			targetProxy = 5787ECF8244E2F3100EE7A14 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		5787ECDF244E2F2B00EE7A14 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5787ECE0244E2F2B00EE7A14 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		5787ECE4244E2F3100EE7A14 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5787ECE5244E2F3100EE7A14 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		5787ECFE244E2F3100EE7A14 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		5787ECFF244E2F3100EE7A14 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5787ED01244E2F3100EE7A14 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = Petorque/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Petorqueiros.Petorque;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		5787ED02244E2F3100EE7A14 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = Petorque/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Petorqueiros.Petorque;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		5787ED04244E2F3100EE7A14 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = PetorqueTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Petorqueiros.PetorqueTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Petorque.app/Petorque";
+			};
+			name = Debug;
+		};
+		5787ED05244E2F3100EE7A14 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = PetorqueTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Petorqueiros.PetorqueTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Petorque.app/Petorque";
+			};
+			name = Release;
+		};
+		5787ED07244E2F3100EE7A14 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = PetorqueUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Petorqueiros.PetorqueUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Petorque;
+			};
+			name = Debug;
+		};
+		5787ED08244E2F3100EE7A14 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = PetorqueUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Petorqueiros.PetorqueUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Petorque;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5787ECD1244E2F2B00EE7A14 /* Build configuration list for PBXProject "Petorque" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5787ECFE244E2F3100EE7A14 /* Debug */,
+				5787ECFF244E2F3100EE7A14 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5787ED00244E2F3100EE7A14 /* Build configuration list for PBXNativeTarget "Petorque" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5787ED01244E2F3100EE7A14 /* Debug */,
+				5787ED02244E2F3100EE7A14 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5787ED03244E2F3100EE7A14 /* Build configuration list for PBXNativeTarget "PetorqueTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5787ED04244E2F3100EE7A14 /* Debug */,
+				5787ED05244E2F3100EE7A14 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5787ED06244E2F3100EE7A14 /* Build configuration list for PBXNativeTarget "PetorqueUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5787ED07244E2F3100EE7A14 /* Debug */,
+				5787ED08244E2F3100EE7A14 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5787ECCE244E2F2B00EE7A14 /* Project object */;
+}
