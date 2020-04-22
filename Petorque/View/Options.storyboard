@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="WKM-9n-p0e">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Opções-->
+        <scene sceneID="d7L-sy-PQ6">
+            <objects>
+                <viewController id="h3A-5v-pY0" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hy4-1D-BvK">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="2re-Im-LUj"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Opções" id="pk6-vL-BPo"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="D4N-ML-6KL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="582.60869565217399" y="-108.48214285714285"/>
+        </scene>
+        <!--Opções-->
+        <scene sceneID="Ts1-Xi-T1v">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="WKM-9n-p0e" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Opções" image="slider.horizontal.3" catalog="system" selectedImage="slider.horizontal.3" id="YbF-NG-WKh"/>
+                    <toolbarItems/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="Ui0-9b-sJ2">
+                        <rect key="frame" x="0.0" y="44" width="414" height="104.5"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="h3A-5v-pY0" kind="relationship" relationship="rootViewController" id="rZT-2Y-3Kk"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5AL-MU-8gZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-327.536231884058" y="-108.48214285714285"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="slider.horizontal.3" catalog="system" width="64" height="50"/>
+    </resources>
+</document>
