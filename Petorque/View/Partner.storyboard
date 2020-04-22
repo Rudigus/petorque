@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="IJ4-2x-XZY">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Parceiro-->
+        <scene sceneID="ahl-iQ-tQs">
+            <objects>
+                <viewController id="VyJ-Y7-npN" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="e2u-cY-dXW">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="2m0-Wz-lnR"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Parceiro" id="YIG-G0-eNb"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="q6Y-Ek-7dQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="828.98550724637687" y="43.526785714285715"/>
+        </scene>
+        <!--Parceiro-->
+        <scene sceneID="aLY-eF-M4c">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="IJ4-2x-XZY" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Parceiro" image="tortoise" catalog="system" selectedImage="tortoise.fill" id="95P-0x-iqe"/>
+                    <toolbarItems/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="Cvk-9p-S3w">
+                        <rect key="frame" x="0.0" y="44" width="414" height="104.5"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="VyJ-Y7-npN" kind="relationship" relationship="rootViewController" id="48t-8H-5VN"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1NM-4x-t0a" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-81.159420289855078" y="43.526785714285715"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="tortoise" catalog="system" width="64" height="34"/>
+        <image name="tortoise.fill" catalog="system" width="64" height="32"/>
+    </resources>
+</document>

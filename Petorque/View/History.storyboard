@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zE9-P8-UCV">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Histórico-->
+        <scene sceneID="mUn-oo-21B">
+            <objects>
+                <viewController id="gFl-Vi-LMj" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bZo-3r-bGF">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="eNy-OE-byw"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Histórico" id="2aR-7K-22B"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="I4U-wK-x9D" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="815.94202898550736" y="60.9375"/>
+        </scene>
+        <!--Histórico-->
+        <scene sceneID="X59-JO-Z8S">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zE9-P8-UCV" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Histórico" image="clock" catalog="system" selectedImage="clock.fill" id="iCA-u0-i7U"/>
+                    <toolbarItems/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="gxI-fU-x3I">
+                        <rect key="frame" x="0.0" y="44" width="414" height="104.5"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="gFl-Vi-LMj" kind="relationship" relationship="rootViewController" id="uz6-dJ-ryc"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4kU-Ls-yWe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-94.20289855072464" y="60.9375"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="clock" catalog="system" width="64" height="60"/>
+        <image name="clock.fill" catalog="system" width="64" height="60"/>
+    </resources>
+</document>
