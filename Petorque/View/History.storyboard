@@ -10,14 +10,39 @@
         <!--Histórico-->
         <scene sceneID="mUn-oo-21B">
             <objects>
-                <viewController id="gFl-Vi-LMj" sceneMemberID="viewController">
+                <viewController id="gFl-Vi-LMj" customClass="HistoryViewController" customModule="Petorque" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bZo-3r-bGF">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="TpX-Wp-gx6">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="U1g-oT-B91">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="U1g-oT-B91" id="VYu-oA-tID">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="TpX-Wp-gx6" firstAttribute="leading" secondItem="eNy-OE-byw" secondAttribute="leading" id="0o3-cT-BG3"/>
+                            <constraint firstItem="eNy-OE-byw" firstAttribute="bottom" secondItem="TpX-Wp-gx6" secondAttribute="bottom" id="Rdv-IC-2ZM"/>
+                            <constraint firstItem="TpX-Wp-gx6" firstAttribute="top" secondItem="eNy-OE-byw" secondAttribute="top" id="iZW-Au-Bkw"/>
+                            <constraint firstItem="eNy-OE-byw" firstAttribute="trailing" secondItem="TpX-Wp-gx6" secondAttribute="trailing" id="nJI-ru-r7G"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="eNy-OE-byw"/>
                     </view>
                     <navigationItem key="navigationItem" title="Histórico" id="2aR-7K-22B"/>
+                    <connections>
+                        <outlet property="tableView" destination="TpX-Wp-gx6" id="h9T-pS-a5A"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I4U-wK-x9D" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
