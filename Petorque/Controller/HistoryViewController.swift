@@ -10,17 +10,22 @@ import UIKit
 
 class HistoryViewController: UIViewController {
 
-    @IBOutlet var tableView: UITableView!
+    @IBOutlet weak var tableView: UITableView!
+
+    var historyTasks: [Task] = []
     
-    var tasks = [
-        "Estudar Design",
-        "Fazer protótipo de alta fidelidade",
-        "Plantar babosa"
-    ]
+    func createArray() -> [Task] {
+        let dateFormatterGet = DateFormatter()
+        dateFormatterGet.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        let task1 = Task(title: "Estudar Design", cycleDuration: 25, numberOfCycles: 3, date: Date(timeIntervalSinceReferenceDate: 410220000))
+        let task2 = Task(title: "Fazer protótipo de alta fidelidade", cycleDuration: 25, numberOfCycles: 4, date: Date(timeIntervalSinceReferenceDate: 410220000))
+        let task3 = Task(title: "Plantar babosa", cycleDuration: 20, numberOfCycles: 2, date: Date(timeIntervalSinceReferenceDate: 410220000))
+        return [task1, task2, task3]
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        historyTasks = createArray()
         tableView.delegate = self
         tableView.dataSource = self
 
@@ -29,20 +34,21 @@ class HistoryViewController: UIViewController {
     
 }
 
-extension HistoryViewController: UITableViewDelegate {
+extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
        print("you tapped me!")
     }
-}
-
-extension HistoryViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return tasks.count
+        return historyTasks.count
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = tasks[indexPath.row]
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "pt_BR")
+        dateFormatter.setLocalizedDateFormatFromTemplate("MMMMdyyyy") // set template after setting locale
+        cell.textLabel?.text = historyTasks[indexPath.row].title
+        cell.detailTextLabel?.text = dateFormatter.string(from: historyTasks[indexPath.row].date)
         return cell
     }
 }

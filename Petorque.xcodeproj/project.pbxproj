@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2EDD9B202450F3E30027A1CE /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDD9B1F2450F3E30027A1CE /* HistoryViewController.swift */; };
+		2EDF744F2451C40900CA0C22 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDF744E2451C40900CA0C22 /* Task.swift */; };
 		2EED771124507A2A00F85ABE /* TabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EED771024507A2A00F85ABE /* TabBar.storyboard */; };
 		2EED771324507B4500F85ABE /* Work.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EED771224507B4500F85ABE /* Work.storyboard */; };
 		2EED771524507BE800F85ABE /* Schedule.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EED771424507BE800F85ABE /* Schedule.storyboard */; };
@@ -41,6 +42,7 @@
 
 /* Begin PBXFileReference section */
 		2EDD9B1F2450F3E30027A1CE /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
+		2EDF744E2451C40900CA0C22 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		2EED771024507A2A00F85ABE /* TabBar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TabBar.storyboard; sourceTree = "<group>"; };
 		2EED771224507B4500F85ABE /* Work.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Work.storyboard; sourceTree = "<group>"; };
 		2EED771424507BE800F85ABE /* Schedule.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Schedule.storyboard; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 		2EED770D245079E300F85ABE /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				2EDF744E2451C40900CA0C22 /* Task.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -303,6 +306,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2EDF744F2451C40900CA0C22 /* Task.swift in Sources */,
 				2EDD9B202450F3E30027A1CE /* HistoryViewController.swift in Sources */,
 				5787ECDA244E2F2B00EE7A14 /* AppDelegate.swift in Sources */,
 				5787ECDC244E2F2B00EE7A14 /* SceneDelegate.swift in Sources */,
