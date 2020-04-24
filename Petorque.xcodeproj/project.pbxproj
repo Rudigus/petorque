@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2ED95F1924525E2C005F125D /* AddTaskScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED95F1824525E2C005F125D /* AddTaskScheduleViewController.swift */; };
 		2EDD9B202450F3E30027A1CE /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDD9B1F2450F3E30027A1CE /* HistoryViewController.swift */; };
 		2EDF744F2451C40900CA0C22 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDF744E2451C40900CA0C22 /* Task.swift */; };
 		2EED771124507A2A00F85ABE /* TabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EED771024507A2A00F85ABE /* TabBar.storyboard */; };
@@ -42,6 +43,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2ED95F1824525E2C005F125D /* AddTaskScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskScheduleViewController.swift; sourceTree = "<group>"; };
 		2EDD9B1F2450F3E30027A1CE /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		2EDF744E2451C40900CA0C22 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		2EED771024507A2A00F85ABE /* TabBar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TabBar.storyboard; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 			children = (
 				E925574924521B07005C9A6A /* ScheduleController.swift */,
 				2EDD9B1F2450F3E30027A1CE /* HistoryViewController.swift */,
+				2ED95F1824525E2C005F125D /* AddTaskScheduleViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -309,6 +312,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2ED95F1924525E2C005F125D /* AddTaskScheduleViewController.swift in Sources */,
 				E925574A24521B07005C9A6A /* ScheduleController.swift in Sources */,
 				2EDF744F2451C40900CA0C22 /* Task.swift in Sources */,
 				2EDD9B202450F3E30027A1CE /* HistoryViewController.swift in Sources */,

@@ -10,7 +10,11 @@ import UIKit
 
 class HistoryViewController: UIViewController {
 
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var tableView: UITableView! {
+        didSet {
+            tableView.tableFooterView = UIView()
+        }
+    }
 
     var historyTasks: [Task] = []
     
@@ -26,10 +30,12 @@ class HistoryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         historyTasks = createArray()
+        setupTableView()
+    }
+    
+    func setupTableView(){
         tableView.delegate = self
         tableView.dataSource = self
-
-        // Do any additional setup after loading the view.
     }
     
 }
@@ -38,15 +44,16 @@ extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
        print("you tapped me!")
     }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return historyTasks.count
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: "pt_BR")
-        dateFormatter.setLocalizedDateFormatFromTemplate("MMMMdyyyy") // set template after setting locale
+        dateFormatter.setLocalizedDateFormatFromTemplate("MMMMdyyyy")
         cell.textLabel?.text = historyTasks[indexPath.row].title
         cell.detailTextLabel?.text = dateFormatter.string(from: historyTasks[indexPath.row].date)
         return cell

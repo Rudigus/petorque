@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jl8-7k-non">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jl8-7k-non">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -73,7 +73,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="jGm-KY-gie"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Agenda" largeTitleDisplayMode="always" id="DrI-pr-bMN"/>
+                    <navigationItem key="navigationItem" title="Agenda" largeTitleDisplayMode="always" id="DrI-pr-bMN">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Se1-UB-qq6">
+                            <connections>
+                                <segue destination="Gfx-PD-8Wa" kind="presentation" id="9gF-f3-p39"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="scheduleTableView" destination="taU-VQ-ews" id="jhq-Bq-76J"/>
                     </connections>
@@ -81,6 +87,36 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y8F-OT-0ID" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="837.68115942028987" y="45.535714285714285"/>
+        </scene>
+        <!--Add Task Schedule View Controller-->
+        <scene sceneID="FYu-Z3-bZv">
+            <objects>
+                <viewController id="Gfx-PD-8Wa" customClass="AddTaskScheduleViewController" customModule="Petorque" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="mXu-Fm-zif">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VdH-ZO-lzh">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="Adicionar Tarefa" id="o4A-hu-LWg">
+                                        <barButtonItem key="leftBarButtonItem" title="Voltar" id="EAI-oO-9AF">
+                                            <connections>
+                                                <action selector="CloseAddModally:" destination="Gfx-PD-8Wa" id="TgF-E1-NhC"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="R4I-Z5-qsa"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Vh1-w1-ikw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1742.0289855072465" y="44.836956521739133"/>
         </scene>
         <!--Agenda-->
         <scene sceneID="pRe-J2-fuE">
@@ -90,6 +126,7 @@
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="yh3-NW-3VM">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="104.33333333333334"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -103,7 +140,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="doc" catalog="system" width="115" height="128"/>
-        <image name="doc.fill" catalog="system" width="115" height="128"/>
+        <image name="doc" catalog="system" width="56" height="64"/>
+        <image name="doc.fill" catalog="system" width="56" height="64"/>
     </resources>
 </document>
