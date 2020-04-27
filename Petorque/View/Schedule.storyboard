@@ -101,7 +101,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem title="Adicionar Tarefa" id="o4A-hu-LWg">
-                                        <barButtonItem key="leftBarButtonItem" title="Voltar" id="EAI-oO-9AF">
+                                        <barButtonItem key="leftBarButtonItem" title="Cancelar" id="EAI-oO-9AF">
                                             <connections>
                                                 <action selector="CloseAddModally:" destination="Gfx-PD-8Wa" id="TgF-E1-NhC"/>
                                             </connections>
@@ -126,7 +126,7 @@
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="yh3-NW-3VM">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="104.33333333333334"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
