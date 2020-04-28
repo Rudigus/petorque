@@ -19,12 +19,20 @@ class AddTaskScheduleViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Adicionar"
         tableView.tableFooterView = UIView()
         numberOfCyclesPicker.delegate = self
         numberOfCyclesTextfield.inputView = numberOfCyclesPicker
+        numberOfCyclesTextfield.borderStyle = .none
+        numberOfCyclesTextfield.placeholder = "3 ciclos"
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard (_:)))
+        self.view.addGestureRecognizer(tapGesture)
     }
-    @IBAction func CloseAddModally(_ sender: UIButton) {
+    
+    @objc func dismissKeyboard (_ sender: UITapGestureRecognizer) {
+        numberOfCyclesTextfield.resignFirstResponder()
+    }
+    
+    @IBAction func CloseModalAddTask(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
     }
 }
