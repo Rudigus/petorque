@@ -14,7 +14,7 @@ class TimerCountOrderViewController: UIViewController {
     var screenName: String = ""
     
     override func viewDidLoad() {
-        self.title = "some title"
+        timerCountOrderNavigationItem.title = screenName
     }
     
 }

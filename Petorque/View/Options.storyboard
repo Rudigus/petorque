@@ -15,7 +15,7 @@
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="Ui0-9b-sJ2">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="104.33333333333334"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -38,7 +38,7 @@
                         <sections>
                             <tableViewSection headerTitle="Ordem de Contagem do Timer" id="t5n-n5-9j8" userLabel="TimerCountOrder">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="2qx-b3-Pkd" detailTextLabel="8Nd-pA-GCb" style="IBUITableViewCellStyleValue1" id="8Y4-zm-N5P">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="2qx-b3-Pkd" detailTextLabel="8Nd-pA-GCb" style="IBUITableViewCellStyleValue1" id="8Y4-zm-N5P">
                                         <rect key="frame" x="0.0" y="55.333332061767578" width="414" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8Y4-zm-N5P" id="leF-NO-q9S">
@@ -65,7 +65,7 @@
                                             <segue destination="g8H-Dy-v0I" kind="presentation" id="jpP-Lz-Uqy"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="Gkc-6p-tCs" detailTextLabel="qbn-Bx-9sS" style="IBUITableViewCellStyleValue1" id="AXi-iI-PMO">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="Gkc-6p-tCs" detailTextLabel="qbn-Bx-9sS" style="IBUITableViewCellStyleValue1" id="AXi-iI-PMO">
                                         <rect key="frame" x="0.0" y="99" width="414" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="AXi-iI-PMO" id="I3o-CU-vBB">
@@ -88,6 +88,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="g8H-Dy-v0I" kind="presentation" id="DkP-sV-Ibf"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -97,7 +100,9 @@
                             <outlet property="delegate" destination="vjn-xI-yx4" id="QO7-xJ-rKb"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Opções" largeTitleDisplayMode="always" id="QwM-wq-eB6"/>
+                    <navigationItem key="navigationItem" title="Opções" largeTitleDisplayMode="always" id="QwM-wq-eB6">
+                        <barButtonItem key="backBarButtonItem" title="Opções" id="KXV-fC-uu1"/>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7jh-D3-SYJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -115,9 +120,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
-                                    <navigationItem title="Placeholder" id="cML-CY-Q6J">
-                                        <barButtonItem key="backBarButtonItem" title="Opções" id="KYn-PO-dLb" userLabel="Options"/>
-                                    </navigationItem>
+                                    <navigationItem title="Placeholder" id="cML-CY-Q6J"/>
                                 </items>
                             </navigationBar>
                         </subviews>
@@ -136,4 +139,7 @@
     <resources>
         <image name="slider.horizontal.3" catalog="system" width="64" height="50"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="jpP-Lz-Uqy"/>
+    </inferredMetricsTieBreakers>
 </document>
