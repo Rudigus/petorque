@@ -1,9 +1,9 @@
 //
-//  TasksDatabase.swift
-//  Petorque
+//  DatabaseModel.swift
+//  To-Do-List
 //
-//  Created by Tales Conrado on 28/04/20.
-//  Copyright © 2020 Petorqueiros. All rights reserved.
+//  Created by Tales Conrado on 29/04/20.
+//  Copyright © 2020 Tales Conrado. All rights reserved.
 //
 
 import Foundation
@@ -18,63 +18,67 @@ class Database {
     var doing: URL
     var done: URL
     
-    var doingArray: [Task] = []
-    var doneArray: [Task] = []
+    var emptyArray = [Task]()
     
-    init(){
+    //Singleton: Access by using Database.shared.<function-name>
+    static let shared = Database()
+    
+    private init(){
         let documentsFolder = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-        let doingFileName = "doing.db"
-        let doneFileName = "done.db"
+        let doingFileName = "doing.json"
+        let doneFileName = "done.json"
 
         doing = documentsFolder.appendingPathComponent(doingFileName)
         done = documentsFolder.appendingPathComponent(doneFileName)
         
-        doingArray = loadData(from: .doing)
-        doneArray = loadData(from: .done)
-    }
-
-    
-    func loadData(from category: DoingOrDone) -> [Task] {
-        
-        //Load files
-        switch category {
-        case .doing:
-            do {
-                let doingData = try Data(contentsOf: doing)
-                if let doingLoaded = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(doingData) as? [Task]{
-                    doingArray = doingLoaded
-                }
-            } catch {
-                print("Couldn't read file.")
-            }
-            
-            return doingArray
-            
-        case .done:
-            do {
-                let doneData = try Data(contentsOf: done)
-                if let doneLoaded = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(doneData) as? [Task]{
-                    doneArray = doneLoaded
-                }
-            } catch {
-                print("Couldn't read file.")
-            }
-            return doneArray
+        //Caso os arquivos não existam, eles são criados no init
+        if !(FileManager.default.fileExists(atPath: doing.path)){
+            saveData(from: emptyArray, to: .doing)
+        }
+        if !(FileManager.default.fileExists(atPath: done.path)){
+            saveData(from: emptyArray, to: .done)
         }
     }
-
-    func saveData(of list: [Task], from category: DoingOrDone){
+    
+    func loadData(from list: DoingOrDone) -> [Task] {
+        
+        var type: URL
+        var loadedArray: [Task] = []
+        
+        switch list {
+        case .doing:
+            type = doing
+        case .done:
+            type = done
+        }
+    
+        do {
+            let arquivoASerLido = try Data(contentsOf: type)
+            loadedArray = try JSONDecoder().decode([Task].self, from: arquivoASerLido)
+        } catch {
+            print(error.localizedDescription)
+        }
+        
+        return loadedArray
+    }
+    
+    func saveData(from array: [Task], to list: DoingOrDone){
+        
+        var type: URL
+        
+        switch list {
+        case .doing:
+            type = doing
+        case .done:
+            type = done
+        }
         
         do {
-            let data = try NSKeyedArchiver.archivedData(withRootObject: list, requiringSecureCoding: false)
-            if category == .done{
-                try data.write(to: done)
-            } else {
-                try data.write(to: doing)
-            }
+            let jsonData = try JSONEncoder().encode(array)
+            try jsonData.write(to: type)
         } catch {
-            print("Couldn't write file")
+            print("Impossível escrever no arquivo.")
         }
+        
     }
-    
 }
