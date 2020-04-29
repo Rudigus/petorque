@@ -23,7 +23,7 @@ class AddTaskScheduleViewController: UITableViewController {
         numberOfCyclesPicker.delegate = self
         numberOfCyclesTextfield.inputView = numberOfCyclesPicker
         numberOfCyclesTextfield.borderStyle = .none
-        numberOfCyclesTextfield.placeholder = "3 ciclos"
+        numberOfCyclesPicker.center = view.center
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard (_:)))
         self.view.addGestureRecognizer(tapGesture)
     }
@@ -52,5 +52,8 @@ extension AddTaskScheduleViewController: UIPickerViewDelegate, UIPickerViewDataS
 
     func pickerView( _ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         numberOfCyclesTextfield.text = numberOfCyclesPickerData[row]
+    }
+    func selectedRow(inComponent component: Int) -> Int {
+        return 1
     }
 }
