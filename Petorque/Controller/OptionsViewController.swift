@@ -7,6 +7,13 @@ import UIKit
 
 class OptionsViewController: UITableViewController {
     
+    // MARK: Outlet
+    @IBOutlet weak var optionsNavigationItem: UINavigationItem!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+    
     // This function sends the selected table view cell's primary text to the option modal view controller.
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let timerCountOrder = segue.destination as? TimerCountOrderViewController else {
@@ -22,8 +29,6 @@ class OptionsViewController: UITableViewController {
             return
         }
         timerCountOrder.screenName = screenName
-        
-        // TODO: Deselect the selected table row after dismissing the options modal, with smooth animation.
     }
     
 }

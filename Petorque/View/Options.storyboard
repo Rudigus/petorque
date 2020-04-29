@@ -3,7 +3,6 @@
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -34,7 +33,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="MQ3-td-Bwd">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" systemColor="systemGroupedBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <sections>
                             <tableViewSection headerTitle="Ordem de Contagem do Timer" id="t5n-n5-9j8" userLabel="TimerCountOrder">
                                 <cells>
@@ -62,7 +61,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="g8H-Dy-v0I" kind="presentation" id="jpP-Lz-Uqy"/>
+                                            <segue destination="An8-a9-3C6" kind="show" id="xbF-EM-Lbm"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="Gkc-6p-tCs" detailTextLabel="qbn-Bx-9sS" style="IBUITableViewCellStyleValue1" id="AXi-iI-PMO">
@@ -89,7 +88,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="g8H-Dy-v0I" kind="presentation" id="DkP-sV-Ibf"/>
+                                            <segue destination="An8-a9-3C6" kind="show" id="Zxw-ai-bn5"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -100,46 +99,82 @@
                             <outlet property="delegate" destination="vjn-xI-yx4" id="QO7-xJ-rKb"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Opções" largeTitleDisplayMode="always" id="QwM-wq-eB6">
-                        <barButtonItem key="backBarButtonItem" title="Opções" id="KXV-fC-uu1"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Opções" largeTitleDisplayMode="always" id="QwM-wq-eB6"/>
+                    <connections>
+                        <outlet property="optionsNavigationItem" destination="QwM-wq-eB6" id="Mo8-C6-ipn"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7jh-D3-SYJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="645" y="-109"/>
         </scene>
-        <!--Timer Count Order View Controller-->
-        <scene sceneID="dbf-O2-qbX">
+        <!--Placeholder-->
+        <scene sceneID="6k1-tM-dku">
             <objects>
-                <viewController id="g8H-Dy-v0I" customClass="TimerCountOrderViewController" customModule="Petorque" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Gk4-06-Vpy">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
+                <tableViewController id="An8-a9-3C6" customClass="TimerCountOrderViewController" customModule="Petorque" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="Ria-pd-KT8">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VXg-WC-hni">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <items>
-                                    <navigationItem title="Placeholder" id="cML-CY-Q6J"/>
-                                </items>
-                            </navigationBar>
-                        </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="tAP-dL-3b0"/>
-                    </view>
+                        <color key="backgroundColor" systemColor="systemGroupedBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <sections>
+                            <tableViewSection id="eB4-bm-Y0L" userLabel="Table View Section">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="0PT-0Z-7Fd" style="IBUITableViewCellStyleDefault" id="sge-mX-2N1">
+                                        <rect key="frame" x="0.0" y="18" width="414" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sge-mX-2N1" id="k8p-PZ-TdW">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Progressiva" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0PT-0Z-7Fd">
+                                                    <rect key="frame" x="20" y="0.0" width="374" height="43.666667938232422"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="dB6-1Z-kHj" style="IBUITableViewCellStyleDefault" id="Sdm-Dr-DnO">
+                                        <rect key="frame" x="0.0" y="61.666667938232422" width="414" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Sdm-Dr-DnO" id="V7e-s4-NGr">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Regressiva" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dB6-1Z-kHj">
+                                                    <rect key="frame" x="20" y="0.0" width="374" height="43.666667938232422"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="An8-a9-3C6" id="iNH-xu-roV"/>
+                            <outlet property="delegate" destination="An8-a9-3C6" id="tkw-Ra-KT6"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Placeholder" largeTitleDisplayMode="never" id="u9O-Ls-5FD"/>
                     <connections>
-                        <outlet property="timerCountOrderNavigationItem" destination="cML-CY-Q6J" id="1sB-db-DTM"/>
+                        <outlet property="timerCountOrderNavigationItem" destination="u9O-Ls-5FD" id="Ybv-L0-stl"/>
                     </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="SjW-IV-1rK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MAE-9p-f5b" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1565" y="-109"/>
+            <point key="canvasLocation" x="1564" y="-109"/>
         </scene>
     </scenes>
     <resources>
         <image name="slider.horizontal.3" catalog="system" width="64" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="jpP-Lz-Uqy"/>
+        <segue reference="xbF-EM-Lbm"/>
     </inferredMetricsTieBreakers>
 </document>

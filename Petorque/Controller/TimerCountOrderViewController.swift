@@ -5,7 +5,7 @@
 
 import UIKit
 
-class TimerCountOrderViewController: UIViewController {
+class TimerCountOrderViewController: UITableViewController {
     
     // MARK: Outlet
     @IBOutlet weak var timerCountOrderNavigationItem: UINavigationItem!
@@ -15,6 +15,10 @@ class TimerCountOrderViewController: UIViewController {
     
     override func viewDidLoad() {
         timerCountOrderNavigationItem.title = screenName
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: false)
     }
     
 }
