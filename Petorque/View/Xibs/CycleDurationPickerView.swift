@@ -14,18 +14,24 @@ class CycleDurationPickerView: UIView {
     
     @IBOutlet var durationCycleTextField: UITextField!
     
-    let durationCyclePicker = UIPickerView()
+    var durationCyclePicker: UIPickerView!
     
-    let durationCyclePickerData = [String](arrayLiteral: "20 minutos", "21 minutos", "22 minutos", "23 minutos", "24 minutos", "25 minutos", "26 minutos", "27 minutos", "28 minutos", "29 minutos", "30 minutos")
+    let durationCyclePickerData = ["20 minutos", "21 minutos", "22 minutos", "23 minutos", "24 minutos", "25 minutos", "26 minutos", "27 minutos", "28 minutos", "29 minutos", "30 minutos"]
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         setupXib()
-        durationCyclePicker.delegate = self
-        durationCycleTextField.inputView = durationCyclePicker
-        durationCycleTextField.borderStyle = .none
+        setupPicker()
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard (_:)))
         self.contentView?.addGestureRecognizer(tapGesture)
+    }
+    
+    private func setupPicker() {
+        durationCyclePicker = UIPickerView()
+        durationCyclePicker.delegate = self
+        durationCyclePicker.dataSource = self
+        durationCycleTextField.inputView = durationCyclePicker
+        durationCycleTextField.borderStyle = .none
     }
         
     @objc func dismissKeyboard (_ sender: UITapGestureRecognizer) {
@@ -47,6 +53,7 @@ class CycleDurationPickerView: UIView {
 }
 
 extension CycleDurationPickerView: UIPickerViewDelegate, UIPickerViewDataSource {
+    
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -66,3 +73,4 @@ extension CycleDurationPickerView: UIPickerViewDelegate, UIPickerViewDataSource 
         return 1
     }
 }
+

@@ -12,6 +12,8 @@ class AddTaskScheduleViewController: UITableViewController {
     
     @IBOutlet weak var numberOfCyclesTextfield: UITextField!
     
+    @IBOutlet var cycleDurationContent: CycleDurationPickerView!
+    
     let numberOfCyclesPicker = UIPickerView()
     
     let numberOfCyclesPickerData = [String](arrayLiteral: "1 ciclo", "2 ciclos", "3 ciclos", "4 ciclos", "5 ciclos")
@@ -54,6 +56,9 @@ extension AddTaskScheduleViewController: UIPickerViewDelegate, UIPickerViewDataS
         numberOfCyclesTextfield.text = numberOfCyclesPickerData[row]
     }
     func selectedRow(inComponent component: Int) -> Int {
+        print(1)
         return 1
     }
+    
+    
 }
