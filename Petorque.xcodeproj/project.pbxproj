@@ -7,8 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2ED95F1924525E2C005F125D /* AddTaskScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED95F1824525E2C005F125D /* AddTaskScheduleViewController.swift */; };
 		2EDD9B202450F3E30027A1CE /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDD9B1F2450F3E30027A1CE /* HistoryViewController.swift */; };
 		2EDF744F2451C40900CA0C22 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDF744E2451C40900CA0C22 /* Task.swift */; };
+		2EE79FED2458E86700F5F5FD /* CycleDurationPicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EE79FEC2458E86700F5F5FD /* CycleDurationPicker.xib */; };
+		2EE79FEF2458E93B00F5F5FD /* CycleDurationPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE79FEE2458E93B00F5F5FD /* CycleDurationPickerView.swift */; };
 		2EED771124507A2A00F85ABE /* TabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EED771024507A2A00F85ABE /* TabBar.storyboard */; };
 		2EED771324507B4500F85ABE /* Work.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EED771224507B4500F85ABE /* Work.storyboard */; };
 		2EED771524507BE800F85ABE /* Schedule.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EED771424507BE800F85ABE /* Schedule.storyboard */; };
@@ -44,8 +47,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2ED95F1824525E2C005F125D /* AddTaskScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskScheduleViewController.swift; sourceTree = "<group>"; };
 		2EDD9B1F2450F3E30027A1CE /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		2EDF744E2451C40900CA0C22 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		2EE79FEC2458E86700F5F5FD /* CycleDurationPicker.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CycleDurationPicker.xib; sourceTree = "<group>"; };
+		2EE79FEE2458E93B00F5F5FD /* CycleDurationPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CycleDurationPickerView.swift; sourceTree = "<group>"; };
 		2EED771024507A2A00F85ABE /* TabBar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TabBar.storyboard; sourceTree = "<group>"; };
 		2EED771224507B4500F85ABE /* Work.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Work.storyboard; sourceTree = "<group>"; };
 		2EED771424507BE800F85ABE /* Schedule.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Schedule.storyboard; sourceTree = "<group>"; };
@@ -94,6 +100,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2EE79FEB2458E50700F5F5FD /* Xibs */ = {
+			isa = PBXGroup;
+			children = (
+				2EE79FEC2458E86700F5F5FD /* CycleDurationPicker.xib */,
+				2EE79FEE2458E93B00F5F5FD /* CycleDurationPickerView.swift */,
+			);
+			path = Xibs;
+			sourceTree = "<group>";
+		};
 		2EED770D245079E300F85ABE /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -109,6 +124,7 @@
 				923EB3432459A94700C706A1 /* FeedbackTableController.swift */,
 				E925574924521B07005C9A6A /* ScheduleController.swift */,
 				2EDD9B1F2450F3E30027A1CE /* HistoryViewController.swift */,
+				2ED95F1824525E2C005F125D /* AddTaskScheduleViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -116,6 +132,7 @@
 		2EED770F24507A0600F85ABE /* View */ = {
 			isa = PBXGroup;
 			children = (
+				2EE79FEB2458E50700F5F5FD /* Xibs */,
 				2EED771024507A2A00F85ABE /* TabBar.storyboard */,
 				2EED771224507B4500F85ABE /* Work.storyboard */,
 				2EED771424507BE800F85ABE /* Schedule.storyboard */,
@@ -288,6 +305,7 @@
 				2EED771924507C4900F85ABE /* History.storyboard in Resources */,
 				2EED771324507B4500F85ABE /* Work.storyboard in Resources */,
 				2EED771124507A2A00F85ABE /* TabBar.storyboard in Resources */,
+				2EE79FED2458E86700F5F5FD /* CycleDurationPicker.xib in Resources */,
 				2EED771B24507C6000F85ABE /* Options.storyboard in Resources */,
 				5787ECE3244E2F3100EE7A14 /* Assets.xcassets in Resources */,
 				2EED771524507BE800F85ABE /* Schedule.storyboard in Resources */,
@@ -315,7 +333,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2ED95F1924525E2C005F125D /* AddTaskScheduleViewController.swift in Sources */,
 				E925574A24521B07005C9A6A /* ScheduleController.swift in Sources */,
+				2EE79FEF2458E93B00F5F5FD /* CycleDurationPickerView.swift in Sources */,
 				2EDF744F2451C40900CA0C22 /* Task.swift in Sources */,
 				2EDD9B202450F3E30027A1CE /* HistoryViewController.swift in Sources */,
 				5787ECDA244E2F2B00EE7A14 /* AppDelegate.swift in Sources */,

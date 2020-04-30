@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CycleDurationPickerView" customModule="Petorque" customModuleProvider="target">
+            <connections>
+                <outlet property="durationCycleTextField" destination="r8N-EB-S3x" id="Ay2-0S-6kL"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Duração dos ciclos:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q5x-GI-VYO">
+                    <rect key="frame" x="20" y="11" width="151" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="20 minutos" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="r8N-EB-S3x">
+                    <rect key="frame" x="252" y="4.5" width="142" height="34"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="142" id="4B2-De-I09"/>
+                    </constraints>
+                    <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="q5x-GI-VYO" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="AIj-UL-bId"/>
+                <constraint firstAttribute="trailing" secondItem="r8N-EB-S3x" secondAttribute="trailing" constant="20" id="P6q-6q-YPh"/>
+                <constraint firstItem="r8N-EB-S3x" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="Uds-qI-8gb"/>
+                <constraint firstItem="q5x-GI-VYO" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="bUc-gq-UsZ"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="137.68115942028987" y="110.82589285714285"/>
+        </view>
+    </objects>
+</document>
