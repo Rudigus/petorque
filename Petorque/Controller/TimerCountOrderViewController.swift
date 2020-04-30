@@ -29,10 +29,12 @@ class TimerCountOrderViewController: UITableViewController {
     // MARK: Methods
     
     override func viewDidLoad() {
+        super.viewDidLoad()
         timerCountOrderNavigationItem.title = screenName
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         setupCells()
     }
     

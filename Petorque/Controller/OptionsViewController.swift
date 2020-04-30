@@ -15,10 +15,6 @@ class OptionsViewController: UITableViewController {
     static let defaultConfigs = ["Atividade": "Progressiva",
     "Descanso": "Regressiva"]
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupCells()
