@@ -30,6 +30,8 @@ class TimerCountOrderViewController: UITableViewController {
         }
     }
     
+    // MARK: Methods
+    
     override func viewDidLoad() {
         timerCountOrderNavigationItem.title = screenName
     }
@@ -46,9 +48,14 @@ class TimerCountOrderViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
-        cell.textLabel?.text = cellsTexts[indexPath.row]
-        if cell.textLabel?.text == timerCountOrder {
-            cell.accessoryType = .checkmark
+        // Checks if indexPath.row is a valid index
+        if cellsTexts.indices.contains(indexPath.row) {
+            if let cellLabel = cell.textLabel {
+                cellLabel.text = cellsTexts[indexPath.row]
+                if cellLabel.text == timerCountOrder {
+                    cell.accessoryType = .checkmark
+                }
+            }
         }
         return cell
     }
