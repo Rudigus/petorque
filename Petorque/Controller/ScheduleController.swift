@@ -12,6 +12,17 @@ import UIKit
 //It uses the protocol UITableViewDelegate and UITableViewDataSource for providing ways to update the TableView with the tasks
 class ScheduleController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    var todayTasks: [Task] = []
+    
+    func createArray() -> [Task] {
+        let dateFormatterGet = DateFormatter()
+        dateFormatterGet.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        let task1 = Task(title: "Estudar Design", cycleDuration: 25, numberOfCycles: 3, date: Date(timeIntervalSinceReferenceDate: 410220000))
+        let task2 = Task(title: "Fazer protótipo de alta fidelidade", cycleDuration: 25, numberOfCycles: 4, date: Date(timeIntervalSinceReferenceDate: 410220000))
+        let task3 = Task(title: "Plantar babosa", cycleDuration: 20, numberOfCycles: 2, date: Date(timeIntervalSinceReferenceDate: 410220000))
+        return [task1, task2, task3]
+    }
+    
     @IBOutlet weak var scheduleTableView: UITableView! {
         didSet {
             //Used to erase extra lines in the tableview by creating an empty UIView object for the footer
@@ -19,15 +30,10 @@ class ScheduleController: UIViewController, UITableViewDelegate, UITableViewData
         }
     }
     
-    //Placeholder info
-    let temporaryScheduleTableViewCellContent = ["Estudar design", "Fazer protótipo de alta fidelidade", "Plantar a babosa"]
-    
-    let temporarySubtitles = ["3 ciclos - 20 minutos", "3 ciclo - 30 minutos", "1 ciclo - 10 minutos"]
-    
-    
     //Using this method to call a custom function for delegating the TableView's delegate and it's data source
     override func viewDidLoad() {
         super.viewDidLoad()
+        todayTasks = createArray()
         setupTableView()
     }
     
@@ -36,20 +42,17 @@ class ScheduleController: UIViewController, UITableViewDelegate, UITableViewData
         scheduleTableView.dataSource = self
     }
     
-    
     //Setting tableView's size with the placeholder array
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        temporaryScheduleTableViewCellContent.count
+        todayTasks.count
     }
     
     //Creating cells based on the content from the placeholder array and setting backgroud color
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = scheduleTableView.dequeueReusableCell(withIdentifier: "scheduleTableViewCell", for: indexPath)
         cell.backgroundColor = UIColor.white
-        cell.textLabel?.text = temporaryScheduleTableViewCellContent[indexPath.row]
-        cell.detailTextLabel?.text = temporarySubtitles[indexPath.row]
+        cell.textLabel?.text = todayTasks[indexPath.row].title
+        cell.detailTextLabel?.text = "\(todayTasks[indexPath.row].numberOfCycles) ciclos - \(todayTasks[indexPath.row].cycleDuration) minutos"
         return cell
     }
-    
-
 }
