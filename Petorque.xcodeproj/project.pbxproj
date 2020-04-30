@@ -23,6 +23,7 @@
 		5787ECFC244E2F3100EE7A14 /* PetorqueUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5787ECFB244E2F3100EE7A14 /* PetorqueUITests.swift */; };
 		923EB3442459A94700C706A1 /* FeedbackTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923EB3432459A94700C706A1 /* FeedbackTableController.swift */; };
 		E925574A24521B07005C9A6A /* ScheduleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E925574924521B07005C9A6A /* ScheduleController.swift */; };
+		E9A8819024585E1400645A98 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A8818F24585E1400645A98 /* Database.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		5787ECFD244E2F3100EE7A14 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		923EB3432459A94700C706A1 /* FeedbackTableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FeedbackTableController.swift; path = Petorque/Controller/FeedbackTableController.swift; sourceTree = SOURCE_ROOT; };
 		E925574924521B07005C9A6A /* ScheduleController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleController.swift; sourceTree = "<group>"; };
+		E9A8818F24585E1400645A98 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				2EDF744E2451C40900CA0C22 /* Task.swift */,
+				E9A8818F24585E1400645A98 /* Database.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -318,6 +321,7 @@
 				5787ECDA244E2F2B00EE7A14 /* AppDelegate.swift in Sources */,
 				5787ECDC244E2F2B00EE7A14 /* SceneDelegate.swift in Sources */,
 				923EB3442459A94700C706A1 /* FeedbackTableController.swift in Sources */,
+				E9A8819024585E1400645A98 /* Database.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
