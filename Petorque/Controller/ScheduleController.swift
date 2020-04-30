@@ -55,4 +55,16 @@ class ScheduleController: UIViewController, UITableViewDelegate, UITableViewData
         cell.detailTextLabel?.text = "\(todayTasks[indexPath.row].numberOfCycles) ciclos - \(todayTasks[indexPath.row].cycleDuration) minutos"
         return cell
     }
+    
+    //Triggering the Edit Task Page
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //tableView.deselectRow(at: indexPath, animated: true)
+        performSegue(withIdentifier: "editTaskSegue", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? EditTaskScheduleViewController {
+            destination.task = todayTasks[(scheduleTableView.indexPathForSelectedRow?.row)!]
+        }
+    }
 }
