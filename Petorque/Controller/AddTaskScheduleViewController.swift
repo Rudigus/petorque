@@ -37,6 +37,11 @@ class AddTaskScheduleViewController: UITableViewController {
     @IBAction func CloseModalAddTask(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
     }
+    
+    @IBAction func FinishAddTask(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
 }
 
 extension AddTaskScheduleViewController: UIPickerViewDelegate, UIPickerViewDataSource {

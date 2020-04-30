@@ -22,8 +22,6 @@ class CycleDurationPickerView: UIView {
         super.init(coder: coder)
         setupXib()
         setupPicker()
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard (_:)))
-        self.contentView?.addGestureRecognizer(tapGesture)
     }
     
     private func setupPicker() {
@@ -32,10 +30,6 @@ class CycleDurationPickerView: UIView {
         durationCyclePicker.dataSource = self
         durationCycleTextField.inputView = durationCyclePicker
         durationCycleTextField.borderStyle = .none
-    }
-        
-    @objc func dismissKeyboard (_ sender: UITapGestureRecognizer) {
-        durationCycleTextField.resignFirstResponder()
     }
 
     private func setupXib() {

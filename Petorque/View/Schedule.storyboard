@@ -106,22 +106,35 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="63"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Adicionar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="38g-0a-8XY">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Adicionar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="38g-0a-8XY">
                                                     <rect key="frame" x="171" y="21" width="72" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8VO-U5-d0b">
-                                                    <rect key="frame" x="20" y="16" width="61" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8VO-U5-d0b">
+                                                    <rect key="frame" x="20" y="16.666666666666668" width="61" height="30.000000000000004"/>
                                                     <state key="normal" title="Cancelar"/>
                                                     <connections>
                                                         <action selector="CloseModalAddTask:" destination="oaJ-Ym-9dm" eventType="touchUpInside" id="e2s-yn-xnN"/>
                                                     </connections>
                                                 </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kt5-NF-pki">
+                                                    <rect key="frame" x="325" y="16.666666666666668" width="69" height="30.000000000000004"/>
+                                                    <state key="normal" title="Concluído"/>
+                                                    <connections>
+                                                        <action selector="FinishAddTask:" destination="oaJ-Ym-9dm" eventType="touchUpInside" id="8Hf-5v-N7T"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Kt5-NF-pki" firstAttribute="trailing" secondItem="BWf-7m-qep" secondAttribute="trailingMargin" id="AQq-m1-tVo"/>
+                                                <constraint firstItem="Kt5-NF-pki" firstAttribute="centerY" secondItem="BWf-7m-qep" secondAttribute="centerY" id="TkX-wd-roj"/>
+                                                <constraint firstItem="8VO-U5-d0b" firstAttribute="leading" secondItem="BWf-7m-qep" secondAttribute="leadingMargin" id="Y9Z-yG-eoX"/>
+                                                <constraint firstItem="38g-0a-8XY" firstAttribute="centerX" secondItem="BWf-7m-qep" secondAttribute="centerX" id="fg3-As-X3u"/>
+                                                <constraint firstItem="8VO-U5-d0b" firstAttribute="centerY" secondItem="BWf-7m-qep" secondAttribute="centerY" id="fjO-rM-aIA"/>
+                                                <constraint firstItem="38g-0a-8XY" firstAttribute="centerY" secondItem="BWf-7m-qep" secondAttribute="centerY" id="hNL-DB-4EB"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
