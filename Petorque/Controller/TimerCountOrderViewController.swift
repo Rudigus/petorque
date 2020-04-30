@@ -9,21 +9,17 @@ class TimerCountOrderViewController: UITableViewController {
     
     // MARK: Outlet
     @IBOutlet weak var timerCountOrderNavigationItem: UINavigationItem!
+    @IBOutlet var cells: [UITableViewCell]!
     
     // MARK: Segue
     var screenName: String = ""
-    
-    // MARK: Constants
-    let cellsTexts = ["Progressiva", "Regressiva"]
-    let defaultConfigs = ["Atividade": "Progressiva",
-                          "Descanso": "Regressiva"]
     
     // MARK: Variables
     
     var timerCountOrder: String {
         get {
             // Gets the persisted configuration. If it doesn't exist, gets the default one.
-            return UserDefaults.standard.string(forKey: screenName) ?? defaultConfigs[screenName]!
+            return UserDefaults.standard.string(forKey: screenName) ?? OptionsViewController.defaultConfigs[screenName]!
         }
         set(newTimerCountOrder) {
             UserDefaults.standard.set(newTimerCountOrder, forKey: screenName)
@@ -36,28 +32,32 @@ class TimerCountOrderViewController: UITableViewController {
         timerCountOrderNavigationItem.title = screenName
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        setupCells()
+    }
+    
+    func setupCells() {
+        for cell in cells {
+            guard let cellLabel = cell.textLabel else {
+                return
+            }
+            if cellLabel.text == timerCountOrder {
+                cell.accessoryType = .checkmark
+            } else {
+                cell.accessoryType = .none
+            }
+        }
+    }
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath)
         if let cellText = cell?.textLabel?.text {
             if cellText != timerCountOrder {
                 timerCountOrder = cellText
+                setupCells()
             }
+            tableView.deselectRow(at: indexPath, animated: false)
         }
-        tableView.reloadData()
-    }
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
-        // Checks if indexPath.row is a valid index
-        if cellsTexts.indices.contains(indexPath.row) {
-            if let cellLabel = cell.textLabel {
-                cellLabel.text = cellsTexts[indexPath.row]
-                if cellLabel.text == timerCountOrder {
-                    cell.accessoryType = .checkmark
-                }
-            }
-        }
-        return cell
     }
     
 }

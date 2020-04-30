@@ -102,6 +102,8 @@
                     <navigationItem key="navigationItem" title="Opções" largeTitleDisplayMode="always" id="QwM-wq-eB6"/>
                     <connections>
                         <outlet property="optionsNavigationItem" destination="QwM-wq-eB6" id="Mo8-C6-ipn"/>
+                        <outletCollection property="cells" destination="8Y4-zm-N5P" collectionClass="NSMutableArray" id="Xgo-5x-rON"/>
+                        <outletCollection property="cells" destination="AXi-iI-PMO" collectionClass="NSMutableArray" id="Tfj-gH-9kj"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7jh-D3-SYJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -164,6 +166,8 @@
                     <navigationItem key="navigationItem" title="Placeholder" largeTitleDisplayMode="never" id="u9O-Ls-5FD"/>
                     <connections>
                         <outlet property="timerCountOrderNavigationItem" destination="u9O-Ls-5FD" id="Ybv-L0-stl"/>
+                        <outletCollection property="cells" destination="sge-mX-2N1" collectionClass="NSMutableArray" id="xDN-pi-59o"/>
+                        <outletCollection property="cells" destination="Sdm-Dr-DnO" collectionClass="NSMutableArray" id="NQo-tU-mTz"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MAE-9p-f5b" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
