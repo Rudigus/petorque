@@ -44,6 +44,11 @@ class CycleDurationPickerView: UIView {
         let nib = UINib(nibName: nibName, bundle: bundle)
         return nib.instantiate(withOwner: self, options: nil).first as? UIView
     }
+    
+    func configure(with durationCycleValue: Int) {
+        durationCycleTextField.text = "\(durationCycleValue) minutos"
+        durationCyclePicker.selectRow(durationCycleValue - 20, inComponent: 0, animated: true)
+    }
 }
 
 extension CycleDurationPickerView: UIPickerViewDelegate, UIPickerViewDataSource {

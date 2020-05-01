@@ -107,30 +107,35 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="63"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Editar Tarefa" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h1a-OP-B7F">
-                                                    <rect key="frame" x="159" y="21" width="97" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Editar Tarefa" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h1a-OP-B7F">
+                                                    <rect key="frame" x="158.66666666666666" y="21" width="97" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gBA-gI-KBE">
-                                                    <rect key="frame" x="20" y="16" width="61" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gBA-gI-KBE">
+                                                    <rect key="frame" x="20" y="16.666666666666668" width="61" height="30.000000000000004"/>
                                                     <state key="normal" title="Cancelar"/>
                                                     <connections>
                                                         <action selector="CancelEditTask:" destination="Qcg-OY-7eS" eventType="touchUpInside" id="sTQ-SB-VHD"/>
                                                     </connections>
                                                 </button>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="21Y-tU-Pcu">
-                                                    <rect key="frame" x="325" y="16" width="69" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="21Y-tU-Pcu">
+                                                    <rect key="frame" x="325" y="16.666666666666668" width="69" height="30.000000000000004"/>
                                                     <state key="normal" title="Concluído"/>
                                                     <connections>
                                                         <action selector="FinishEditTask:" destination="Qcg-OY-7eS" eventType="touchUpInside" id="Gni-IS-5QE"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="21Y-tU-Pcu" firstAttribute="trailing" secondItem="Pcf-uL-nIa" secondAttribute="trailingMargin" id="GFs-AK-pYP"/>
+                                                <constraint firstItem="21Y-tU-Pcu" firstAttribute="centerY" secondItem="Pcf-uL-nIa" secondAttribute="centerY" id="GfJ-Xz-cJv"/>
+                                                <constraint firstItem="h1a-OP-B7F" firstAttribute="centerX" secondItem="Pcf-uL-nIa" secondAttribute="centerX" id="Ktd-wy-rfS"/>
+                                                <constraint firstItem="gBA-gI-KBE" firstAttribute="centerY" secondItem="Pcf-uL-nIa" secondAttribute="centerY" id="XMY-kC-1pB"/>
+                                                <constraint firstItem="h1a-OP-B7F" firstAttribute="centerY" secondItem="Pcf-uL-nIa" secondAttribute="centerY" id="bdg-Qa-dgp"/>
+                                                <constraint firstItem="gBA-gI-KBE" firstAttribute="leading" secondItem="Pcf-uL-nIa" secondAttribute="leadingMargin" id="zk3-hG-sP9"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>

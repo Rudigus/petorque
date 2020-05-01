@@ -24,6 +24,7 @@ class EditTaskScheduleViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.tableFooterView = UIView()
+        nameTextfield.text = task?.title
         numberOfCyclesPicker.delegate = self
         numberOfCyclesPicker.selectRow(task!.numberOfCycles - 1, inComponent: 0, animated: true)
         numberOfCyclesTextfield.inputView = numberOfCyclesPicker
@@ -35,6 +36,7 @@ class EditTaskScheduleViewController: UITableViewController {
         }
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard (_:)))
         self.view.addGestureRecognizer(tapGesture)
+        cycleDurationContent.configure(with: task!.cycleDuration)
     }
     @objc func dismissKeyboard (_ sender: UITapGestureRecognizer) {
         numberOfCyclesTextfield.resignFirstResponder()
