@@ -12,9 +12,16 @@ import UIKit
 //It uses the protocol UITableViewDelegate and UITableViewDataSource for providing ways to update the TableView with the tasks
 class ScheduleController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var todayTasks: [Task] = []
+    @IBOutlet weak var daySelectedControl: UISegmentedControl!
     
-    func createArray() -> [Task] {
+    @IBOutlet var dayLabel: UILabel!
+    
+    var tasks: [Task] = []
+    
+    var todayTasks: [Task] = []
+    var tomorrowTasks: [Task] = []
+    
+    func createTodayArray() -> [Task] {
         let dateFormatterGet = DateFormatter()
         dateFormatterGet.dateFormat = "yyyy-MM-dd HH:mm:ss"
         let task1 = Task(title: "Estudar Design", cycleDuration: 25, numberOfCycles: 3, date: Date(timeIntervalSinceReferenceDate: 410220000))
@@ -23,18 +30,41 @@ class ScheduleController: UIViewController, UITableViewDelegate, UITableViewData
         return [task1, task2, task3]
     }
     
+    func createTomorrowArray() -> [Task] {
+        let dateFormatterGet = DateFormatter()
+        dateFormatterGet.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        let task1 = Task(title: "Estudar View Code", cycleDuration: 25, numberOfCycles: 3, date: Date(timeIntervalSinceReferenceDate: 410220000))
+        let task2 = Task(title: "Fazer ilustração de tela inicial", cycleDuration: 25, numberOfCycles: 4, date: Date(timeIntervalSinceReferenceDate: 410220000))
+        return [task1, task2]
+    }
+    
     @IBOutlet weak var scheduleTableView: UITableView! {
         didSet {
-            //Used to erase extra lines in the tableview by creating an empty UIView object for the footer
             scheduleTableView.tableFooterView = UIView()
         }
     }
     
-    //Using this method to call a custom function for delegating the TableView's delegate and it's data source
     override func viewDidLoad() {
         super.viewDidLoad()
-        todayTasks = createArray()
+        todayTasks = createTodayArray()
+        tomorrowTasks = createTomorrowArray()
+        tasks = todayTasks
         setupTableView()
+    }
+    
+    
+    @IBAction func daySegmentedControl(_ sender: UISegmentedControl) {
+        let dayIndex = daySelectedControl.selectedSegmentIndex
+        switch (dayIndex) {
+            case 0:
+                dayLabel.text = "O que faremos hoje?"
+                tasks = todayTasks
+            case 1:
+                dayLabel.text = "O que faremos amanhã?"
+                tasks = tomorrowTasks
+        default:
+                dayLabel.text = "O que faremos hoje?"
+        }
     }
     
     func setupTableView(){
@@ -44,15 +74,15 @@ class ScheduleController: UIViewController, UITableViewDelegate, UITableViewData
     
     //Setting tableView's size with the placeholder array
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        todayTasks.count
+        tasks.count
     }
     
     //Creating cells based on the content from the placeholder array and setting backgroud color
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = scheduleTableView.dequeueReusableCell(withIdentifier: "scheduleTableViewCell", for: indexPath)
         cell.backgroundColor = UIColor.white
-        cell.textLabel?.text = todayTasks[indexPath.row].title
-        cell.detailTextLabel?.text = "\(todayTasks[indexPath.row].numberOfCycles) ciclos - \(todayTasks[indexPath.row].cycleDuration) minutos"
+        cell.textLabel?.text = tasks[indexPath.row].title
+        cell.detailTextLabel?.text = "\(tasks[indexPath.row].numberOfCycles) ciclos - \(tasks[indexPath.row].cycleDuration) minutos"
         return cell
     }
     
@@ -64,7 +94,7 @@ class ScheduleController: UIViewController, UITableViewDelegate, UITableViewData
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? EditTaskScheduleViewController {
-            destination.task = todayTasks[(scheduleTableView.indexPathForSelectedRow?.row)!]
+            destination.task = tasks[(scheduleTableView.indexPathForSelectedRow?.row)!]
         }
     }
 }

@@ -21,6 +21,9 @@
                                     <segment title="Hoje"/>
                                     <segment title="Amanhã"/>
                                 </segments>
+                                <connections>
+                                    <action selector="daySegmentedControl:" destination="nJU-zq-jQM" eventType="valueChanged" id="FrM-X3-W0o"/>
+                                </connections>
                             </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="O que faremos hoje? " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EJd-wm-TtS">
                                 <rect key="frame" x="125.66666666666669" y="167" width="163" height="20.666666666666657"/>
@@ -81,6 +84,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="dayLabel" destination="EJd-wm-TtS" id="KVv-qQ-1ef"/>
+                        <outlet property="daySelectedControl" destination="Sxb-NV-oY2" id="0IW-7D-GDB"/>
                         <outlet property="scheduleTableView" destination="taU-VQ-ews" id="jhq-Bq-76J"/>
                         <segue destination="Qcg-OY-7eS" kind="presentation" identifier="editTaskSegue" id="Vet-jj-ZdI"/>
                     </connections>
