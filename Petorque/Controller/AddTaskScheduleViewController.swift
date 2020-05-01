@@ -10,6 +10,8 @@ import UIKit
 
 class AddTaskScheduleViewController: UITableViewController {
     
+    @IBOutlet var nameTextfield: UITextField!
+    
     @IBOutlet weak var numberOfCyclesTextfield: UITextField!
     
     @IBOutlet var cycleDurationContent: CycleDurationPickerView!
@@ -34,11 +36,12 @@ class AddTaskScheduleViewController: UITableViewController {
         numberOfCyclesTextfield.resignFirstResponder()
     }
     
-    @IBAction func CloseModalAddTask(_ sender: UIButton) {
+    
+    @IBAction func CancelAddTask(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func FinishAddTask(_ sender: UIButton) {
+    @IBAction func FinishAddTask(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
     
@@ -65,6 +68,4 @@ extension AddTaskScheduleViewController: UIPickerViewDelegate, UIPickerViewDataS
         print(1)
         return 1
     }
-    
-    
 }
