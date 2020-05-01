@@ -54,12 +54,13 @@ extension AddTaskScheduleViewController: UIPickerViewDelegate, UIPickerViewDataS
     }
     
     func pickerView( _ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-     return numberOfCyclesPickerData[row]
+        return numberOfCyclesPickerData[row]
     }
 
     func pickerView( _ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         numberOfCyclesTextfield.text = numberOfCyclesPickerData[row]
     }
+    
     func selectedRow(inComponent component: Int) -> Int {
         print(1)
         return 1

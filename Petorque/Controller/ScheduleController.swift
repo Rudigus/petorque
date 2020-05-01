@@ -24,6 +24,8 @@ class ScheduleController: UIViewController, UITableViewDelegate, UITableViewData
     
     let temporarySubtitles = ["3 ciclos - 20 minutos", "3 ciclo - 30 minutos", "1 ciclo - 10 minutos"]
     
+    //Loads data from database
+    let taskList = Database.shared.loadData(from: .doing)
     
     //Using this method to call a custom function for delegating the TableView's delegate and it's data source
     override func viewDidLoad() {
@@ -52,4 +54,11 @@ class ScheduleController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
 
+}
+
+//add task modal delegate
+extension ScheduleController: AddTaskScheduleDelegate {
+    func saveTask(title: String, cycleDuration: Int, numberOfCycles: Int, date: Date) {
+        print("a")
+    }
 }

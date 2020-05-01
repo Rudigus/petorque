@@ -9,5 +9,5 @@
 import Foundation
 
 protocol AddTaskScheduleDelegate: class {
-    func saveTask()
+    func saveTask(title: String, cycleDuration: Int, numberOfCycles: Int, date: Date)
 }
