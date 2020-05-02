@@ -111,12 +111,60 @@ class ScheduleController: UIViewController, UITableViewDelegate, UITableViewData
         if let destination = segue.destination as? EditTaskScheduleViewController {
             destination.task = tasks[(scheduleTableView.indexPathForSelectedRow?.row)!]
         }
+        
+        if let destination = segue.destination as? AddTaskScheduleViewController {
+            destination.delegate = self
+        }
     }
 }
 
+enum TodayOrTomorrow {
+    case today
+    case tomorrow
+}
+
+
 //add task modal delegate
 extension ScheduleController: AddTaskScheduleDelegate {
-    func saveTask(title: String, cycleDuration: Int, numberOfCycles: Int, date: Date) {
-        print("a")
+    func saveTask(title: String, cycleDuration: Int, numberOfCycles: Int) {
+
+        
+        if dayLabel.text == "O que faremos amanhã?" {
+            let date = getDate(of: .tomorrow)
+            let newTask = Task(title: title, cycleDuration: cycleDuration, numberOfCycles: numberOfCycles, date: date)
+            
+            //TODO: Change this to appending on the main task list, and then filtering with a closure
+            tomorrowTasks.append(newTask)
+            tasks = tomorrowTasks
+            
+        } else {
+            let date = getDate(of: .today)
+            let newTask = Task(title: title, cycleDuration: cycleDuration, numberOfCycles: numberOfCycles, date: date)
+            
+            todayTasks.append(newTask)
+            tasks = todayTasks
+        }
+
+        scheduleTableView.reloadData()
+        
+    }
+    
+    //Utility function for getting the date
+    func getDate(of day: TodayOrTomorrow) -> Date{
+        let now = Calendar.current.dateComponents(in: .current, from: Date())
+        
+        switch day {
+        case .today:
+            let today = DateComponents(year: now.year, month: now.month, day: now.day)
+            let dateToday = Calendar.current.date(from: today)!
+            
+            return dateToday
+            
+        case .tomorrow:
+            let tomorrow = DateComponents(year: now.year, month: now.month, day: now.day! + 1)
+            let dateTomorrow = Calendar.current.date(from: tomorrow)!
+            
+            return dateTomorrow
+        }
     }
 }

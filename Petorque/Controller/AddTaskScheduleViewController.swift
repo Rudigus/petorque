@@ -19,6 +19,8 @@ class AddTaskScheduleViewController: UITableViewController {
     let numberOfCyclesPicker = UIPickerView()
     
     let numberOfCyclesPickerData = [String](arrayLiteral: "1 ciclo", "2 ciclos", "3 ciclos", "4 ciclos", "5 ciclos")
+    
+    weak var delegate: AddTaskScheduleDelegate?
 
     
     override func viewDidLoad() {
@@ -42,6 +44,18 @@ class AddTaskScheduleViewController: UITableViewController {
     }
     
     @IBAction func FinishAddTask(_ sender: Any) {
+        
+        if let nameTextField = nameTextfield.text {
+            let numberOfCycles = numberOfCyclesPicker.selectedRow(inComponent: 0) + 1
+            
+            let cycleDuration = cycleDurationContent.durationCyclePicker.selectedRow(inComponent: 0) + 20
+            
+            delegate?.saveTask(title: nameTextField, cycleDuration: cycleDuration, numberOfCycles: numberOfCycles)
+        } else {
+            //TEMPORARY
+            print("Invalid value in texfield")
+        }
+        
         self.dismiss(animated: true, completion: nil)
     }
     
