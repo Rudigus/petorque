@@ -18,46 +18,40 @@ class ScheduleController: UIViewController, UITableViewDelegate, UITableViewData
     
     var tasks: [Task] = []
     
-    var todayTasks: [Task] = []
-    var tomorrowTasks: [Task] = []
+    var allTasks:[Task] = []
     
-    func createTodayArray() -> [Task] {
-        let dateFormatterGet = DateFormatter()
-        dateFormatterGet.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        let task1 = Task(title: "Estudar Design", cycleDuration: 25, numberOfCycles: 3, date: Date(timeIntervalSinceReferenceDate: 410220000))
-        let task2 = Task(title: "Fazer protótipo de alta fidelidade", cycleDuration: 25, numberOfCycles: 4, date: Date(timeIntervalSinceReferenceDate: 410220000))
-        let task3 = Task(title: "Plantar babosa", cycleDuration: 20, numberOfCycles: 2, date: Date(timeIntervalSinceReferenceDate: 410220000))
-        return [task1, task2, task3]
-    }
+//    var todayTasks: [Task] = []
+//    var tomorrowTasks: [Task] = []
     
-    func createTomorrowArray() -> [Task] {
-        let dateFormatterGet = DateFormatter()
-        dateFormatterGet.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        let task1 = Task(title: "Estudar View Code", cycleDuration: 25, numberOfCycles: 3, date: Date(timeIntervalSinceReferenceDate: 410220000))
-        let task2 = Task(title: "Fazer ilustração de tela inicial", cycleDuration: 25, numberOfCycles: 4, date: Date(timeIntervalSinceReferenceDate: 410220000))
-        return [task1, task2]
-    }
+//    func createTodayArray() -> [Task] {
+//        let dateFormatterGet = DateFormatter()
+//        dateFormatterGet.dateFormat = "yyyy-MM-dd HH:mm:ss"
+//        let task1 = Task(title: "Estudar Design", cycleDuration: 25, numberOfCycles: 3, date: Date(timeIntervalSinceReferenceDate: 410220000))
+//        let task2 = Task(title: "Fazer protótipo de alta fidelidade", cycleDuration: 25, numberOfCycles: 4, date: Date(timeIntervalSinceReferenceDate: 410220000))
+//        let task3 = Task(title: "Plantar babosa", cycleDuration: 20, numberOfCycles: 2, date: Date(timeIntervalSinceReferenceDate: 410220000))
+//        return [task1, task2, task3]
+//    }
+    
+//    func createTomorrowArray() -> [Task] {
+//        let dateFormatterGet = DateFormatter()
+//        dateFormatterGet.dateFormat = "yyyy-MM-dd HH:mm:ss"
+//        let task1 = Task(title: "Estudar View Code", cycleDuration: 25, numberOfCycles: 3, date: Date(timeIntervalSinceReferenceDate: 410220000))
+//        let task2 = Task(title: "Fazer ilustração de tela inicial", cycleDuration: 25, numberOfCycles: 4, date: Date(timeIntervalSinceReferenceDate: 410220000))
+//        return [task1, task2]
+//    }
     
     @IBOutlet weak var scheduleTableView: UITableView! {
         didSet {
             scheduleTableView.tableFooterView = UIView()
         }
     }
-    
-    //Placeholder info
-    let temporaryScheduleTableViewCellContent = ["Estudar design", "Fazer protótipo de alta fidelidade", "Plantar a babosa"]
-    
-    let temporarySubtitles = ["3 ciclos - 20 minutos", "3 ciclo - 30 minutos", "1 ciclo - 10 minutos"]
-    
-    //Loads data from database
-    let taskList = Database.shared.loadData(from: .doing)
+
     
     //Using this method to call a custom function for delegating the TableView's delegate and it's data source
     override func viewDidLoad() {
         super.viewDidLoad()
-        todayTasks = createTodayArray()
-        tomorrowTasks = createTomorrowArray()
-        tasks = todayTasks
+        allTasks = Database.shared.loadData(from: .doing)
+        tasks = loadTodayTasks()
         setupTableView()
     }
     
@@ -67,13 +61,13 @@ class ScheduleController: UIViewController, UITableViewDelegate, UITableViewData
         switch (dayIndex) {
             case 0:
                 dayLabel.text = "O que faremos hoje?"
-                tasks = todayTasks
+                tasks = loadTodayTasks()
                 DispatchQueue.main.async {
                     self.scheduleTableView.reloadData()
                 }
             case 1:
                 dayLabel.text = "O que faremos amanhã?"
-                tasks = tomorrowTasks
+                tasks = loadTomorrowTasks()
                 DispatchQueue.main.async {
                     self.scheduleTableView.reloadData()
                 }
@@ -126,27 +120,31 @@ enum TodayOrTomorrow {
 
 //add task modal delegate
 extension ScheduleController: AddTaskScheduleDelegate {
+    
     func saveTask(title: String, cycleDuration: Int, numberOfCycles: Int) {
 
+        var date: Date
+        var updatingTable: TodayOrTomorrow
         
         if dayLabel.text == "O que faremos amanhã?" {
-            let date = getDate(of: .tomorrow)
-            let newTask = Task(title: title, cycleDuration: cycleDuration, numberOfCycles: numberOfCycles, date: date)
-            
-            //TODO: Change this to appending on the main task list, and then filtering with a closure
-            tomorrowTasks.append(newTask)
-            tasks = tomorrowTasks
-            
+            date = getDate(of: .tomorrow)
+            updatingTable = .tomorrow
         } else {
-            let date = getDate(of: .today)
-            let newTask = Task(title: title, cycleDuration: cycleDuration, numberOfCycles: numberOfCycles, date: date)
-            
-            todayTasks.append(newTask)
-            tasks = todayTasks
+            date = getDate(of: .today)
+            updatingTable = .today
         }
-
-        scheduleTableView.reloadData()
         
+        let newTask = Task(title: title, cycleDuration: cycleDuration, numberOfCycles: numberOfCycles, date: date)
+        self.allTasks.append(newTask)
+        Database.shared.saveData(from: self.allTasks, to: .doing)
+        
+        if updatingTable == .tomorrow {
+            tasks = loadTomorrowTasks()
+        } else {
+            tasks = loadTodayTasks()
+        }
+        
+        scheduleTableView.reloadData()
     }
     
     //Utility function for getting the date
@@ -167,4 +165,30 @@ extension ScheduleController: AddTaskScheduleDelegate {
             return dateTomorrow
         }
     }
+    
+    //Loads today tasks filtering from the Database
+    func loadTodayTasks() -> [Task] {
+        let todayTasks = self.allTasks.filter({ task in
+            let todayDate = getDate(of: .today)
+            if task.date == todayDate {
+                return true
+            }
+            return false
+        })
+
+        return todayTasks
+    }
+    
+    func loadTomorrowTasks() -> [Task] {
+        let tomorrowTasks = self.allTasks.filter({ task in
+            let tomorrowDate = getDate(of: .tomorrow)
+            if task.date == tomorrowDate {
+                return true
+            }
+            return false
+        })
+
+        return tomorrowTasks
+    }
+    
 }
