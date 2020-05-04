@@ -124,7 +124,6 @@ extension ScheduleController: AddTaskScheduleDelegate {
         let newTask = Task(title: title, cycleDuration: cycleDuration, numberOfCycles: numberOfCycles, date: date)
         self.allTasks.append(newTask)
         Database.shared.saveData(from: self.allTasks, to: .doing)
-        print("salvou")
         
         if updatingTable == .tomorrow {
             tasks = loadTomorrowTasks()
