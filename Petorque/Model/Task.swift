@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Task: Codable {
+struct Task: Codable, Equatable {
     var title: String
     var cycleDuration: Int
     var numberOfCycles: Int

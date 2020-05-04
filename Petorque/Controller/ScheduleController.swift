@@ -91,6 +91,8 @@ class ScheduleController: UIViewController, UITableViewDelegate, UITableViewData
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? EditTaskScheduleViewController {
             destination.task = tasks[(scheduleTableView.indexPathForSelectedRow?.row)!]
+            destination.location =
+            allTasks.firstIndex(of: tasks[(scheduleTableView.indexPathForSelectedRow?.row)!])
         }
         
         if let destination = segue.destination as? AddTaskScheduleViewController {
@@ -106,9 +108,35 @@ enum TodayOrTomorrow {
 
 
 //add task modal delegate
-extension ScheduleController: AddTaskScheduleDelegate {
+extension ScheduleController: AddTaskScheduleDelegate, EditTaskScheduleDelegate {
     
     func saveTask(title: String, cycleDuration: Int, numberOfCycles: Int) {
+
+        var date: Date
+        var updatingTable: TodayOrTomorrow
+        
+        if daySelectedControl.selectedSegmentIndex == 1 {
+            date = getDate(of: .tomorrow)
+            updatingTable = .tomorrow
+        } else {
+            date = getDate(of: .today)
+            updatingTable = .today
+        }
+        
+        let newTask = Task(title: title, cycleDuration: cycleDuration, numberOfCycles: numberOfCycles, date: date)
+        self.allTasks.append(newTask)
+        Database.shared.saveData(from: self.allTasks, to: .doing)
+        
+        if updatingTable == .tomorrow {
+            tasks = loadTomorrowTasks()
+        } else {
+            tasks = loadTodayTasks()
+        }
+        
+        scheduleTableView.reloadData()
+    }
+    
+    func updateTask(title: String, cycleDuration: Int, numberOfCycles: Int) {
 
         var date: Date
         var updatingTable: TodayOrTomorrow

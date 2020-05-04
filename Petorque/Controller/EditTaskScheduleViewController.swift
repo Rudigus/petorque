@@ -9,6 +9,8 @@
 import UIKit
 
 class EditTaskScheduleViewController: UITableViewController {
+    
+    var location: Int?
     var task: Task?
     
     @IBOutlet var nameTextfield: UITextField!
@@ -50,6 +52,7 @@ class EditTaskScheduleViewController: UITableViewController {
         self.dismiss(animated: true, completion: nil)
     }
     @IBAction func DeleteTask(_ sender: UIButton) {
+        Database.shared.deleteData(from: .doing, at: location!)
         self.dismiss(animated: true, completion: nil)
     }
 }
