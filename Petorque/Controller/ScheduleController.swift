@@ -20,25 +20,6 @@ class ScheduleController: UIViewController, UITableViewDelegate, UITableViewData
     
     var allTasks:[Task] = []
     
-//    var todayTasks: [Task] = []
-//    var tomorrowTasks: [Task] = []
-    
-//    func createTodayArray() -> [Task] {
-//        let dateFormatterGet = DateFormatter()
-//        dateFormatterGet.dateFormat = "yyyy-MM-dd HH:mm:ss"
-//        let task1 = Task(title: "Estudar Design", cycleDuration: 25, numberOfCycles: 3, date: Date(timeIntervalSinceReferenceDate: 410220000))
-//        let task2 = Task(title: "Fazer protótipo de alta fidelidade", cycleDuration: 25, numberOfCycles: 4, date: Date(timeIntervalSinceReferenceDate: 410220000))
-//        let task3 = Task(title: "Plantar babosa", cycleDuration: 20, numberOfCycles: 2, date: Date(timeIntervalSinceReferenceDate: 410220000))
-//        return [task1, task2, task3]
-//    }
-    
-//    func createTomorrowArray() -> [Task] {
-//        let dateFormatterGet = DateFormatter()
-//        dateFormatterGet.dateFormat = "yyyy-MM-dd HH:mm:ss"
-//        let task1 = Task(title: "Estudar View Code", cycleDuration: 25, numberOfCycles: 3, date: Date(timeIntervalSinceReferenceDate: 410220000))
-//        let task2 = Task(title: "Fazer ilustração de tela inicial", cycleDuration: 25, numberOfCycles: 4, date: Date(timeIntervalSinceReferenceDate: 410220000))
-//        return [task1, task2]
-//    }
     
     @IBOutlet weak var scheduleTableView: UITableView! {
         didSet {
@@ -76,6 +57,7 @@ class ScheduleController: UIViewController, UITableViewDelegate, UITableViewData
         }
     }
     
+    
     func setupTableView(){
         scheduleTableView.delegate = self
         scheduleTableView.dataSource = self
@@ -85,6 +67,7 @@ class ScheduleController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         tasks.count
     }
+    
     
     //Creating cells based on the content from the placeholder array and setting backgroud color
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -126,7 +109,7 @@ extension ScheduleController: AddTaskScheduleDelegate {
         var date: Date
         var updatingTable: TodayOrTomorrow
         
-        if dayLabel.text == "O que faremos amanhã?" {
+        if daySelectedControl.selectedSegmentIndex == 1 {
             date = getDate(of: .tomorrow)
             updatingTable = .tomorrow
         } else {
