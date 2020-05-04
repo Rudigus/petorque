@@ -10,6 +10,8 @@ import UIKit
 
 class AddTaskScheduleViewController: UITableViewController {
     
+    @IBOutlet var nameTextfield: UITextField!
+    
     @IBOutlet weak var numberOfCyclesTextfield: UITextField!
     
     @IBOutlet var cycleDurationContent: CycleDurationPickerView!
@@ -17,6 +19,8 @@ class AddTaskScheduleViewController: UITableViewController {
     let numberOfCyclesPicker = UIPickerView()
     
     let numberOfCyclesPickerData = [String](arrayLiteral: "1 ciclo", "2 ciclos", "3 ciclos", "4 ciclos", "5 ciclos")
+    
+    weak var delegate: AddTaskScheduleDelegate?
 
     
     override func viewDidLoad() {
@@ -34,11 +38,24 @@ class AddTaskScheduleViewController: UITableViewController {
         numberOfCyclesTextfield.resignFirstResponder()
     }
     
-    @IBAction func CloseModalAddTask(_ sender: UIButton) {
+    
+    @IBAction func CancelAddTask(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func FinishAddTask(_ sender: UIButton) {
+    @IBAction func FinishAddTask(_ sender: Any) {
+        
+        if let nameTextField = nameTextfield.text {
+            let numberOfCycles = numberOfCyclesPicker.selectedRow(inComponent: 0) + 1
+            
+            let cycleDuration = cycleDurationContent.durationCyclePicker.selectedRow(inComponent: 0) + 20
+            
+            delegate?.saveTask(title: nameTextField, cycleDuration: cycleDuration, numberOfCycles: numberOfCycles)
+        } else {
+            //TEMPORARY
+            print("Invalid value in texfield")
+        }
+        
         self.dismiss(animated: true, completion: nil)
     }
     
@@ -54,16 +71,15 @@ extension AddTaskScheduleViewController: UIPickerViewDelegate, UIPickerViewDataS
     }
     
     func pickerView( _ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-     return numberOfCyclesPickerData[row]
+        return numberOfCyclesPickerData[row]
     }
 
     func pickerView( _ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         numberOfCyclesTextfield.text = numberOfCyclesPickerData[row]
     }
+    
     func selectedRow(inComponent component: Int) -> Int {
         print(1)
         return 1
     }
-    
-    
 }
