@@ -23,6 +23,8 @@ class EditTaskScheduleViewController: UITableViewController {
     
     let numberOfCyclesPickerData = [String](arrayLiteral: "1 ciclo", "2 ciclos", "3 ciclos", "4 ciclos", "5 ciclos")
     
+    weak var delegate: EditTaskScheduleDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.tableFooterView = UIView()
@@ -49,10 +51,21 @@ class EditTaskScheduleViewController: UITableViewController {
     }
     
     @IBAction func FinishEditTask(_ sender: UIButton) {
+        if let nameTextField = nameTextfield.text {
+            let numberOfCycles = numberOfCyclesPicker.selectedRow(inComponent: 0) + 1
+            
+            let cycleDuration = cycleDurationContent.durationCyclePicker.selectedRow(inComponent: 0) + 20
+            
+            delegate?.updateTask(title: nameTextField, cycleDuration: cycleDuration, numberOfCycles: numberOfCycles, location: location!)
+        } else {
+            //TEMPORARY
+            print("Invalid value in texfield")
+        }
         self.dismiss(animated: true, completion: nil)
     }
     @IBAction func DeleteTask(_ sender: UIButton) {
         Database.shared.deleteData(from: .doing, at: location!)
+        
         self.dismiss(animated: true, completion: nil)
     }
 }

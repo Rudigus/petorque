@@ -93,6 +93,7 @@ class ScheduleController: UIViewController, UITableViewDelegate, UITableViewData
             destination.task = tasks[(scheduleTableView.indexPathForSelectedRow?.row)!]
             destination.location =
             allTasks.firstIndex(of: tasks[(scheduleTableView.indexPathForSelectedRow?.row)!])
+            destination.delegate = self
         }
         
         if let destination = segue.destination as? AddTaskScheduleViewController {
@@ -111,7 +112,7 @@ enum TodayOrTomorrow {
 extension ScheduleController: AddTaskScheduleDelegate, EditTaskScheduleDelegate {
     
     func saveTask(title: String, cycleDuration: Int, numberOfCycles: Int) {
-
+        
         var date: Date
         var updatingTable: TodayOrTomorrow
         
@@ -136,7 +137,7 @@ extension ScheduleController: AddTaskScheduleDelegate, EditTaskScheduleDelegate 
         scheduleTableView.reloadData()
     }
     
-    func updateTask(title: String, cycleDuration: Int, numberOfCycles: Int) {
+    func updateTask(title: String, cycleDuration: Int, numberOfCycles: Int, location: Int) {
 
         var date: Date
         var updatingTable: TodayOrTomorrow
@@ -150,7 +151,7 @@ extension ScheduleController: AddTaskScheduleDelegate, EditTaskScheduleDelegate 
         }
         
         let newTask = Task(title: title, cycleDuration: cycleDuration, numberOfCycles: numberOfCycles, date: date)
-        self.allTasks.append(newTask)
+        self.allTasks[location] = newTask
         Database.shared.saveData(from: self.allTasks, to: .doing)
         
         if updatingTable == .tomorrow {

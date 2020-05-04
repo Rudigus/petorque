@@ -9,5 +9,5 @@
 import Foundation
 
 protocol EditTaskScheduleDelegate: class {
-    func updateTask(title: String, cycleDuration: Int, numberOfCycles: Int)
+    func updateTask(title: String, cycleDuration: Int, numberOfCycles: Int, location: Int)
 }
