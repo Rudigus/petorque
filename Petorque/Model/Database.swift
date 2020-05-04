@@ -81,4 +81,14 @@ class Database {
         }
         
     }
+    
+    @discardableResult func deleteData(from list: DoingOrDone, at index: Int) -> Task {
+
+        var loadedArray = loadData(from: list)
+        let removedElement = loadedArray.remove(at: index)
+        saveData(from: loadedArray, to: list)
+        
+        return removedElement
+        
+    }
 }
