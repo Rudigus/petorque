@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Ktd-jm-3YE">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Ktd-jm-3YE">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -10,17 +10,58 @@
         <!--Trabalho-->
         <scene sceneID="N20-Ui-0bf">
             <objects>
-                <viewController id="Pj9-iE-7qS" sceneMemberID="viewController">
+                <viewController id="Pj9-iE-7qS" customClass="WorkViewController" customModule="Petorque" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hkM-fC-2L8">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bgi-B8-JjV">
-                                <rect key="frame" x="150" y="353" width="115" height="30"/>
+                                <rect key="frame" x="149" y="353" width="115" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Ir para Feedback"/>
                                 <connections>
                                     <segue destination="8ik-La-jmz" kind="show" id="ZyQ-cm-4mg"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Texto placeholder de tarefa" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UZf-DV-59e">
+                                <rect key="frame" x="103" y="617" width="209" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xBS-16-NqA">
+                                <rect key="frame" x="352" y="612" width="42" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="PLOM"/>
+                                <connections>
+                                    <action selector="changeTask:" destination="Pj9-iE-7qS" eventType="touchUpInside" id="V96-8P-sEp"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UvE-Fp-sRT">
+                                <rect key="frame" x="20" y="612" width="35" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="PLIM"/>
+                                <connections>
+                                    <action selector="changeTask:" destination="Pj9-iE-7qS" eventType="touchUpInside" id="ScI-NY-dVy"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KLj-QU-fRU">
+                                <rect key="frame" x="156" y="522" width="102" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="INICIAR"/>
+                                <connections>
+                                    <action selector="startCurrentTask:" destination="Pj9-iE-7qS" eventType="touchUpInside" id="vxS-ac-3KU"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K9z-s1-SAq">
+                                <rect key="frame" x="132" y="522" width="151" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="ENCERRAR"/>
+                                <connections>
+                                    <action selector="finishCurrentTask:" destination="Pj9-iE-7qS" eventType="touchUpInside" id="uyu-JU-zc8"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -28,10 +69,17 @@
                         <viewLayoutGuide key="safeArea" id="fva-ZZ-Ivb"/>
                     </view>
                     <navigationItem key="navigationItem" title="Trabalho" id="Ksu-bb-yeS"/>
+                    <connections>
+                        <outlet property="currentTaskLabel" destination="UZf-DV-59e" id="Gip-R0-t7z"/>
+                        <outlet property="finishTask" destination="K9z-s1-SAq" id="V0V-ol-sic"/>
+                        <outlet property="nextTask" destination="xBS-16-NqA" id="0eh-YR-nYy"/>
+                        <outlet property="previousTask" destination="UvE-Fp-sRT" id="UBJ-j1-YJD"/>
+                        <outlet property="startTask" destination="KLj-QU-fRU" id="XdO-j9-qwc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wJ2-1g-1n1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="692.75362318840587" y="-43.526785714285715"/>
+            <point key="canvasLocation" x="692.75362318840587" y="-44.021739130434788"/>
         </scene>
         <!--Feedback-->
         <scene sceneID="ks4-gM-Qrn">
