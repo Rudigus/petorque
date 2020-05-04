@@ -16,12 +16,18 @@ class FeedbackTableController: UITableViewController {
         }
     }
     
-    let tempFeedbackContent = ["Estudar design", "Fazer protótipo de alta fidelidade", "Plantar a babosa"]
+    let tempTasks = Database.shared.loadData(from: .doing)
     
-    let tempFeedbackSubtitle = ["3 ciclos - 20 minutos", "3 ciclos - 30 minutos", "1 ciclo - 10 minutos"]
+    var tempFeedbackContent : [String] = []
+    
+    var tempFeedbackSubtitle : [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        for num in 0..<tempTasks.count {
+            tempFeedbackContent.append(tempTasks[num].title)
+            tempFeedbackSubtitle.append("\(tempTasks[num].numberOfCycles) ciclos - \(tempTasks[num].cycleDuration) minutos")
+        }
         self.navigationItem.setHidesBackButton(true, animated: false)
     }
 
@@ -30,7 +36,7 @@ class FeedbackTableController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return tempFeedbackContent.count
+        return tempTasks.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
