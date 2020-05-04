@@ -52,7 +52,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="INICIAR"/>
                                 <connections>
-                                    <action selector="startCurrentTask:" destination="Pj9-iE-7qS" eventType="touchDown" id="zUc-gC-Bpd"/>
+                                    <action selector="startCurrentTask:" destination="Pj9-iE-7qS" eventType="touchUpInside" id="vxS-ac-3KU"/>
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K9z-s1-SAq">
@@ -62,7 +62,6 @@
                                 <state key="normal" title="ENCERRAR"/>
                                 <connections>
                                     <action selector="finishCurrentTask:" destination="Pj9-iE-7qS" eventType="touchUpInside" id="uyu-JU-zc8"/>
-                                    <action selector="startCurrentTask:" destination="Pj9-iE-7qS" eventType="touchDown" id="lQ3-Yk-U2C"/>
                                 </connections>
                             </button>
                         </subviews>
