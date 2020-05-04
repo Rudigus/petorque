@@ -38,6 +38,11 @@ class TimerCountOrderViewController: UITableViewController {
         setupCells()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.navigationController!.popToRootViewController(animated: true)
+    }
+    
     func setupCells() {
         for cell in cells {
             guard let cellLabel = cell.textLabel else {
