@@ -21,8 +21,8 @@ class PartnerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let test : [Task] = createArray()
-        Database.shared.saveData(from: test, to: .doing)
+        //let test : [Task] = createArray()
+        //Database.shared.saveData(from: test, to: .doing)
         // Do any additional setup after loading the view.
     }
 

@@ -54,6 +54,10 @@ class ScheduleController: UIViewController, UITableViewDelegate, UITableViewData
                 }
         default:
                 dayLabel.text = "O que faremos hoje?"
+                tasks = loadTodayTasks()
+                DispatchQueue.main.async {
+                    self.scheduleTableView.reloadData()
+                }
         }
     }
     
