@@ -108,9 +108,9 @@ enum TodayOrTomorrow {
 }
 
 
-//add task modal delegate
+
 extension ScheduleController: AddTaskScheduleDelegate, EditTaskScheduleDelegate {
-    
+    //add task modal delegate
     func saveTask(title: String, cycleDuration: Int, numberOfCycles: Int) {
         
         var date: Date
@@ -136,7 +136,7 @@ extension ScheduleController: AddTaskScheduleDelegate, EditTaskScheduleDelegate 
         
         scheduleTableView.reloadData()
     }
-    
+    //edit task modal delegate
     func updateTask(title: String, cycleDuration: Int, numberOfCycles: Int, location: Int) {
 
         var date: Date
@@ -162,7 +162,24 @@ extension ScheduleController: AddTaskScheduleDelegate, EditTaskScheduleDelegate 
         
         scheduleTableView.reloadData()
     }
-    
+    func deleteTask(location: Int) {
+        var updatingTable: TodayOrTomorrow
+        if daySelectedControl.selectedSegmentIndex == 1 {
+            updatingTable = .tomorrow
+        } else {
+            updatingTable = .today
+        }
+        self.allTasks.remove(at: location)
+        Database.shared.saveData(from: self.allTasks, to: .doing)
+        
+        if updatingTable == .tomorrow {
+            tasks = loadTomorrowTasks()
+        } else {
+            tasks = loadTodayTasks()
+        }
+        
+        scheduleTableView.reloadData()
+    }
     //Utility function for getting the date
     func getDate(of day: TodayOrTomorrow) -> Date{
         let now = Calendar.current.dateComponents(in: .current, from: Date())

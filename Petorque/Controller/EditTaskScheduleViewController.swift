@@ -64,8 +64,7 @@ class EditTaskScheduleViewController: UITableViewController {
         self.dismiss(animated: true, completion: nil)
     }
     @IBAction func DeleteTask(_ sender: UIButton) {
-        Database.shared.deleteData(from: .doing, at: location!)
-        
+        delegate?.deleteTask(location: location!)
         self.dismiss(animated: true, completion: nil)
     }
 }
