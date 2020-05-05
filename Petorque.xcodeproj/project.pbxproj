@@ -13,6 +13,7 @@
 		2EE4C58F245B68AC0018148B /* EditTaskScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE4C58E245B68AC0018148B /* EditTaskScheduleViewController.swift */; };
 		2EE79FED2458E86700F5F5FD /* CycleDurationPicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EE79FEC2458E86700F5F5FD /* CycleDurationPicker.xib */; };
 		2EE79FEF2458E93B00F5F5FD /* CycleDurationPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE79FEE2458E93B00F5F5FD /* CycleDurationPickerView.swift */; };
+		2EE830002460D56D003748A1 /* EditTaskScheduleDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE82FFF2460D56D003748A1 /* EditTaskScheduleDelegate.swift */; };
 		2EED771124507A2A00F85ABE /* TabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EED771024507A2A00F85ABE /* TabBar.storyboard */; };
 		2EED771324507B4500F85ABE /* Work.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EED771224507B4500F85ABE /* Work.storyboard */; };
 		2EED771524507BE800F85ABE /* Schedule.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EED771424507BE800F85ABE /* Schedule.storyboard */; };
@@ -61,6 +62,7 @@
 		2EE4C58E245B68AC0018148B /* EditTaskScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTaskScheduleViewController.swift; sourceTree = "<group>"; };
 		2EE79FEC2458E86700F5F5FD /* CycleDurationPicker.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CycleDurationPicker.xib; sourceTree = "<group>"; };
 		2EE79FEE2458E93B00F5F5FD /* CycleDurationPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CycleDurationPickerView.swift; sourceTree = "<group>"; };
+		2EE82FFF2460D56D003748A1 /* EditTaskScheduleDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTaskScheduleDelegate.swift; sourceTree = "<group>"; };
 		2EED771024507A2A00F85ABE /* TabBar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TabBar.storyboard; sourceTree = "<group>"; };
 		2EED771224507B4500F85ABE /* Work.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Work.storyboard; sourceTree = "<group>"; };
 		2EED771424507BE800F85ABE /* Schedule.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Schedule.storyboard; sourceTree = "<group>"; };
@@ -224,6 +226,7 @@
 			children = (
 				E99D1579245B1ABD0090FC37 /* AddTaskScheduleDelegate.swift */,
 				92334C392461F57E0005EC20 /* TimerDelegate.swift */,
+				2EE82FFF2460D56D003748A1 /* EditTaskScheduleDelegate.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -376,6 +379,7 @@
 				E99D157A245B1ABD0090FC37 /* AddTaskScheduleDelegate.swift in Sources */,
 				92334C3A2461F57E0005EC20 /* TimerDelegate.swift in Sources */,
 				92B10110245B22F6007DD799 /* WorkViewController.swift in Sources */,
+				2EE830002460D56D003748A1 /* EditTaskScheduleDelegate.swift in Sources */,
 				5787ECDC244E2F2B00EE7A14 /* SceneDelegate.swift in Sources */,
 				5787ED4A245796A100EE7A14 /* TimerCountOrderViewController.swift in Sources */,
 				923EB3442459A94700C706A1 /* FeedbackTableController.swift in Sources */,

@@ -18,19 +18,20 @@ class HistoryViewController: UIViewController {
 
     var historyTasks: [Task] = []
     
-    func createArray() -> [Task] {
-        let dateFormatterGet = DateFormatter()
-        dateFormatterGet.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        let task1 = Task(title: "Estudar Design", cycleDuration: 25, numberOfCycles: 3, date: Date(timeIntervalSinceReferenceDate: 410220000))
-        let task2 = Task(title: "Fazer protótipo de alta fidelidade", cycleDuration: 25, numberOfCycles: 4, date: Date(timeIntervalSinceReferenceDate: 410220000))
-        let task3 = Task(title: "Plantar babosa", cycleDuration: 20, numberOfCycles: 2, date: Date(timeIntervalSinceReferenceDate: 410220000))
-        return [task1, task2, task3]
+    func loadArray() -> [Task] {
+        let tasks = Database.shared.loadData(from: .done)
+        return tasks
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        historyTasks = createArray()
         setupTableView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        historyTasks = loadArray()
+        tableView.reloadData()
     }
     
     func setupTableView(){

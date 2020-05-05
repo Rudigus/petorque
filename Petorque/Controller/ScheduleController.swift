@@ -14,6 +14,9 @@ class ScheduleController: UIViewController, UITableViewDelegate, UITableViewData
     
     @IBOutlet weak var daySelectedControl: UISegmentedControl!
     
+    
+    @IBOutlet var messageView: UIView!
+    
     @IBOutlet var dayLabel: UILabel!
     
     var tasks: [Task] = []
@@ -33,9 +36,17 @@ class ScheduleController: UIViewController, UITableViewDelegate, UITableViewData
         super.viewDidLoad()
         allTasks = Database.shared.loadData(from: .doing)
         tasks = loadTodayTasks()
+        messageIsHidden()
         setupTableView()
     }
     
+    func messageIsHidden () {
+        if (tasks.count == 0) {
+            messageView.isHidden = false
+        } else {
+            messageView.isHidden = true
+        }
+    }
     
     @IBAction func daySegmentedControl(_ sender: UISegmentedControl) {
         let dayIndex = daySelectedControl.selectedSegmentIndex
@@ -59,6 +70,7 @@ class ScheduleController: UIViewController, UITableViewDelegate, UITableViewData
                     self.scheduleTableView.reloadData()
                 }
         }
+        messageIsHidden()
     }
     
     
@@ -91,10 +103,13 @@ class ScheduleController: UIViewController, UITableViewDelegate, UITableViewData
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? EditTaskScheduleViewController {
             destination.task = tasks[(scheduleTableView.indexPathForSelectedRow?.row)!]
+            destination.location =
+            allTasks.firstIndex(of: tasks[(scheduleTableView.indexPathForSelectedRow?.row)!])
+            destination.editTaskScheduleDelegate = self
         }
         
         if let destination = segue.destination as? AddTaskScheduleViewController {
-            destination.delegate = self
+            destination.addTaskScheduleDelegate = self
         }
     }
 }
@@ -105,11 +120,11 @@ enum TodayOrTomorrow {
 }
 
 
-//add task modal delegate
-extension ScheduleController: AddTaskScheduleDelegate {
-    
-    func saveTask(title: String, cycleDuration: Int, numberOfCycles: Int) {
 
+extension ScheduleController: AddTaskScheduleDelegate, EditTaskScheduleDelegate {
+    //add task modal delegate
+    func saveTask(title: String, cycleDuration: Int, numberOfCycles: Int) {
+        
         var date: Date
         var updatingTable: TodayOrTomorrow
         
@@ -132,8 +147,54 @@ extension ScheduleController: AddTaskScheduleDelegate {
         }
         
         scheduleTableView.reloadData()
+        messageIsHidden()
     }
-    
+    //edit task modal delegate
+    func updateTask(title: String, cycleDuration: Int, numberOfCycles: Int, location: Int) {
+
+        var date: Date
+        var updatingTable: TodayOrTomorrow
+        
+        if daySelectedControl.selectedSegmentIndex == 1 {
+            date = getDate(of: .tomorrow)
+            updatingTable = .tomorrow
+        } else {
+            date = getDate(of: .today)
+            updatingTable = .today
+        }
+        
+        let newTask = Task(title: title, cycleDuration: cycleDuration, numberOfCycles: numberOfCycles, date: date)
+        self.allTasks[location] = newTask
+        Database.shared.saveData(from: self.allTasks, to: .doing)
+        
+        if updatingTable == .tomorrow {
+            tasks = loadTomorrowTasks()
+        } else {
+            tasks = loadTodayTasks()
+        }
+        
+        scheduleTableView.reloadData()
+        messageIsHidden()
+    }
+    func deleteTask(location: Int) {
+        var updatingTable: TodayOrTomorrow
+        if daySelectedControl.selectedSegmentIndex == 1 {
+            updatingTable = .tomorrow
+        } else {
+            updatingTable = .today
+        }
+        self.allTasks.remove(at: location)
+        Database.shared.saveData(from: self.allTasks, to: .doing)
+        
+        if updatingTable == .tomorrow {
+            tasks = loadTomorrowTasks()
+        } else {
+            tasks = loadTodayTasks()
+        }
+        
+        scheduleTableView.reloadData()
+        messageIsHidden()
+    }
     //Utility function for getting the date
     func getDate(of day: TodayOrTomorrow) -> Date{
         let now = Calendar.current.dateComponents(in: .current, from: Date())
