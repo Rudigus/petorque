@@ -27,9 +27,11 @@
 		5787ECFC244E2F3100EE7A14 /* PetorqueUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5787ECFB244E2F3100EE7A14 /* PetorqueUITests.swift */; };
 		5787ED4824575B4F00EE7A14 /* OptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5787ED4724575B4F00EE7A14 /* OptionsViewController.swift */; };
 		5787ED4A245796A100EE7A14 /* TimerCountOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5787ED49245796A100EE7A14 /* TimerCountOrderViewController.swift */; };
+		92334C3A2461F57E0005EC20 /* TimerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92334C392461F57E0005EC20 /* TimerDelegate.swift */; };
 		923EB3442459A94700C706A1 /* FeedbackTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923EB3432459A94700C706A1 /* FeedbackTableController.swift */; };
 		92B1010E245B1C20007DD799 /* PartnerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B1010D245B1C20007DD799 /* PartnerViewController.swift */; };
 		92B10110245B22F6007DD799 /* WorkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B1010F245B22F6007DD799 /* WorkViewController.swift */; };
+		92C1DBFE24618C260085D43E /* TimerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C1DBFD24618C260085D43E /* TimerModel.swift */; };
 		E925574A24521B07005C9A6A /* ScheduleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E925574924521B07005C9A6A /* ScheduleController.swift */; };
 		E99D157A245B1ABD0090FC37 /* AddTaskScheduleDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99D1579245B1ABD0090FC37 /* AddTaskScheduleDelegate.swift */; };
 		E9A8819024585E1400645A98 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A8818F24585E1400645A98 /* Database.swift */; };
@@ -79,9 +81,11 @@
 		5787ECFD244E2F3100EE7A14 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5787ED4724575B4F00EE7A14 /* OptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsViewController.swift; sourceTree = "<group>"; };
 		5787ED49245796A100EE7A14 /* TimerCountOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerCountOrderViewController.swift; sourceTree = "<group>"; };
+		92334C392461F57E0005EC20 /* TimerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerDelegate.swift; sourceTree = "<group>"; };
 		923EB3432459A94700C706A1 /* FeedbackTableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FeedbackTableController.swift; path = Petorque/Controller/FeedbackTableController.swift; sourceTree = SOURCE_ROOT; };
 		92B1010D245B1C20007DD799 /* PartnerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PartnerViewController.swift; path = Petorque/View/PartnerViewController.swift; sourceTree = SOURCE_ROOT; };
-		92B1010F245B22F6007DD799 /* WorkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WorkViewController.swift; path = Petorque/View/WorkViewController.swift; sourceTree = SOURCE_ROOT; };
+		92B1010F245B22F6007DD799 /* WorkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WorkViewController.swift; path = Petorque/Controller/WorkViewController.swift; sourceTree = SOURCE_ROOT; };
+		92C1DBFD24618C260085D43E /* TimerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerModel.swift; sourceTree = "<group>"; };
 		E925574924521B07005C9A6A /* ScheduleController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleController.swift; sourceTree = "<group>"; };
 		E99D1579245B1ABD0090FC37 /* AddTaskScheduleDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskScheduleDelegate.swift; sourceTree = "<group>"; };
 		E9A8818F24585E1400645A98 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
@@ -126,6 +130,7 @@
 			children = (
 				2EDF744E2451C40900CA0C22 /* Task.swift */,
 				E9A8818F24585E1400645A98 /* Database.swift */,
+				92C1DBFD24618C260085D43E /* TimerModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -218,6 +223,7 @@
 			isa = PBXGroup;
 			children = (
 				E99D1579245B1ABD0090FC37 /* AddTaskScheduleDelegate.swift */,
+				92334C392461F57E0005EC20 /* TimerDelegate.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -368,10 +374,12 @@
 				5787ED4824575B4F00EE7A14 /* OptionsViewController.swift in Sources */,
 				5787ECDA244E2F2B00EE7A14 /* AppDelegate.swift in Sources */,
 				E99D157A245B1ABD0090FC37 /* AddTaskScheduleDelegate.swift in Sources */,
+				92334C3A2461F57E0005EC20 /* TimerDelegate.swift in Sources */,
 				92B10110245B22F6007DD799 /* WorkViewController.swift in Sources */,
 				5787ECDC244E2F2B00EE7A14 /* SceneDelegate.swift in Sources */,
 				5787ED4A245796A100EE7A14 /* TimerCountOrderViewController.swift in Sources */,
 				923EB3442459A94700C706A1 /* FeedbackTableController.swift in Sources */,
+				92C1DBFE24618C260085D43E /* TimerModel.swift in Sources */,
 				E9A8819024585E1400645A98 /* Database.swift in Sources */,
 				92B1010E245B1C20007DD799 /* PartnerViewController.swift in Sources */,
 			);
