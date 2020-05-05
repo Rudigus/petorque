@@ -92,15 +92,10 @@ class Database {
         
     }
     
-    func moveToDone(location: Int){
+    func moveToDone(task: Task){
         
-        var allDoingTasks = loadData(from: .doing)
         var allDoneTasks = loadData(from: .done)
-        
-        allDoneTasks.append(allDoingTasks[location])
-        allDoingTasks.remove(at: location)
-        
-        saveData(from: allDoingTasks, to: .doing)
+        allDoneTasks.append(task)
         saveData(from: allDoneTasks, to: .done)
 
     }
