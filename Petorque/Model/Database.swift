@@ -91,4 +91,17 @@ class Database {
         return removedElement
         
     }
+    
+    func moveToDone(location: Int){
+        
+        var allDoingTasks = loadData(from: .doing)
+        var allDoneTasks = loadData(from: .done)
+        
+        allDoneTasks.append(allDoingTasks[location])
+        allDoingTasks.remove(at: location)
+        
+        saveData(from: allDoingTasks, to: .doing)
+        saveData(from: allDoneTasks, to: .done)
+
+    }
 }
