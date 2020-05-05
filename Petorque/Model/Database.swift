@@ -92,7 +92,7 @@ class Database {
         
     }
     
-    func moveToDone(task: Task){
+    func addToDone(task: Task){
         
         var allDoneTasks = loadData(from: .done)
         allDoneTasks.append(task)
