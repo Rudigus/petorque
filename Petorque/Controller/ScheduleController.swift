@@ -14,6 +14,9 @@ class ScheduleController: UIViewController, UITableViewDelegate, UITableViewData
     
     @IBOutlet weak var daySelectedControl: UISegmentedControl!
     
+    
+    @IBOutlet var messageView: UIView!
+    
     @IBOutlet var dayLabel: UILabel!
     
     var tasks: [Task] = []
@@ -33,9 +36,17 @@ class ScheduleController: UIViewController, UITableViewDelegate, UITableViewData
         super.viewDidLoad()
         allTasks = Database.shared.loadData(from: .doing)
         tasks = loadTodayTasks()
+        messageIsHidden()
         setupTableView()
     }
     
+    func messageIsHidden () {
+        if (tasks.count == 0) {
+            messageView.isHidden = false
+        } else {
+            messageView.isHidden = true
+        }
+    }
     
     @IBAction func daySegmentedControl(_ sender: UISegmentedControl) {
         let dayIndex = daySelectedControl.selectedSegmentIndex
@@ -59,6 +70,7 @@ class ScheduleController: UIViewController, UITableViewDelegate, UITableViewData
                     self.scheduleTableView.reloadData()
                 }
         }
+        messageIsHidden()
     }
     
     
@@ -135,6 +147,7 @@ extension ScheduleController: AddTaskScheduleDelegate, EditTaskScheduleDelegate 
         }
         
         scheduleTableView.reloadData()
+        messageIsHidden()
     }
     //edit task modal delegate
     func updateTask(title: String, cycleDuration: Int, numberOfCycles: Int, location: Int) {
@@ -161,6 +174,7 @@ extension ScheduleController: AddTaskScheduleDelegate, EditTaskScheduleDelegate 
         }
         
         scheduleTableView.reloadData()
+        messageIsHidden()
     }
     func deleteTask(location: Int) {
         var updatingTable: TodayOrTomorrow
@@ -179,6 +193,7 @@ extension ScheduleController: AddTaskScheduleDelegate, EditTaskScheduleDelegate 
         }
         
         scheduleTableView.reloadData()
+        messageIsHidden()
     }
     //Utility function for getting the date
     func getDate(of day: TodayOrTomorrow) -> Date{
