@@ -9,6 +9,8 @@
 import UIKit
 
 class EditTaskScheduleViewController: UITableViewController {
+    
+    var location: Int?
     var task: Task?
     
     @IBOutlet var nameTextfield: UITextField!
@@ -20,6 +22,8 @@ class EditTaskScheduleViewController: UITableViewController {
     let numberOfCyclesPicker = UIPickerView()
     
     let numberOfCyclesPickerData = [String](arrayLiteral: "1 ciclo", "2 ciclos", "3 ciclos", "4 ciclos", "5 ciclos")
+    
+    weak var editTaskScheduleDelegate: EditTaskScheduleDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,9 +51,20 @@ class EditTaskScheduleViewController: UITableViewController {
     }
     
     @IBAction func FinishEditTask(_ sender: UIButton) {
+        if let nameTextField = nameTextfield.text {
+            let numberOfCycles = numberOfCyclesPicker.selectedRow(inComponent: 0) + 1
+            
+            let cycleDuration = cycleDurationContent.durationCyclePicker.selectedRow(inComponent: 0) + 20
+            
+            editTaskScheduleDelegate?.updateTask(title: nameTextField, cycleDuration: cycleDuration, numberOfCycles: numberOfCycles, location: location!)
+        } else {
+            //TEMPORARY
+            print("Invalid value in texfield")
+        }
         self.dismiss(animated: true, completion: nil)
     }
     @IBAction func DeleteTask(_ sender: UIButton) {
+        editTaskScheduleDelegate?.deleteTask(location: location!)
         self.dismiss(animated: true, completion: nil)
     }
 }
