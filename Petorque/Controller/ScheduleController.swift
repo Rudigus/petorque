@@ -93,11 +93,11 @@ class ScheduleController: UIViewController, UITableViewDelegate, UITableViewData
             destination.task = tasks[(scheduleTableView.indexPathForSelectedRow?.row)!]
             destination.location =
             allTasks.firstIndex(of: tasks[(scheduleTableView.indexPathForSelectedRow?.row)!])
-            destination.delegate = self
+            destination.editTaskScheduleDelegate = self
         }
         
         if let destination = segue.destination as? AddTaskScheduleViewController {
-            destination.delegate = self
+            destination.addTaskScheduleDelegate = self
         }
     }
 }
