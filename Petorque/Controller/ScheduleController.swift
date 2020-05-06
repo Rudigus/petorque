@@ -216,7 +216,6 @@ extension ScheduleController: AddTaskScheduleDelegate, EditTaskScheduleDelegate 
     
     //Loads today tasks filtering from the Database
     func loadTodayTasks() -> [Task] {
-        self.allTasks = Database.shared.loadData(from: .doing)
         let todayTasks = self.allTasks.filter({ task in
             let todayDate = getDate(of: .today)
             if task.date == todayDate {
@@ -229,7 +228,6 @@ extension ScheduleController: AddTaskScheduleDelegate, EditTaskScheduleDelegate 
     }
     
     func loadTomorrowTasks() -> [Task] {
-        self.allTasks = Database.shared.loadData(from: .doing)
         let tomorrowTasks = self.allTasks.filter({ task in
             let tomorrowDate = getDate(of: .tomorrow)
             if task.date == tomorrowDate {
