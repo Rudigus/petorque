@@ -43,13 +43,15 @@ class WorkViewController: UIViewController, TimerDelegate {
         timecountPlay.isHidden = false
         
         taskTimer = TimerModel(
-            count: ("Prog", "Prog"),
+            count: (UserDefaults.standard.string(forKey: "Atividade"),
+                    UserDefaults.standard.string(forKey: "Descanso")
+            ),
             cycles: doingTasks[currentTask].numberOfCycles,
-            minutes: 2//doingTasks[currentTask].cycleDuration / 10
+            minutes: doingTasks[currentTask].cycleDuration / 10
         )
         taskTimer?.delegate = self
         taskTimer?.startTimer(
-            minutes: 2//doingTasks[currentTask].cycleDuration / 10
+            minutes: doingTasks[currentTask].cycleDuration / 10
         )
     }
     
@@ -90,7 +92,20 @@ class WorkViewController: UIViewController, TimerDelegate {
         
         currentTask = 0
         let doingTasks = Database.shared.loadData(from: .doing)
-        currentTaskLabel.text = doingTasks[currentTask].title
+        
+        if doingTasks.isEmpty {
+            //noPlannedTasks()
+        } else {
+            currentTaskLabel.text = doingTasks[currentTask].title
+        }
+        
+    }
+    
+    func noPlannedTasks() {
+        currentTaskLabel.isHidden = true
+        nextTask.isHidden = true
+        previousTask.isHidden = true
+        startTask.isHidden = true
     }
     
     func giveTimerLabel(_ timeText : String) {
@@ -101,11 +116,7 @@ class WorkViewController: UIViewController, TimerDelegate {
         taskTimer?.stopTimer()
         taskTimer = nil
         
-        let doingTasks = Database.shared.loadData(from: .doing)
-        
-        let finishedTask : [Task] = [doingTasks[currentTask]]
-        
-        Database.shared.saveData(from: finishedTask, to: .done)
+        Database.shared.addToDone(task: Database.shared.deleteData(from: .doing, at: currentTask))
         
         timecountLabel.isHidden = true
         timecountPlay.isHidden = true

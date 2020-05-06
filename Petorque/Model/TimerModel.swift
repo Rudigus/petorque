@@ -13,7 +13,7 @@ class TimerModel {
     var timer : Timer?
     var elapsedSeconds : Int
     
-    var counterDirection : (work: String, break: String)
+    var counterDirection : (work: String?, break: String?)
     var remainingCycles : Int
     var minuteLimit : Int
     
@@ -21,7 +21,7 @@ class TimerModel {
     var working : Bool
     var delegate : TimerDelegate?
     
-    init(count type : (work: String, break: String), cycles cyc : Int, minutes min : Int) {
+    init(count type : (work: String?, break: String?), cycles cyc : Int, minutes min : Int) {
         self.elapsedSeconds = 0
         
         self.counterDirection = type
@@ -35,9 +35,9 @@ class TimerModel {
     func startTimer(minutes min : Int) {
         var timeDirection = ""
         if working {
-            timeDirection = self.counterDirection.work
+            timeDirection = self.counterDirection.work!
         } else {
-            timeDirection = self.counterDirection.break
+            timeDirection = self.counterDirection.break!
         }
         
         timer = Timer.scheduledTimer(withTimeInterval: 0.05, repeats: true) { timer in
@@ -47,16 +47,22 @@ class TimerModel {
             
             self.elapsedSeconds += 1
             
-            if timeDirection == "Prog" {
-                timeText = "\(minutes):\(seconds)"
+            if timeDirection == "Progressiva" {
+                timeText = String(format: "%.2d:%.2d", minutes, seconds)
                 if minutes >= min {
                     self.stopTimer(reset: true)
                 }
             } else {
                 if seconds == 0 {
-                    timeText = "\((60 * min - self.elapsedSeconds) / 60):\(seconds)"
+                    timeText = String(format: "%.2d:%.2d",
+                                      (60 * min - self.elapsedSeconds) / 60,
+                                      seconds
+                    )
                 } else {
-                    timeText = "\((60 * min - self.elapsedSeconds) / 60):\(60 - seconds)"
+                    timeText = String(format: "%.2d:%.2d",
+                                      (60 * min - self.elapsedSeconds) / 60,
+                                      (60 - seconds)
+                    )
                 }
                 
                 if self.elapsedSeconds >= 60 * min {
