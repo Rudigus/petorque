@@ -15,6 +15,7 @@ class HistoryViewController: UIViewController {
             tableView.tableFooterView = UIView()
         }
     }
+    @IBOutlet weak var emptyTasksView: UIView!
 
     var historyTasks: [Task] = []
     
@@ -32,6 +33,7 @@ class HistoryViewController: UIViewController {
         super.viewWillAppear(animated)
         historyTasks = loadArray()
         tableView.reloadData()
+        emptyTasksView.isHidden = historyTasks.isEmpty ? false : true
     }
     
     func setupTableView(){

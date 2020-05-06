@@ -26,13 +26,13 @@
                                 </connections>
                             </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="O que faremos hoje? " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EJd-wm-TtS">
-                                <rect key="frame" x="125.66666666666669" y="167" width="163" height="20.666666666666657"/>
+                                <rect key="frame" x="126.00000000000001" y="167" width="162.33333333333337" height="20.333333333333343"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="taU-VQ-ews">
-                                <rect key="frame" x="0.0" y="207.66666666666666" width="414" height="478.33333333333337"/>
+                                <rect key="frame" x="0.0" y="207.33333333333334" width="414" height="478.66666666666663"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="scheduleTableViewCell" textLabel="hc1-J0-aDC" detailTextLabel="3lL-8m-wMd" style="IBUITableViewCellStyleSubtitle" id="LHl-TA-3kV">
                                         <rect key="frame" x="0.0" y="28" width="414" height="55.666667938232422"/>
@@ -60,20 +60,22 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XlC-p3-WKp">
-                                <rect key="frame" x="0.0" y="207" width="414" height="480"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8TQ-fT-nQ9" userLabel="Message View">
+                                <rect key="frame" x="20" y="304" width="374" height="175"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ainda não há tarefas cadastradas" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jVL-D1-qmN">
-                                        <rect key="frame" x="80" y="230" width="255" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nenhuma Tarefa Agendada" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P6Y-iS-Iq3" userLabel="Message View Label">
+                                        <rect key="frame" x="-20" y="73" width="414" height="29"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                        <color key="textColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" white="0.90310181221461172" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="jVL-D1-qmN" firstAttribute="centerY" secondItem="XlC-p3-WKp" secondAttribute="centerY" id="SBC-fy-H0s"/>
-                                    <constraint firstItem="jVL-D1-qmN" firstAttribute="centerX" secondItem="XlC-p3-WKp" secondAttribute="centerX" id="UWp-Xy-FbP"/>
+                                    <constraint firstItem="P6Y-iS-Iq3" firstAttribute="centerY" secondItem="8TQ-fT-nQ9" secondAttribute="centerY" id="Ffl-Q5-BTV"/>
+                                    <constraint firstItem="P6Y-iS-Iq3" firstAttribute="top" secondItem="8TQ-fT-nQ9" secondAttribute="top" constant="73" id="UXc-fh-WyH"/>
+                                    <constraint firstItem="P6Y-iS-Iq3" firstAttribute="centerX" secondItem="8TQ-fT-nQ9" secondAttribute="centerX" id="bvJ-9t-LtV"/>
+                                    <constraint firstItem="P6Y-iS-Iq3" firstAttribute="leading" secondItem="8TQ-fT-nQ9" secondAttribute="leading" constant="-20" id="xbF-5v-KZG"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -85,13 +87,13 @@
                             <constraint firstItem="SmU-Fg-QaQ" firstAttribute="bottom" secondItem="taU-VQ-ews" secondAttribute="bottom" constant="1" id="MCh-2u-zqF"/>
                             <constraint firstItem="EJd-wm-TtS" firstAttribute="top" secondItem="Sxb-NV-oY2" secondAttribute="bottom" constant="20" id="O0N-s0-kHb"/>
                             <constraint firstItem="taU-VQ-ews" firstAttribute="trailing" secondItem="SmU-Fg-QaQ" secondAttribute="trailing" id="P0A-St-jXT"/>
+                            <constraint firstItem="8TQ-fT-nQ9" firstAttribute="centerX" secondItem="SmU-Fg-QaQ" secondAttribute="centerX" id="Uua-mg-dTS"/>
                             <constraint firstItem="taU-VQ-ews" firstAttribute="leading" secondItem="SmU-Fg-QaQ" secondAttribute="leading" id="WyE-Bs-IY9"/>
-                            <constraint firstItem="XlC-p3-WKp" firstAttribute="leading" secondItem="SmU-Fg-QaQ" secondAttribute="leading" id="aoO-Y5-NvY"/>
                             <constraint firstItem="Sxb-NV-oY2" firstAttribute="top" secondItem="SmU-Fg-QaQ" secondAttribute="top" constant="20" id="bW5-4l-n8J"/>
-                            <constraint firstItem="SmU-Fg-QaQ" firstAttribute="bottom" secondItem="XlC-p3-WKp" secondAttribute="bottom" id="kcd-dQ-JxG"/>
+                            <constraint firstItem="8TQ-fT-nQ9" firstAttribute="leading" secondItem="SmU-Fg-QaQ" secondAttribute="leading" constant="20" id="dRf-vm-dVk"/>
                             <constraint firstItem="taU-VQ-ews" firstAttribute="leading" secondItem="SmU-Fg-QaQ" secondAttribute="leading" id="mLu-Xk-lCT"/>
-                            <constraint firstItem="XlC-p3-WKp" firstAttribute="top" secondItem="EJd-wm-TtS" secondAttribute="bottom" constant="19.333333333333343" id="npZ-IM-dAk"/>
-                            <constraint firstItem="XlC-p3-WKp" firstAttribute="trailing" secondItem="SmU-Fg-QaQ" secondAttribute="trailing" id="v6H-fe-qa1"/>
+                            <constraint firstItem="8TQ-fT-nQ9" firstAttribute="centerY" secondItem="SmU-Fg-QaQ" secondAttribute="centerY" id="xWk-NX-UbX"/>
+                            <constraint firstItem="8TQ-fT-nQ9" firstAttribute="top" secondItem="SmU-Fg-QaQ" secondAttribute="top" constant="208" id="xr8-B3-gEH"/>
                             <constraint firstItem="taU-VQ-ews" firstAttribute="top" secondItem="EJd-wm-TtS" secondAttribute="bottom" constant="20" id="yA6-rd-UE8"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="SmU-Fg-QaQ"/>
@@ -106,7 +108,7 @@
                     <connections>
                         <outlet property="dayLabel" destination="EJd-wm-TtS" id="KVv-qQ-1ef"/>
                         <outlet property="daySelectedControl" destination="Sxb-NV-oY2" id="0IW-7D-GDB"/>
-                        <outlet property="messageView" destination="XlC-p3-WKp" id="h0u-GF-Leq"/>
+                        <outlet property="messageView" destination="8TQ-fT-nQ9" id="xBW-Y2-drE"/>
                         <outlet property="scheduleTableView" destination="taU-VQ-ews" id="jhq-Bq-76J"/>
                         <segue destination="Qcg-OY-7eS" kind="presentation" identifier="editTaskSegue" id="Vet-jj-ZdI"/>
                     </connections>
