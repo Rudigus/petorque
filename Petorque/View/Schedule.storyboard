@@ -61,10 +61,10 @@
                                 </prototypes>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8TQ-fT-nQ9" userLabel="Message View">
-                                <rect key="frame" x="20" y="304" width="374" height="175"/>
+                                <rect key="frame" x="86.666666666666686" y="304.33333333333331" width="241" height="174.66666666666669"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nenhuma Tarefa Agendada" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P6Y-iS-Iq3" userLabel="Message View Label">
-                                        <rect key="frame" x="-20" y="73" width="414" height="29"/>
+                                        <rect key="frame" x="-20" y="73" width="281" height="28.666666666666671"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                         <color key="textColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -90,10 +90,8 @@
                             <constraint firstItem="8TQ-fT-nQ9" firstAttribute="centerX" secondItem="SmU-Fg-QaQ" secondAttribute="centerX" id="Uua-mg-dTS"/>
                             <constraint firstItem="taU-VQ-ews" firstAttribute="leading" secondItem="SmU-Fg-QaQ" secondAttribute="leading" id="WyE-Bs-IY9"/>
                             <constraint firstItem="Sxb-NV-oY2" firstAttribute="top" secondItem="SmU-Fg-QaQ" secondAttribute="top" constant="20" id="bW5-4l-n8J"/>
-                            <constraint firstItem="8TQ-fT-nQ9" firstAttribute="leading" secondItem="SmU-Fg-QaQ" secondAttribute="leading" constant="20" id="dRf-vm-dVk"/>
                             <constraint firstItem="taU-VQ-ews" firstAttribute="leading" secondItem="SmU-Fg-QaQ" secondAttribute="leading" id="mLu-Xk-lCT"/>
                             <constraint firstItem="8TQ-fT-nQ9" firstAttribute="centerY" secondItem="SmU-Fg-QaQ" secondAttribute="centerY" id="xWk-NX-UbX"/>
-                            <constraint firstItem="8TQ-fT-nQ9" firstAttribute="top" secondItem="SmU-Fg-QaQ" secondAttribute="top" constant="208" id="xr8-B3-gEH"/>
                             <constraint firstItem="taU-VQ-ews" firstAttribute="top" secondItem="EJd-wm-TtS" secondAttribute="bottom" constant="20" id="yA6-rd-UE8"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="SmU-Fg-QaQ"/>
