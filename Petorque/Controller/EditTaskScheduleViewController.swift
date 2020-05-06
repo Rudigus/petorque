@@ -64,8 +64,17 @@ class EditTaskScheduleViewController: UITableViewController {
         self.dismiss(animated: true, completion: nil)
     }
     @IBAction func DeleteTask(_ sender: UIButton) {
-        editTaskScheduleDelegate?.deleteTask(location: location!)
-        self.dismiss(animated: true, completion: nil)
+        let alert = UIAlertController(title: "Excluir tarefa?", message: "A tarefa será removida permanentemente.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Voltar", style: .default, handler: {
+            action in
+            alert.dismiss(animated: true, completion: nil)
+        }))
+        alert.addAction(UIAlertAction(title: "Excluir", style: .destructive, handler: {
+            action in
+            self.editTaskScheduleDelegate?.deleteTask(location: self.location!)
+            self.dismiss(animated: true, completion: nil)
+        }))
+        self.present(alert, animated: true)
     }
 }
 
