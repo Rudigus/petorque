@@ -11,10 +11,6 @@ class OptionsViewController: UITableViewController {
     @IBOutlet weak var optionsNavigationItem: UINavigationItem!
     @IBOutlet var cells: [UITableViewCell]!
     
-    // MARK: Constants
-    static let defaultConfigs = ["Atividade": "Progressiva",
-    "Descanso": "Regressiva"]
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupCells()
@@ -28,7 +24,7 @@ class OptionsViewController: UITableViewController {
             guard let cellDetailLabel = cell.detailTextLabel else {
                 return
             }
-            cellDetailLabel.text = UserDefaults.standard.string(forKey: cellLabelText) ?? OptionsViewController.defaultConfigs[cellLabelText]!
+            cellDetailLabel.text = UserDefaults.standard.string(forKey: cellLabelText)
         }
     }
     

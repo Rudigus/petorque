@@ -19,7 +19,7 @@ class TimerCountOrderViewController: UITableViewController {
     var timerCountOrder: String {
         get {
             // Gets the persisted configuration. If it doesn't exist, gets the default one.
-            return UserDefaults.standard.string(forKey: screenName) ?? OptionsViewController.defaultConfigs[screenName]!
+            return UserDefaults.standard.string(forKey: screenName)!
         }
         set(newTimerCountOrder) {
             UserDefaults.standard.set(newTimerCountOrder, forKey: screenName)
