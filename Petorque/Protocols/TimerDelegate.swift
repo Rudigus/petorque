@@ -14,4 +14,8 @@ protocol TimerDelegate {
     
     func finishedTask()
     
+    func changeCharacterImage(_ working : Bool)
+    
+    func rotateProgressBar()
+    
 }

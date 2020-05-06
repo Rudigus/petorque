@@ -93,10 +93,8 @@ class Database {
     }
     
     func addToDone(task: Task){
-        
         var allDoneTasks = loadData(from: .done)
         allDoneTasks.append(task)
         saveData(from: allDoneTasks, to: .done)
-
     }
 }
