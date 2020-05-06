@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zE9-P8-UCV">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -45,24 +45,45 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3e1-uB-9Te" userLabel="Empty Tasks View">
+                                <rect key="frame" x="0.0" y="44" width="414" height="643"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nenhuma Tarefa Concluída" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cl5-Tu-JE0" userLabel="Empty Tasks Label">
+                                        <rect key="frame" x="67.333333333333343" y="307.33333333333331" width="279.33333333333326" height="28.666666666666686"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                        <color key="textColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="cl5-Tu-JE0" firstAttribute="centerY" secondItem="3e1-uB-9Te" secondAttribute="centerY" id="J6o-JC-lg7"/>
+                                    <constraint firstItem="cl5-Tu-JE0" firstAttribute="centerX" secondItem="3e1-uB-9Te" secondAttribute="centerX" id="JgL-y8-Eka"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="TpX-Wp-gx6" firstAttribute="leading" secondItem="eNy-OE-byw" secondAttribute="leading" id="0o3-cT-BG3"/>
+                            <constraint firstItem="3e1-uB-9Te" firstAttribute="leading" secondItem="eNy-OE-byw" secondAttribute="leading" id="1hW-wj-WvA"/>
                             <constraint firstItem="eNy-OE-byw" firstAttribute="bottom" secondItem="TpX-Wp-gx6" secondAttribute="bottom" id="Rdv-IC-2ZM"/>
+                            <constraint firstItem="3e1-uB-9Te" firstAttribute="width" secondItem="eNy-OE-byw" secondAttribute="width" id="ScH-KS-XKP"/>
+                            <constraint firstItem="3e1-uB-9Te" firstAttribute="height" secondItem="eNy-OE-byw" secondAttribute="height" id="WDk-I0-zuh"/>
                             <constraint firstItem="TpX-Wp-gx6" firstAttribute="top" secondItem="eNy-OE-byw" secondAttribute="top" id="iZW-Au-Bkw"/>
                             <constraint firstItem="eNy-OE-byw" firstAttribute="trailing" secondItem="TpX-Wp-gx6" secondAttribute="trailing" id="nJI-ru-r7G"/>
+                            <constraint firstItem="3e1-uB-9Te" firstAttribute="top" secondItem="eNy-OE-byw" secondAttribute="top" id="w5o-n3-kfh"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="eNy-OE-byw"/>
                     </view>
                     <navigationItem key="navigationItem" title="Histórico" id="2aR-7K-22B"/>
                     <connections>
+                        <outlet property="emptyTasksView" destination="3e1-uB-9Te" id="BFw-Jt-r8u"/>
                         <outlet property="tableView" destination="TpX-Wp-gx6" id="h9T-pS-a5A"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I4U-wK-x9D" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="815.94202898550736" y="60.9375"/>
+            <point key="canvasLocation" x="815.94202898550736" y="60.326086956521742"/>
         </scene>
         <!--Histórico-->
         <scene sceneID="X59-JO-Z8S">
@@ -72,7 +93,7 @@
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="gxI-fU-x3I">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="104.33333333333334"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -86,7 +107,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="clock" catalog="system" width="128" height="121"/>
-        <image name="clock.fill" catalog="system" width="128" height="121"/>
+        <image name="clock" catalog="system" width="64" height="60"/>
+        <image name="clock.fill" catalog="system" width="64" height="60"/>
     </resources>
 </document>
