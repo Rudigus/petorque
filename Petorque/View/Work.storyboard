@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Ktd-jm-3YE">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Ktd-jm-3YE">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -72,11 +72,11 @@
                                     <action selector="timecountToggle:" destination="Pj9-iE-7qS" eventType="touchUpInside" id="nvJ-G2-5Jd"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MCg-A4-sAR">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="takeyourtime-char1" translatesAutoresizingMaskIntoConstraints="NO" id="MCg-A4-sAR">
                                 <rect key="frame" x="82" y="243" width="250" height="250"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="asset-timer-2.png" translatesAutoresizingMaskIntoConstraints="NO" id="w7r-RO-k3w">
+                            <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="asset-timer-2" translatesAutoresizingMaskIntoConstraints="NO" id="w7r-RO-k3w">
                                 <rect key="frame" x="20" y="108" width="375" height="375"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -172,8 +172,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="asset-timer-2.png" width="400" height="400"/>
-        <image name="briefcase" catalog="system" width="128" height="102"/>
-        <image name="briefcase.fill" catalog="system" width="128" height="102"/>
+        <image name="asset-timer-2" width="400" height="400"/>
+        <image name="briefcase" catalog="system" width="64" height="50"/>
+        <image name="briefcase.fill" catalog="system" width="64" height="50"/>
+        <image name="takeyourtime-char1" width="300" height="300"/>
     </resources>
 </document>
