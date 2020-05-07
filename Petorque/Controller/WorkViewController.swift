@@ -24,8 +24,23 @@ class WorkViewController: UIViewController, TimerDelegate {
     
     @IBOutlet var timecountPlay: UIButton!
     
+    var flagForAnimation: Bool?
+    
     @IBAction func timecountToggle(_ sender: UIButton) {
         taskTimer?.pauseTimer()
+        guard flagForAnimation != nil else {
+            flagForAnimation = true
+            stopAnimationForView(arco)
+            stopAnimationForView(pontoDoArco)
+            return
+        }
+        if flagForAnimation! {
+            rotateProgressBar()
+        } else {
+            stopAnimationForView(arco)
+            stopAnimationForView(pontoDoArco)
+        }
+        flagForAnimation!.toggle()
     }
     
     var taskTimer : TimerModel?
@@ -34,7 +49,10 @@ class WorkViewController: UIViewController, TimerDelegate {
     
     @IBOutlet var characterImage: UIImageView!
     
-    @IBOutlet var fullBarImage: UIImageView!
+    @IBOutlet weak var pontoDoArco: UIImageView!
+    
+    @IBOutlet weak var arco: UIImageView!
+    @IBOutlet weak var arcoTracejado: UIImageView!
     
     @IBAction func startCurrentTask(_ sender: UIButton) {
         
@@ -66,7 +84,10 @@ class WorkViewController: UIViewController, TimerDelegate {
         taskTimer?.startTimer(
             minutes: doingTasks[currentTask].cycleDuration / 10
         )
-        fullBarImage.isHidden = false
+        arcoTracejado.isHidden = false
+        arco.isHidden = false
+        pontoDoArco.isHidden = false
+        rotateProgressBar()
     }
     
     @IBAction func finishCurrentTask(_ sender: UIButton) {
@@ -149,7 +170,9 @@ class WorkViewController: UIViewController, TimerDelegate {
     func finishedTask() {
         taskTimer?.stopTimer()
         taskTimer = nil
-        fullBarImage.isHidden = true
+        arcoTracejado.isHidden = true
+        arco.isHidden = true
+        pontoDoArco.isHidden = true
         
         characterImage.image = UIImage(named: "takeyourtime-char1.png")
         
@@ -192,7 +215,20 @@ class WorkViewController: UIViewController, TimerDelegate {
     }
     
     func rotateProgressBar() {
-        fullBarImage.rotate()
+        
+        //usado outra vez
+        let allTasks = Database.shared.loadData(from: .doing)
+        
+        let doingTasks = allTasks.filter({ task in
+            let todayDate = getDate(of: .today)
+            if task.date == todayDate {
+                return true
+            }
+            return false
+        })
+        
+        arco.rotate(doingTasks[currentTask].cycleDuration * 60)
+        pontoDoArco.rotate(doingTasks[currentTask].cycleDuration * 60)
     }
     
     func getDate(of day: TodayOrTomorrow) -> Date{
@@ -215,13 +251,23 @@ class WorkViewController: UIViewController, TimerDelegate {
     
 }
 
+func stopAnimationForView(_ myView: UIView) {
+    let transform = myView.layer.presentation()!.transform
+    myView.layer.transform = transform
+    myView.layer.removeAllAnimations()
+}
+
 extension UIView{
-    func rotate() {
+    func rotate(_ duration: Int) {
         let rotation : CABasicAnimation = CABasicAnimation(keyPath: "transform.rotation.z")
+        rotation.fillMode = .forwards
+        rotation.isRemovedOnCompletion = false
         rotation.toValue = NSNumber(value: Double.pi)
-        rotation.duration = 1
+        rotation.duration = CFTimeInterval(duration)
         rotation.isCumulative = false
         rotation.repeatCount = 1
         self.layer.add(rotation, forKey: "rotationAnimation")
     }
 }
+
+

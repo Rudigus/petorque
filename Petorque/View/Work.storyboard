@@ -72,12 +72,25 @@
                                     <action selector="timecountToggle:" destination="Pj9-iE-7qS" eventType="touchUpInside" id="nvJ-G2-5Jd"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="asset-timer-1" translatesAutoresizingMaskIntoConstraints="NO" id="hrs-hy-6l8">
+                                <rect key="frame" x="0.0" y="108" width="414" height="279"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="asset-timer-2" translatesAutoresizingMaskIntoConstraints="NO" id="oQn-rL-qv7">
+                                <rect key="frame" x="0.0" y="108" width="414" height="279"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PoH-kY-qEp">
+                                <rect key="frame" x="0.0" y="249" width="414" height="138"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MCg-A4-sAR">
                                 <rect key="frame" x="82" y="243" width="250" height="250"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="asset-timer-2.png" translatesAutoresizingMaskIntoConstraints="NO" id="w7r-RO-k3w">
-                                <rect key="frame" x="20" y="108" width="375" height="375"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="asset-timer-3" translatesAutoresizingMaskIntoConstraints="NO" id="RVK-ue-Rl4">
+                                <rect key="frame" x="0.0" y="108" width="414" height="279"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
@@ -86,11 +99,13 @@
                     </view>
                     <navigationItem key="navigationItem" title="Trabalho" id="Ksu-bb-yeS"/>
                     <connections>
+                        <outlet property="arco" destination="oQn-rL-qv7" id="guv-SJ-DCi"/>
+                        <outlet property="arcoTracejado" destination="hrs-hy-6l8" id="BxG-sb-MlF"/>
                         <outlet property="characterImage" destination="MCg-A4-sAR" id="Ont-k5-h7p"/>
                         <outlet property="currentTaskLabel" destination="UZf-DV-59e" id="Gip-R0-t7z"/>
                         <outlet property="finishTask" destination="K9z-s1-SAq" id="V0V-ol-sic"/>
-                        <outlet property="fullBarImage" destination="w7r-RO-k3w" id="JrD-Zy-zIK"/>
                         <outlet property="nextTask" destination="xBS-16-NqA" id="0eh-YR-nYy"/>
+                        <outlet property="pontoDoArco" destination="RVK-ue-Rl4" id="rmP-C0-awz"/>
                         <outlet property="previousTask" destination="UvE-Fp-sRT" id="UBJ-j1-YJD"/>
                         <outlet property="startTask" destination="KLj-QU-fRU" id="XdO-j9-qwc"/>
                         <outlet property="timecountLabel" destination="H4j-N3-k8l" id="jnq-bc-gG7"/>
@@ -172,7 +187,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="asset-timer-2.png" width="400" height="400"/>
+        <image name="asset-timer-1" width="400" height="400"/>
+        <image name="asset-timer-2" width="400" height="400"/>
+        <image name="asset-timer-3" width="400" height="400"/>
         <image name="briefcase" catalog="system" width="128" height="102"/>
         <image name="briefcase.fill" catalog="system" width="128" height="102"/>
     </resources>

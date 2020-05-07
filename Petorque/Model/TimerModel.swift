@@ -34,10 +34,7 @@ class TimerModel {
     
     func startTimer(minutes min : Int) {
         delegate?.changeCharacterImage(working)
-        delegate?.rotateProgressBar()
-        
-        //var rotateIncrement : Float = .pi/180
-        
+                
         var timeDirection = ""
         if working {
             timeDirection = self.counterDirection.work!
@@ -75,8 +72,6 @@ class TimerModel {
                 }
             }
             
-            //print(timeText)
-            self.delegate?.rotateProgressBar()
             self.delegate?.giveTimerLabel(timeText)
         }
         timer?.fire()
