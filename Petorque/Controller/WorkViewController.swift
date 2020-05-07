@@ -149,11 +149,11 @@ class WorkViewController: UIViewController, TimerDelegate {
         taskButtonBackground.backgroundColor = #colorLiteral(red: 0.3408251405, green: 0.6305707097, blue: 0.718806088, alpha: 1)
         characterImage.image = UIImage(named: "takeyourtime-char1.png")
         
-        Database.shared.addToDone(task: Database.shared.deleteData(from: .doing, at: currentTask))
+        Database.shared.addToDone(task: Database.shared.deleteDoingTodayTask(at: currentTask))
         
         //print(Database.shared.loadData(from: .doing))
         
-        if Database.shared.loadData(from: .doing).isEmpty {
+        if Database.shared.loadTodayTasks(from: .doing).isEmpty {
             performSegue(withIdentifier: "goToFeedback", sender: nil)
         } else {
             currentTask = 0
