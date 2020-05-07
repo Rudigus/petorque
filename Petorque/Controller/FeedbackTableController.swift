@@ -16,7 +16,7 @@ class FeedbackTableController: UITableViewController {
         }
     }
     
-    let tempTasks = Database.shared.loadData(from: .doing)
+    var tempTasks : [Task]?
     
     var tempFeedbackContent : [String] = []
     
@@ -24,11 +24,16 @@ class FeedbackTableController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        for num in 0..<tempTasks.count {
-            tempFeedbackContent.append(tempTasks[num].title)
-            tempFeedbackSubtitle.append("\(tempTasks[num].numberOfCycles) ciclos - \(tempTasks[num].cycleDuration) minutos")
+        tempTasks = loadTodayTasks()
+        if let checkTasks = tempTasks {
+            for num in 0..<checkTasks.count {
+                tempFeedbackContent.append(checkTasks[num].title)
+                tempFeedbackSubtitle.append("\(checkTasks[num].numberOfCycles) ciclos - \(checkTasks[num].cycleDuration) minutos")
+            }
+            self.navigationItem.setHidesBackButton(true, animated: false)
+        } else {
+            fatalError("Tasks done not properly loaded on Feedback screen")
         }
-        self.navigationItem.setHidesBackButton(true, animated: false)
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -36,7 +41,7 @@ class FeedbackTableController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return tempTasks.count
+        return loadTodayTasks().count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -49,6 +54,36 @@ class FeedbackTableController: UITableViewController {
     
     override func viewDidDisappear(_ animated: Bool) {
         self.navigationController?.popToRootViewController(animated: false)
+    }
+    
+    func getDate(of day: TodayOrTomorrow) -> Date {
+        let now = Calendar.current.dateComponents(in: .current, from: Date())
+        
+        switch day {
+        case .today:
+            let today = DateComponents(year: now.year, month: now.month, day: now.day)
+            let dateToday = Calendar.current.date(from: today)!
+            
+            return dateToday
+            
+        case .tomorrow:
+            let tomorrow = DateComponents(year: now.year, month: now.month, day: now.day! + 1)
+            let dateTomorrow = Calendar.current.date(from: tomorrow)!
+            
+            return dateTomorrow
+        }
+    }
+    
+    func loadTodayTasks() -> [Task] {
+        let todayTasks = Database.shared.loadData(from: .done).filter({ task in
+            let todayDate = getDate(of: .today)
+            if task.date == todayDate {
+                return true
+            }
+            return false
+        })
+
+        return todayTasks
     }
 
 }

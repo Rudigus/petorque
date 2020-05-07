@@ -33,6 +33,11 @@ class TimerModel {
     }
     
     func startTimer(minutes min : Int) {
+        delegate?.changeCharacterImage(working)
+        delegate?.rotateProgressBar()
+        
+        //var rotateIncrement : Float = .pi/180
+        
         var timeDirection = ""
         if working {
             timeDirection = self.counterDirection.work!
@@ -40,7 +45,7 @@ class TimerModel {
             timeDirection = self.counterDirection.break!
         }
         
-        timer = Timer.scheduledTimer(withTimeInterval: 0.05, repeats: true) { timer in
+        timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
             let minutes = self.elapsedSeconds / 60
             let seconds = self.elapsedSeconds - (60 * minutes)
             var timeText : String = ""
@@ -70,7 +75,8 @@ class TimerModel {
                 }
             }
             
-            print(timeText)
+            //print(timeText)
+            self.delegate?.rotateProgressBar()
             self.delegate?.giveTimerLabel(timeText)
         }
         timer?.fire()
