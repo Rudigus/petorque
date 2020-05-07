@@ -46,6 +46,7 @@ class ScheduleController: UIViewController, UITableViewDelegate, UITableViewData
         super.viewWillAppear(true)
         tasks = loadTodayTasks()
         scheduleTableView.reloadData()
+        daySelectedControl.selectedSegmentIndex = 0
         messageIsHidden()
     }
     

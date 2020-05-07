@@ -37,7 +37,16 @@ class WorkViewController: UIViewController, TimerDelegate {
     @IBOutlet var fullBarImage: UIImageView!
     
     @IBAction func startCurrentTask(_ sender: UIButton) {
-        let doingTasks = Database.shared.loadData(from: .doing)
+        
+        //usado muitas vezes
+        let allTasks = Database.shared.loadData(from: .doing)
+        let doingTasks = allTasks.filter({ task in
+            let todayDate = getDate(of: .today)
+            if task.date == todayDate {
+                return true
+            }
+            return false
+        })
         
         nextTask.isHidden = true
         previousTask.isHidden = true
@@ -67,8 +76,16 @@ class WorkViewController: UIViewController, TimerDelegate {
     @IBAction func changeTask(_ sender: UIButton) {
         let senderName = sender.titleLabel?.text ?? "None"
    
-        let doingTasks = Database.shared.loadData(from: .doing)
-
+        //usado muitas vezes
+        let allTasks = Database.shared.loadData(from: .doing)
+        let doingTasks = allTasks.filter({ task in
+            let todayDate = getDate(of: .today)
+            if task.date == todayDate {
+                return true
+            }
+            return false
+        })
+        
         if senderName == "PLOM" {
            if currentTask == doingTasks.count-1 {
                currentTask = 0
@@ -100,14 +117,22 @@ class WorkViewController: UIViewController, TimerDelegate {
         }
         
         currentTask = 0
-        let doingTasks = Database.shared.loadData(from: .doing)
+        //usado de novo
+        let allTasks = Database.shared.loadData(from: .doing)
+        let doingTasks = allTasks.filter({ task in
+            let todayDate = getDate(of: .today)
+            if task.date == todayDate {
+                return true
+            }
+            return false
+        })
         
         if doingTasks.isEmpty {
             currentTaskLabel.text = "Texto placeholder"
             let alert = UIAlertController(title: "Nada por aqui!", message: "Você precisa planejar suas tarefas na Agenda antes de começar a trabalhar.", preferredStyle: .alert)
 
             alert.addAction(UIAlertAction(title: "Ir para Agenda", style: .default, handler: { action in
-//                //IR PARA AGENDA
+                self.tabBarController?.selectedIndex = 1
             }))
 
             self.present(alert, animated: true)
@@ -130,13 +155,24 @@ class WorkViewController: UIViewController, TimerDelegate {
         
         Database.shared.addToDone(task: Database.shared.deleteData(from: .doing, at: currentTask))
         
+        //usado de novo
+        let allTasks = Database.shared.loadData(from: .doing)
+        
+        let doingTasks = allTasks.filter({ task in
+            let todayDate = getDate(of: .today)
+            if task.date == todayDate {
+                return true
+            }
+            return false
+        })
+        
         print(Database.shared.loadData(from: .doing))
         
-        if Database.shared.loadData(from: .doing).isEmpty {
+        if doingTasks.isEmpty {
             performSegue(withIdentifier: "goToFeedback", sender: nil)
         } else {
             currentTask = 0
-            currentTaskLabel.text = Database.shared.loadData(from: .doing)[0].title
+            currentTaskLabel.text = doingTasks[0].title
         }
         
         timecountLabel.isHidden = true
@@ -157,6 +193,24 @@ class WorkViewController: UIViewController, TimerDelegate {
     
     func rotateProgressBar() {
         fullBarImage.rotate()
+    }
+    
+    func getDate(of day: TodayOrTomorrow) -> Date{
+        let now = Calendar.current.dateComponents(in: .current, from: Date())
+        
+        switch day {
+        case .today:
+            let today = DateComponents(year: now.year, month: now.month, day: now.day)
+            let dateToday = Calendar.current.date(from: today)!
+            
+            return dateToday
+            
+        case .tomorrow:
+            let tomorrow = DateComponents(year: now.year, month: now.month, day: now.day! + 1)
+            let dateTomorrow = Calendar.current.date(from: tomorrow)!
+            
+            return dateTomorrow
+        }
     }
     
 }
