@@ -42,7 +42,11 @@ class ScheduleController: UIViewController, UITableViewDelegate, UITableViewData
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         allTasks = Database.shared.loadData(from: .doing)
+        print("LA VEM A BOMBA \(allTasks)")
         tasks = loadTodayTasks()
+        DispatchQueue.main.async {
+            self.scheduleTableView.reloadData()
+        }
         messageIsHidden()
         
     }
