@@ -98,8 +98,8 @@ class Database {
         saveData(from: allDoneTasks, to: .done)
     }
     
-    func loadTodayTasks() -> [Task] {
-        let allTasks = loadData(from: .doing)
+    func loadTodayTasks(from type : DoingOrDone) -> [Task] {
+        let allTasks = loadData(from: type)
         let todayTasks = allTasks.filter({ task in
             let todayDate = getDate(of: .today)
             if task.date == todayDate {

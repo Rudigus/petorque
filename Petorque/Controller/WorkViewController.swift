@@ -99,8 +99,8 @@ class WorkViewController: UIViewController, TimerDelegate {
         super.viewDidLoad()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
         taskBackgroundPanel.layer.cornerRadius = 15
         taskTextBackground.layer.cornerRadius = 15
@@ -114,16 +114,24 @@ class WorkViewController: UIViewController, TimerDelegate {
         let doingTasks = Database.shared.loadData(from: .doing)
         
         if doingTasks.isEmpty {
-            currentTaskLabel.text = "Texto placeholder"
+            currentTaskLabel.isHidden = true
+            previousTask.isHidden = true
+            nextTask.isHidden = true
+            taskTextBackground.isHidden = true
+            currentTaskLabel.isHidden = true
             let alert = UIAlertController(title: "Nada por aqui!", message: "Você precisa planejar suas tarefas na Agenda antes de começar a trabalhar.", preferredStyle: .alert)
 
             alert.addAction(UIAlertAction(title: "Ir para Agenda", style: .default, handler: { action in
-//                //IR PARA AGENDA
                 self.tabBarController?.selectedIndex = 1
             }))
 
             self.present(alert, animated: true)
         } else {
+            currentTaskLabel.isHidden = false
+            previousTask.isHidden = false
+            nextTask.isHidden = false
+            taskTextBackground.isHidden = false
+            currentTaskLabel.isHidden = false
             currentTaskLabel.text = doingTasks[currentTask].title
         }
         
