@@ -3,6 +3,7 @@
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -15,12 +16,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Sxb-NV-oY2">
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bordered" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Sxb-NV-oY2">
                                 <rect key="frame" x="137.66666666666666" y="116" width="138.99999999999997" height="32"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <segments>
                                     <segment title="Hoje"/>
                                     <segment title="Amanhã"/>
                                 </segments>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="selectedSegmentTintColor" name="Primary Blue"/>
                                 <connections>
                                     <action selector="daySegmentedControl:" destination="nJU-zq-jQM" eventType="valueChanged" id="FrM-X3-W0o"/>
                                 </connections>
@@ -33,6 +37,8 @@
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="taU-VQ-ews">
                                 <rect key="frame" x="0.0" y="207.33333333333334" width="414" height="478.66666666666663"/>
+                                <color key="backgroundColor" red="0.99264425040000004" green="0.97758430240000005" blue="0.91070419550000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="sectionIndexBackgroundColor" red="0.99264425040000004" green="0.97758430240000005" blue="0.91070419550000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="scheduleTableViewCell" textLabel="hc1-J0-aDC" detailTextLabel="3lL-8m-wMd" style="IBUITableViewCellStyleSubtitle" id="LHl-TA-3kV">
                                         <rect key="frame" x="0.0" y="28" width="414" height="55.666667938232422"/>
@@ -61,37 +67,35 @@
                                 </prototypes>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8TQ-fT-nQ9" userLabel="Message View">
-                                <rect key="frame" x="86.666666666666686" y="304.33333333333331" width="241" height="174.66666666666669"/>
+                                <rect key="frame" x="0.0" y="187.33333333333331" width="414" height="548.66666666666674"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nenhuma Tarefa Agendada" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P6Y-iS-Iq3" userLabel="Message View Label">
-                                        <rect key="frame" x="-20" y="73" width="281" height="28.666666666666671"/>
+                                        <rect key="frame" x="66.666666666666686" y="189.99999999999997" width="281" height="28.666666666666657"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                         <color key="textColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstItem="P6Y-iS-Iq3" firstAttribute="centerY" secondItem="8TQ-fT-nQ9" secondAttribute="centerY" id="Ffl-Q5-BTV"/>
-                                    <constraint firstItem="P6Y-iS-Iq3" firstAttribute="top" secondItem="8TQ-fT-nQ9" secondAttribute="top" constant="73" id="UXc-fh-WyH"/>
-                                    <constraint firstItem="P6Y-iS-Iq3" firstAttribute="centerX" secondItem="8TQ-fT-nQ9" secondAttribute="centerX" id="bvJ-9t-LtV"/>
-                                    <constraint firstItem="P6Y-iS-Iq3" firstAttribute="leading" secondItem="8TQ-fT-nQ9" secondAttribute="leading" constant="-20" id="xbF-5v-KZG"/>
-                                </constraints>
+                                <color key="backgroundColor" red="0.99264425040000004" green="0.97758430240000005" blue="0.91070419550000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" red="0.99264425040000004" green="0.97758430240000005" blue="0.91070419550000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="EJd-wm-TtS" firstAttribute="centerX" secondItem="SmU-Fg-QaQ" secondAttribute="centerX" id="1bo-9r-S7d"/>
                             <constraint firstItem="taU-VQ-ews" firstAttribute="trailing" secondItem="SmU-Fg-QaQ" secondAttribute="trailing" id="7U0-Ps-EeI"/>
                             <constraint firstItem="Sxb-NV-oY2" firstAttribute="centerX" secondItem="SmU-Fg-QaQ" secondAttribute="centerX" id="LHQ-fh-gmh"/>
                             <constraint firstItem="SmU-Fg-QaQ" firstAttribute="bottom" secondItem="taU-VQ-ews" secondAttribute="bottom" constant="1" id="MCh-2u-zqF"/>
+                            <constraint firstAttribute="bottom" secondItem="8TQ-fT-nQ9" secondAttribute="bottom" id="N8D-Os-hSE"/>
                             <constraint firstItem="EJd-wm-TtS" firstAttribute="top" secondItem="Sxb-NV-oY2" secondAttribute="bottom" constant="20" id="O0N-s0-kHb"/>
                             <constraint firstItem="taU-VQ-ews" firstAttribute="trailing" secondItem="SmU-Fg-QaQ" secondAttribute="trailing" id="P0A-St-jXT"/>
-                            <constraint firstItem="8TQ-fT-nQ9" firstAttribute="centerX" secondItem="SmU-Fg-QaQ" secondAttribute="centerX" id="Uua-mg-dTS"/>
                             <constraint firstItem="taU-VQ-ews" firstAttribute="leading" secondItem="SmU-Fg-QaQ" secondAttribute="leading" id="WyE-Bs-IY9"/>
                             <constraint firstItem="Sxb-NV-oY2" firstAttribute="top" secondItem="SmU-Fg-QaQ" secondAttribute="top" constant="20" id="bW5-4l-n8J"/>
+                            <constraint firstItem="8TQ-fT-nQ9" firstAttribute="top" secondItem="EJd-wm-TtS" secondAttribute="bottom" id="c6B-0d-qk1"/>
+                            <constraint firstItem="P6Y-iS-Iq3" firstAttribute="centerY" secondItem="SmU-Fg-QaQ" secondAttribute="centerY" id="gON-b1-GMI"/>
+                            <constraint firstItem="8TQ-fT-nQ9" firstAttribute="leading" secondItem="SmU-Fg-QaQ" secondAttribute="leading" id="kLc-LB-bzd"/>
                             <constraint firstItem="taU-VQ-ews" firstAttribute="leading" secondItem="SmU-Fg-QaQ" secondAttribute="leading" id="mLu-Xk-lCT"/>
-                            <constraint firstItem="8TQ-fT-nQ9" firstAttribute="centerY" secondItem="SmU-Fg-QaQ" secondAttribute="centerY" id="xWk-NX-UbX"/>
+                            <constraint firstItem="8TQ-fT-nQ9" firstAttribute="trailing" secondItem="SmU-Fg-QaQ" secondAttribute="trailing" id="nM0-aB-rxd"/>
+                            <constraint firstItem="P6Y-iS-Iq3" firstAttribute="centerX" secondItem="SmU-Fg-QaQ" secondAttribute="centerX" id="omE-Gv-mvK"/>
                             <constraint firstItem="taU-VQ-ews" firstAttribute="top" secondItem="EJd-wm-TtS" secondAttribute="bottom" constant="20" id="yA6-rd-UE8"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="SmU-Fg-QaQ"/>
@@ -104,6 +108,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="dayControl" destination="Sxb-NV-oY2" id="lYg-uE-1Ai"/>
                         <outlet property="dayLabel" destination="EJd-wm-TtS" id="KVv-qQ-1ef"/>
                         <outlet property="daySelectedControl" destination="Sxb-NV-oY2" id="0IW-7D-GDB"/>
                         <outlet property="messageView" destination="8TQ-fT-nQ9" id="xBW-Y2-drE"/>
@@ -122,7 +127,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="BsQ-cQ-ML3">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" red="0.99264425040000004" green="0.97758430240000005" blue="0.91070419550000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <sections>
                             <tableViewSection headerTitle="" id="SrT-gS-fex">
                                 <cells>
@@ -163,6 +168,7 @@
                                                 <constraint firstItem="gBA-gI-KBE" firstAttribute="leading" secondItem="Pcf-uL-nIa" secondAttribute="leadingMargin" id="zk3-hG-sP9"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.99264425040000004" green="0.97758430240000005" blue="0.91070419550000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -286,7 +292,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="LAo-Xx-f9l">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" red="0.99264425040000004" green="0.97758430240000005" blue="0.91070419550000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <sections>
                             <tableViewSection headerTitle="" id="9hh-h3-Bn1">
                                 <cells>
@@ -327,6 +333,7 @@
                                                 <constraint firstItem="38g-0a-8XY" firstAttribute="centerY" secondItem="BWf-7m-qep" secondAttribute="centerY" id="hNL-DB-4EB"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.99264425040000004" green="0.97758430240000005" blue="0.91070419550000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -406,6 +413,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.99264425040000004" green="0.97758430240000005" blue="0.91070419550000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -450,5 +458,8 @@
     <resources>
         <image name="doc" catalog="system" width="56" height="64"/>
         <image name="doc.fill" catalog="system" width="56" height="64"/>
+        <namedColor name="Primary Blue">
+            <color red="0.36862745098039218" green="0.66274509803921566" blue="0.74509803921568629" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

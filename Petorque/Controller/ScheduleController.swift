@@ -23,6 +23,7 @@ class ScheduleController: UIViewController, UITableViewDelegate, UITableViewData
     
     var allTasks:[Task] = []
     
+    @IBOutlet weak var dayControl: UISegmentedControl!
     
     @IBOutlet weak var scheduleTableView: UITableView! {
         didSet {
@@ -38,6 +39,12 @@ class ScheduleController: UIViewController, UITableViewDelegate, UITableViewData
         tasks = loadTodayTasks()
         messageIsHidden()
         setupTableView()
+        setupDayControl()
+    }
+    
+    func setupDayControl()
+    {
+        dayControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: .selected)
     }
     
     func messageIsHidden () {
