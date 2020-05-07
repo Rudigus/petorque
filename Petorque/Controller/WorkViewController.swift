@@ -36,8 +36,15 @@ class WorkViewController: UIViewController, TimerDelegate {
     
     @IBOutlet var fullBarImage: UIImageView!
     
+    @IBOutlet var taskBackgroundPanel: UIView!
+    
+    @IBOutlet var taskTextBackground: UIView!
+    
+    @IBOutlet var taskButtonBackground: UIView!
+    
     @IBAction func startCurrentTask(_ sender: UIButton) {
         let doingTasks = Database.shared.loadData(from: .doing)
+        taskButtonBackground.backgroundColor = #colorLiteral(red: 0.9548336864, green: 0.6729211211, blue: 0.6826212406, alpha: 1)
         
         nextTask.isHidden = true
         previousTask.isHidden = true
@@ -64,27 +71,27 @@ class WorkViewController: UIViewController, TimerDelegate {
         finishedTask()
     }
     
-    @IBAction func changeTask(_ sender: UIButton) {
-        let senderName = sender.titleLabel?.text ?? "None"
-   
+    @IBAction func previousTask(_ sender: UIButton) {
         let doingTasks = Database.shared.loadData(from: .doing)
 
-        if senderName == "PLOM" {
-           if currentTask == doingTasks.count-1 {
-               currentTask = 0
-           } else {
-               currentTask += 1
-           }
+        if currentTask == 0 {
+            currentTask = doingTasks.count-1
+        } else {
+            currentTask -= 1
         }
+        
+        currentTaskLabel.text = doingTasks[currentTask].title
+    }
+    
+    @IBAction func nextTask(_ sender: UIButton) {
+        let doingTasks = Database.shared.loadData(from: .doing)
 
-        if senderName == "PLIM" {
-           if currentTask == 0 {
-               currentTask = doingTasks.count-1
-           } else {
-               currentTask -= 1
-           }
+        if currentTask == doingTasks.count-1 {
+            currentTask = 0
+        } else {
+            currentTask += 1
         }
-
+        
         currentTaskLabel.text = doingTasks[currentTask].title
     }
     
@@ -94,6 +101,10 @@ class WorkViewController: UIViewController, TimerDelegate {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
+        taskBackgroundPanel.layer.cornerRadius = 15
+        taskTextBackground.layer.cornerRadius = 15
+        taskButtonBackground.layer.cornerRadius = 15
         
         if taskTimer == nil {
             characterImage.image = UIImage(named: "takeyourtime-char1.png")
@@ -127,6 +138,7 @@ class WorkViewController: UIViewController, TimerDelegate {
         taskTimer = nil
         fullBarImage.isHidden = true
         
+        taskButtonBackground.backgroundColor = #colorLiteral(red: 0.3408251405, green: 0.6305707097, blue: 0.718806088, alpha: 1)
         characterImage.image = UIImage(named: "takeyourtime-char1.png")
         
         Database.shared.addToDone(task: Database.shared.deleteData(from: .doing, at: currentTask))
@@ -155,6 +167,17 @@ class WorkViewController: UIViewController, TimerDelegate {
             characterImage.image = UIImage(named: "takeyourtime-char3.png")
         }
     }
+    
+    func changePausedButton(_ paused : Bool) {
+        if paused {
+            timecountPlay.setImage(UIImage(named: "play-30.png"), for: .normal)
+            ///timecountPlay.imageView?.image = UIImage(named: "play-30.png")
+        } else {
+            timecountPlay.setImage(UIImage(named: "pause-30.png"), for: .normal)
+            ///timecountPlay.imageView?.image = UIImage(named: "pause-30.png")
+        }
+    }
+
     
     func rotateProgressBar() {
         fullBarImage.rotate()

@@ -48,7 +48,7 @@ class FeedbackTableController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = feedbackTableView.dequeueReusableCell(withIdentifier: "feedbackTableCell", for: indexPath)
-        cell.backgroundColor = UIColor.white
+        cell.backgroundColor = #colorLiteral(red: 0.9926550984, green: 0.9776508212, blue: 0.9066037536, alpha: 1)
         cell.textLabel?.text = tempFeedbackContent[indexPath.row]
         cell.detailTextLabel?.text = tempFeedbackSubtitle[indexPath.row]
         return cell
