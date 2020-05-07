@@ -18,6 +18,6 @@ protocol TimerDelegate {
     
     func changePausedButton(_ paused : Bool)
     
-    func rotateProgressBar()
+    func updateProgressBar(frame num : Int, direction dir : String)
     
 }

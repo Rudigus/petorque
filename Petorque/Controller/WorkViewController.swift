@@ -10,15 +10,9 @@ import UIKit
 
 class WorkViewController: UIViewController, TimerDelegate {
     
-    @IBOutlet var currentTaskLabel: UILabel!
+    @IBOutlet var emptyBarImage: UIImageView!
     
-    @IBOutlet var nextTask: UIButton!
-    
-    @IBOutlet var previousTask: UIButton!
-    
-    @IBOutlet var startTask: UIButton!
-    
-    @IBOutlet var finishTask: UIButton!
+    @IBOutlet var fullBarImage: UIImageView!
     
     @IBOutlet var timecountLabel: UILabel!
     
@@ -34,13 +28,21 @@ class WorkViewController: UIViewController, TimerDelegate {
     
     @IBOutlet var characterImage: UIImageView!
     
-    @IBOutlet var fullBarImage: UIImageView!
-    
     @IBOutlet var taskBackgroundPanel: UIView!
     
     @IBOutlet var taskTextBackground: UIView!
     
     @IBOutlet var taskButtonBackground: UIView!
+    
+    @IBOutlet var currentTaskLabel: UILabel!
+    
+    @IBOutlet var nextTask: UIButton!
+    
+    @IBOutlet var previousTask: UIButton!
+    
+    @IBOutlet var startTask: UIButton!
+    
+    @IBOutlet var finishTask: UIButton!
     
     @IBAction func startCurrentTask(_ sender: UIButton) {
         let doingTasks = Database.shared.loadTodayTasks(from: .doing)
@@ -50,8 +52,10 @@ class WorkViewController: UIViewController, TimerDelegate {
         previousTask.isHidden = true
         startTask.isHidden = true
         finishTask.isHidden = false
-        timecountLabel.isHidden = false
         timecountPlay.isHidden = false
+        timecountLabel.isHidden = false
+        fullBarImage.isHidden = false
+        emptyBarImage.isHidden = false
         
         taskTimer = TimerModel(
             count: (UserDefaults.standard.string(forKey: "Atividade"),
@@ -64,7 +68,6 @@ class WorkViewController: UIViewController, TimerDelegate {
         taskTimer?.startTimer(
             minutes: doingTasks[currentTask].cycleDuration / 10
         )
-        fullBarImage.isHidden = false
     }
     
     @IBAction func finishCurrentTask(_ sender: UIButton) {
@@ -144,14 +147,11 @@ class WorkViewController: UIViewController, TimerDelegate {
     func finishedTask() {
         taskTimer?.stopTimer()
         taskTimer = nil
-        fullBarImage.isHidden = true
         
         taskButtonBackground.backgroundColor = #colorLiteral(red: 0.3408251405, green: 0.6305707097, blue: 0.718806088, alpha: 1)
         characterImage.image = UIImage(named: "takeyourtime-char1.png")
         
         Database.shared.addToDone(task: Database.shared.deleteData(from: .doing, at: currentTask))
-        
-        //print(Database.shared.loadData(from: .doing))
         
         if Database.shared.loadData(from: .doing).isEmpty {
             performSegue(withIdentifier: "goToFeedback", sender: nil)
@@ -160,8 +160,10 @@ class WorkViewController: UIViewController, TimerDelegate {
             currentTaskLabel.text = Database.shared.loadTodayTasks(from: .doing)[0].title
         }
         
-        timecountLabel.isHidden = true
+        fullBarImage.isHidden = true
+        emptyBarImage.isHidden = true
         timecountPlay.isHidden = true
+        timecountLabel.isHidden = true
         finishTask.isHidden = true
         nextTask.isHidden = false
         previousTask.isHidden = false
@@ -187,19 +189,11 @@ class WorkViewController: UIViewController, TimerDelegate {
     }
 
     
-    func rotateProgressBar() {
-        fullBarImage.rotate()
+    func updateProgressBar(frame num : Int, direction dir : String) {
+        fullBarImage.image = UIImage(named: "bar\(num)")
+        if dir != "Progressiva" {
+            fullBarImage.image = fullBarImage.image?.withHorizontallyFlippedOrientation()
+        }
     }
     
-}
-
-extension UIView{
-    func rotate() {
-        let rotation : CABasicAnimation = CABasicAnimation(keyPath: "transform.rotation.z")
-        rotation.toValue = NSNumber(value: Double.pi)
-        rotation.duration = 1
-        rotation.isCumulative = false
-        rotation.repeatCount = 1
-        self.layer.add(rotation, forKey: "rotationAnimation")
-    }
 }

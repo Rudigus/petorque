@@ -25,42 +25,17 @@ class PartnerViewController: UIViewController {
             partnerView.image = UIImage(named: "takeyourtime-char1.png")
         }
     }
-
-    func getDate(of day: TodayOrTomorrow) -> Date {
-        let now = Calendar.current.dateComponents(in: .current, from: Date())
-        
-        switch day {
-        case .today:
-            let today = DateComponents(year: now.year, month: now.month, day: now.day)
-            let dateToday = Calendar.current.date(from: today)!
-            
-            return dateToday
-            
-        case .tomorrow:
-            let tomorrow = DateComponents(year: now.year, month: now.month, day: now.day! + 1)
-            let dateTomorrow = Calendar.current.date(from: tomorrow)!
-            
-            return dateTomorrow
-        }
-    }
-    
-    func loadTodayTasks() -> [Task] {
-        let todayTasks = Database.shared.loadData(from: .done).filter({ task in
-            let todayDate = getDate(of: .today)
-            if task.date == todayDate {
-                return true
-            }
-            return false
-        })
-
-        return todayTasks
-    }
     
     func checkWorkHours () -> Int {
-        let todayTasks : [Task] = loadTodayTasks()
+        let doingToday : [Task] = Database.shared.loadTodayTasks(from: .doing)
+        let doneToday : [Task] = Database.shared.loadTodayTasks(from: .done)
         var totalTime = 0
         
-        for task in todayTasks {
+        for task in doingToday {
+            totalTime += task.cycleDuration * task.numberOfCycles
+        }
+        
+        for task in doneToday {
             totalTime += task.cycleDuration * task.numberOfCycles
         }
         
