@@ -10,8 +10,12 @@ import UIKit
 
 class PartnerViewController: UIViewController {
     
+    
+    @IBOutlet var partnerView: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        partnerView.image = UIImage(named: "takeyourtime-char1.png")
     }
 
     /*
