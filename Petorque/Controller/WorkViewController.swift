@@ -43,7 +43,7 @@ class WorkViewController: UIViewController, TimerDelegate {
     @IBOutlet var taskButtonBackground: UIView!
     
     @IBAction func startCurrentTask(_ sender: UIButton) {
-        let doingTasks = Database.shared.loadData(from: .doing)
+        let doingTasks = Database.shared.loadTodayTasks(from: .doing)
         taskButtonBackground.backgroundColor = #colorLiteral(red: 0.9548336864, green: 0.6729211211, blue: 0.6826212406, alpha: 1)
         
         nextTask.isHidden = true
@@ -72,7 +72,7 @@ class WorkViewController: UIViewController, TimerDelegate {
     }
     
     @IBAction func previousTask(_ sender: UIButton) {
-        let doingTasks = Database.shared.loadData(from: .doing)
+        let doingTasks = Database.shared.loadTodayTasks(from: .doing)
 
         if currentTask == 0 {
             currentTask = doingTasks.count-1
@@ -84,7 +84,7 @@ class WorkViewController: UIViewController, TimerDelegate {
     }
     
     @IBAction func nextTask(_ sender: UIButton) {
-        let doingTasks = Database.shared.loadData(from: .doing)
+        let doingTasks = Database.shared.loadTodayTasks(from: .doing)
 
         if currentTask == doingTasks.count-1 {
             currentTask = 0
@@ -111,7 +111,7 @@ class WorkViewController: UIViewController, TimerDelegate {
         }
         
         currentTask = 0
-        let doingTasks = Database.shared.loadData(from: .doing)
+        let doingTasks = Database.shared.loadTodayTasks(from: .doing)
         
         if doingTasks.isEmpty {
             currentTaskLabel.isHidden = true
@@ -157,7 +157,7 @@ class WorkViewController: UIViewController, TimerDelegate {
             performSegue(withIdentifier: "goToFeedback", sender: nil)
         } else {
             currentTask = 0
-            currentTaskLabel.text = Database.shared.loadData(from: .doing)[0].title
+            currentTaskLabel.text = Database.shared.loadTodayTasks(from: .doing)[0].title
         }
         
         timecountLabel.isHidden = true
