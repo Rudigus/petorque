@@ -41,10 +41,19 @@ class ScheduleController: UIViewController, UITableViewDelegate, UITableViewData
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        allTasks = Database.shared.loadData(from: .doing)
-        tasks = loadTodayTasks()
-        self.scheduleTableView.reloadData()
+        loadSelectedDayDoingTasks()
         messageIsHidden()
+    }
+    
+    func loadSelectedDayDoingTasks()
+    {
+        allTasks = Database.shared.loadData(from: .doing)
+        if dayControl.selectedSegmentIndex == 0 {
+            tasks = loadTodayTasks()
+        } else {
+            tasks = loadTomorrowTasks()
+        }
+        self.scheduleTableView.reloadData()
     }
     
     func setupDayControl()
