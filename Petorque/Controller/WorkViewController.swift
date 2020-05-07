@@ -168,6 +168,17 @@ class WorkViewController: UIViewController, TimerDelegate {
         }
     }
     
+    func changePausedButton(_ paused : Bool) {
+        if paused {
+            timecountPlay.setImage(UIImage(named: "play-30.png"), for: .normal)
+            ///timecountPlay.imageView?.image = UIImage(named: "play-30.png")
+        } else {
+            timecountPlay.setImage(UIImage(named: "pause-30.png"), for: .normal)
+            ///timecountPlay.imageView?.image = UIImage(named: "pause-30.png")
+        }
+    }
+
+    
     func rotateProgressBar() {
         fullBarImage.rotate()
     }

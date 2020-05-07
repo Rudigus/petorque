@@ -93,11 +93,10 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V6w-xe-QvP">
-                                <rect key="frame" x="132" y="172" width="46" height="48"/>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V6w-xe-QvP">
+                                <rect key="frame" x="140" y="181" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <state key="normal" title="&gt; ||"/>
+                                <state key="normal" image="pause-30"/>
                                 <connections>
                                     <action selector="timecountToggle:" destination="Pj9-iE-7qS" eventType="touchUpInside" id="nvJ-G2-5Jd"/>
                                 </connections>
@@ -212,6 +211,7 @@
         <image name="briefcase" catalog="system" width="128" height="102"/>
         <image name="briefcase.fill" catalog="system" width="128" height="102"/>
         <image name="forward-50" width="50" height="50"/>
+        <image name="pause-30" width="30" height="30"/>
         <image name="takeyourtime-char1" width="300" height="300"/>
     </resources>
 </document>
