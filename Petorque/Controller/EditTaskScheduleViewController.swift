@@ -73,6 +73,10 @@ class EditTaskScheduleViewController: UITableViewController {
             
             let cycleDuration = cycleDurationContent.durationCyclePicker.selectedRow(inComponent: 0) + 20
             
+            if let workingTooMuch = workingTooMuch {
+                self.workingTooMuch = workingTooMuch - (cycleDuration * numberOfCycles)
+            }
+            
             editTaskScheduleDelegate?.updateTask(title: nameTextField, cycleDuration: cycleDuration, numberOfCycles: numberOfCycles, location: location!)
         } else {
             //TEMPORARY
@@ -80,6 +84,7 @@ class EditTaskScheduleViewController: UITableViewController {
         }
         self.dismiss(animated: true, completion: nil)
     }
+    
     @IBAction func DeleteTask(_ sender: UIButton) {
         let alert = UIAlertController(title: "Excluir tarefa?", message: "A tarefa será removida permanentemente.", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Voltar", style: .default, handler: {

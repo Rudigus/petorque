@@ -323,7 +323,7 @@ extension ScheduleController: AddTaskScheduleDelegate, EditTaskScheduleDelegate 
             action in
             alert.dismiss(animated: true, completion: nil)
         }))
-        alert.addAction(UIAlertAction(title: "Não mostrar novamente.", style: .cancel, handler: {
+        alert.addAction(UIAlertAction(title: "Ignorar por enquanto.", style: .cancel, handler: {
             action in
             if day == .today {
                 UserDefaults.standard.set(2, forKey: "todayOverwork")
