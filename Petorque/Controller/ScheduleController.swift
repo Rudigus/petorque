@@ -35,11 +35,25 @@ class ScheduleController: UIViewController, UITableViewDelegate, UITableViewData
     //Using this method to call a custom function for delegating the TableView's delegate and it's data source
     override func viewDidLoad() {
         super.viewDidLoad()
-        allTasks = Database.shared.loadData(from: .doing)
-        tasks = loadTodayTasks()
-        messageIsHidden()
         setupTableView()
         setupDayControl()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        loadSelectedDayDoingTasks()
+        messageIsHidden()
+    }
+    
+    func loadSelectedDayDoingTasks()
+    {
+        allTasks = Database.shared.loadData(from: .doing)
+        if dayControl.selectedSegmentIndex == 0 {
+            tasks = loadTodayTasks()
+        } else {
+            tasks = loadTomorrowTasks()
+        }
+        self.scheduleTableView.reloadData()
     }
     
     func setupDayControl()

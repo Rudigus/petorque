@@ -92,6 +92,17 @@ class Database {
         
     }
     
+    @discardableResult func deleteDoingTodayTask(at index: Int) -> Task {
+        
+        var todayDoingTasks = loadTodayTasks(from: .doing)
+        let removedElement = todayDoingTasks.remove(at: index)
+        let tomorrowDoingTasks = loadTomorrowTasks()
+        let allTasks = todayDoingTasks + tomorrowDoingTasks
+        saveData(from: allTasks, to: .doing)
+        
+        return removedElement
+    }
+    
     func addToDone(task: Task){
         var allDoneTasks = loadData(from: .done)
         allDoneTasks.append(task)
