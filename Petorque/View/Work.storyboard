@@ -38,20 +38,20 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xBS-16-NqA">
-                                        <rect key="frame" x="352" y="76" width="42" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UvE-Fp-sRT">
+                                        <rect key="frame" x="25" y="65" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="PLOM"/>
-                                        <connections>
-                                            <action selector="nextTask:" destination="Pj9-iE-7qS" eventType="touchUpInside" id="dqH-Nz-YcJ"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UvE-Fp-sRT">
-                                        <rect key="frame" x="23" y="76" width="35" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="PLIM"/>
+                                        <state key="normal" image="back-50"/>
                                         <connections>
                                             <action selector="previousTask:" destination="Pj9-iE-7qS" eventType="touchUpInside" id="yye-hD-phP"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xBS-16-NqA">
+                                        <rect key="frame" x="340" y="65" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="forward-50"/>
+                                        <connections>
+                                            <action selector="nextTask:" destination="Pj9-iE-7qS" eventType="touchUpInside" id="dqH-Nz-YcJ"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -208,8 +208,10 @@
     </scenes>
     <resources>
         <image name="asset-timer-2" width="400" height="400"/>
+        <image name="back-50" width="50" height="50"/>
         <image name="briefcase" catalog="system" width="128" height="102"/>
         <image name="briefcase.fill" catalog="system" width="128" height="102"/>
+        <image name="forward-50" width="50" height="50"/>
         <image name="takeyourtime-char1" width="300" height="300"/>
     </resources>
 </document>
