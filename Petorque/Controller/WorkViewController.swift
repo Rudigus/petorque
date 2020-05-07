@@ -131,7 +131,7 @@ class WorkViewController: UIViewController, TimerDelegate {
         
         Database.shared.addToDone(task: Database.shared.deleteData(from: .doing, at: currentTask))
         
-        print(Database.shared.loadData(from: .doing))
+        //print(Database.shared.loadData(from: .doing))
         
         if Database.shared.loadData(from: .doing).isEmpty {
             performSegue(withIdentifier: "goToFeedback", sender: nil)
