@@ -108,6 +108,7 @@ class WorkViewController: UIViewController, TimerDelegate {
 
             alert.addAction(UIAlertAction(title: "Ir para Agenda", style: .default, handler: { action in
 //                //IR PARA AGENDA
+                self.tabBarController?.selectedIndex = 1
             }))
 
             self.present(alert, animated: true)
