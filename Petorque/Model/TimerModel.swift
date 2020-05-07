@@ -93,6 +93,7 @@ class TimerModel {
             stopTimer()
         }
         paused.toggle()
+        delegate?.changePausedButton(paused)
     }
     
     func stopTimer(reset res : Bool = false) {

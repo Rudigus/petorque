@@ -16,6 +16,8 @@ protocol TimerDelegate {
     
     func changeCharacterImage(_ working : Bool)
     
+    func changePausedButton(_ paused : Bool)
+    
     func rotateProgressBar()
     
 }
