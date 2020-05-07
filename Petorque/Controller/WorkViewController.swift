@@ -36,8 +36,15 @@ class WorkViewController: UIViewController, TimerDelegate {
     
     @IBOutlet var fullBarImage: UIImageView!
     
+    @IBOutlet var taskBackgroundPanel: UIView!
+    
+    @IBOutlet var taskTextBackground: UIView!
+    
+    @IBOutlet var taskButtonBackground: UIView!
+    
     @IBAction func startCurrentTask(_ sender: UIButton) {
         let doingTasks = Database.shared.loadData(from: .doing)
+        taskButtonBackground.backgroundColor = #colorLiteral(red: 0.9548336864, green: 0.6729211211, blue: 0.6826212406, alpha: 1)
         
         nextTask.isHidden = true
         previousTask.isHidden = true
@@ -95,6 +102,10 @@ class WorkViewController: UIViewController, TimerDelegate {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+        taskBackgroundPanel.layer.cornerRadius = 15
+        taskTextBackground.layer.cornerRadius = 15
+        taskButtonBackground.layer.cornerRadius = 15
+        
         if taskTimer == nil {
             characterImage.image = UIImage(named: "takeyourtime-char1.png")
         }
@@ -127,6 +138,7 @@ class WorkViewController: UIViewController, TimerDelegate {
         taskTimer = nil
         fullBarImage.isHidden = true
         
+        taskButtonBackground.backgroundColor = #colorLiteral(red: 0.3408251405, green: 0.6305707097, blue: 0.718806088, alpha: 1)
         characterImage.image = UIImage(named: "takeyourtime-char1.png")
         
         Database.shared.addToDone(task: Database.shared.deleteData(from: .doing, at: currentTask))
