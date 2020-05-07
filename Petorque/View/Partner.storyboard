@@ -44,7 +44,7 @@
         <scene sceneID="aLY-eF-M4c">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="IJ4-2x-XZY" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Parceiro" image="tortoise" catalog="system" selectedImage="tortoise.fill" id="95P-0x-iqe"/>
+                    <tabBarItem key="tabBarItem" title="Parceiro" image="partner" selectedImage="partner-fill" id="95P-0x-iqe"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="Cvk-9p-S3w">
@@ -62,8 +62,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="tortoise" catalog="system" width="64" height="34"/>
-        <image name="tortoise.fill" catalog="system" width="64" height="32"/>
+        <image name="partner" width="30" height="30"/>
+        <image name="partner-fill" width="30" height="30"/>
         <namedColor name="Background Yellow">
             <color red="1" green="0.98431372549019602" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
