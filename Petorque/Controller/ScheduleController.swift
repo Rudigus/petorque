@@ -24,8 +24,8 @@ class ScheduleController: UIViewController, UITableViewDelegate, UITableViewData
     var allTasks:[Task] = []
     
     //Remember user decision about showing overwork alerts
-    var showOverWorkMessageToday = false
-    var showOverWorkMessageTomorrow = false
+    var showOverWorkMessageToday = UserDefaults.standard.integer(forKey: "todayOverwork")
+    var showOverWorkMessageTomorrow = UserDefaults.standard.integer(forKey: "tomorrowOverwork")
     
     @IBOutlet weak var dayControl: UISegmentedControl!
     
@@ -68,11 +68,17 @@ class ScheduleController: UIViewController, UITableViewDelegate, UITableViewData
                 DispatchQueue.main.async {
                     self.scheduleTableView.reloadData()
                 }
+                if let showOverWorkMessageToday = showOverWorkMessageToday, showOverWorkMessageToday == true {
+                    overWorkAlert(day: .today)
+                }
             case 1:
                 dayLabel.text = "O que faremos amanhã?"
                 tasks = loadTomorrowTasks()
                 DispatchQueue.main.async {
                     self.scheduleTableView.reloadData()
+                }
+                if let showOverWorkMessageTomorrow = showOverWorkMessageTomorrow, showOverWorkMessageTomorrow == true{
+                    overWorkAlert(day: .tomorrow)
                 }
         default:
                 dayLabel.text = "O que faremos hoje?"
@@ -239,6 +245,11 @@ extension ScheduleController: AddTaskScheduleDelegate, EditTaskScheduleDelegate 
             return false
         })
         
+        if isWorkHoursTooMuch(list: todayTasks) {
+            UserDefaults.standard.set(true, forKey: "todayOverwork")
+        }
+        
+        print("tomorrow \(showOverWorkMessageToday)")
         return todayTasks
     }
     
@@ -251,6 +262,13 @@ extension ScheduleController: AddTaskScheduleDelegate, EditTaskScheduleDelegate 
             return false
         })
 
+        if isWorkHoursTooMuch(list: tomorrowTasks){
+            if UserDefaults.standard.integer(forKey: "tomorrowOverwork") == 0 {
+                UserDefaults.standard.set(1, forKey: "tomorrowOverwork")
+            }
+        }
+        
+        print("tomorrow \(showOverWorkMessageTomorrow)")
         return tomorrowTasks
     }
     
@@ -266,6 +284,24 @@ extension ScheduleController: AddTaskScheduleDelegate, EditTaskScheduleDelegate 
             return true
         }
         return false
+    }
+    
+    func overWorkAlert(day: TodayOrTomorrow) {
+        let alert = UIAlertController(title: "Cuidado!", message: "O seu tempo de trabalho está alto! Tente não se sobrecarregar.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Entendi", style: .default, handler: {
+            action in
+            alert.dismiss(animated: true, completion: nil)
+        }))
+        alert.addAction(UIAlertAction(title: "Não mostrar novamente.", style: .cancel, handler: {
+            action in
+            if day == .today {
+                self.showOverWorkMessageToday = false
+            } else {
+                self.showOverWorkMessageTomorrow = false
+            }
+            self.dismiss(animated: true, completion: nil)
+        }))
+        self.present(alert, animated: true)
     }
     
 }
