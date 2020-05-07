@@ -227,8 +227,8 @@ class WorkViewController: UIViewController, TimerDelegate {
             return false
         })
         
-        arco.rotate(doingTasks[currentTask].cycleDuration * 60)
-        pontoDoArco.rotate(doingTasks[currentTask].cycleDuration * 60)
+        arco.rotate(doingTasks[currentTask].cycleDuration)
+        pontoDoArco.rotate(doingTasks[currentTask].cycleDuration)
     }
     
     func getDate(of day: TodayOrTomorrow) -> Date{
@@ -264,7 +264,7 @@ extension UIView{
         rotation.isRemovedOnCompletion = false
         rotation.toValue = NSNumber(value: Double.pi)
         rotation.duration = CFTimeInterval(duration)
-        rotation.isCumulative = false
+        rotation.isCumulative = true
         rotation.repeatCount = 1
         self.layer.add(rotation, forKey: "rotationAnimation")
     }

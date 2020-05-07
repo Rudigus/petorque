@@ -44,9 +44,7 @@ class ScheduleController: UIViewController, UITableViewDelegate, UITableViewData
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        tasks = loadTodayTasks()
         scheduleTableView.reloadData()
-        daySelectedControl.selectedSegmentIndex = 0
         messageIsHidden()
     }
     
