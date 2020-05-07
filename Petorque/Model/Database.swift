@@ -92,14 +92,25 @@ class Database {
         
     }
     
+    @discardableResult func deleteDoingTodayTask(at index: Int) -> Task {
+        
+        var todayDoingTasks = loadTodayTasks(from: .doing)
+        let removedElement = todayDoingTasks.remove(at: index)
+        let tomorrowDoingTasks = loadTomorrowTasks()
+        let allTasks = todayDoingTasks + tomorrowDoingTasks
+        saveData(from: allTasks, to: .doing)
+        
+        return removedElement
+    }
+    
     func addToDone(task: Task){
         var allDoneTasks = loadData(from: .done)
         allDoneTasks.append(task)
         saveData(from: allDoneTasks, to: .done)
     }
     
-    func loadTodayTasks() -> [Task] {
-        let allTasks = loadData(from: .doing)
+    func loadTodayTasks(from type : DoingOrDone) -> [Task] {
+        let allTasks = loadData(from: type)
         let todayTasks = allTasks.filter({ task in
             let todayDate = getDate(of: .today)
             if task.date == todayDate {

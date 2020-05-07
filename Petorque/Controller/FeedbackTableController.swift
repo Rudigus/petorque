@@ -24,7 +24,7 @@ class FeedbackTableController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tempTasks = loadTodayTasks()
+        tempTasks = Database.shared.loadTodayTasks(from: .done)
         if let checkTasks = tempTasks {
             for num in 0..<checkTasks.count {
                 tempFeedbackContent.append(checkTasks[num].title)
@@ -43,7 +43,7 @@ class FeedbackTableController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return loadTodayTasks().count
+        return Database.shared.loadTodayTasks(from: .done).count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -58,38 +58,8 @@ class FeedbackTableController: UITableViewController {
         self.navigationController?.popToRootViewController(animated: false)
     }
     
-    func getDate(of day: TodayOrTomorrow) -> Date {
-        let now = Calendar.current.dateComponents(in: .current, from: Date())
-        
-        switch day {
-        case .today:
-            let today = DateComponents(year: now.year, month: now.month, day: now.day)
-            let dateToday = Calendar.current.date(from: today)!
-            
-            return dateToday
-            
-        case .tomorrow:
-            let tomorrow = DateComponents(year: now.year, month: now.month, day: now.day! + 1)
-            let dateTomorrow = Calendar.current.date(from: tomorrow)!
-            
-            return dateTomorrow
-        }
-    }
-    
-    func loadTodayTasks() -> [Task] {
-        let todayTasks = Database.shared.loadData(from: .done).filter({ task in
-            let todayDate = getDate(of: .today)
-            if task.date == todayDate {
-                return true
-            }
-            return false
-        })
-
-        return todayTasks
-    }
-    
     func checkWorkHours () -> Int {
-        let todayTasks : [Task] = loadTodayTasks()
+        let todayTasks : [Task] = Database.shared.loadTodayTasks(from: .done)
         var totalTime = 0
         
         for task in todayTasks {

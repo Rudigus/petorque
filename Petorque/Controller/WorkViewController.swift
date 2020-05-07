@@ -43,7 +43,7 @@ class WorkViewController: UIViewController, TimerDelegate {
     @IBOutlet var taskButtonBackground: UIView!
     
     @IBAction func startCurrentTask(_ sender: UIButton) {
-        let doingTasks = Database.shared.loadData(from: .doing)
+        let doingTasks = Database.shared.loadTodayTasks(from: .doing)
         taskButtonBackground.backgroundColor = #colorLiteral(red: 0.9548336864, green: 0.6729211211, blue: 0.6826212406, alpha: 1)
         
         nextTask.isHidden = true
@@ -72,7 +72,7 @@ class WorkViewController: UIViewController, TimerDelegate {
     }
     
     @IBAction func previousTask(_ sender: UIButton) {
-        let doingTasks = Database.shared.loadData(from: .doing)
+        let doingTasks = Database.shared.loadTodayTasks(from: .doing)
 
         if currentTask == 0 {
             currentTask = doingTasks.count-1
@@ -84,7 +84,7 @@ class WorkViewController: UIViewController, TimerDelegate {
     }
     
     @IBAction func nextTask(_ sender: UIButton) {
-        let doingTasks = Database.shared.loadData(from: .doing)
+        let doingTasks = Database.shared.loadTodayTasks(from: .doing)
 
         if currentTask == doingTasks.count-1 {
             currentTask = 0
@@ -99,8 +99,8 @@ class WorkViewController: UIViewController, TimerDelegate {
         super.viewDidLoad()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
         taskBackgroundPanel.layer.cornerRadius = 15
         taskTextBackground.layer.cornerRadius = 15
@@ -111,19 +111,27 @@ class WorkViewController: UIViewController, TimerDelegate {
         }
         
         currentTask = 0
-        let doingTasks = Database.shared.loadData(from: .doing)
+        let doingTasks = Database.shared.loadTodayTasks(from: .doing)
         
         if doingTasks.isEmpty {
-            currentTaskLabel.text = "Texto placeholder"
+            currentTaskLabel.isHidden = true
+            previousTask.isHidden = true
+            nextTask.isHidden = true
+            taskTextBackground.isHidden = true
+            currentTaskLabel.isHidden = true
             let alert = UIAlertController(title: "Nada por aqui!", message: "Você precisa planejar suas tarefas na Agenda antes de começar a trabalhar.", preferredStyle: .alert)
 
             alert.addAction(UIAlertAction(title: "Ir para Agenda", style: .default, handler: { action in
-//                //IR PARA AGENDA
                 self.tabBarController?.selectedIndex = 1
             }))
 
             self.present(alert, animated: true)
         } else {
+            currentTaskLabel.isHidden = false
+            previousTask.isHidden = false
+            nextTask.isHidden = false
+            taskTextBackground.isHidden = false
+            currentTaskLabel.isHidden = false
             currentTaskLabel.text = doingTasks[currentTask].title
         }
         
@@ -141,15 +149,15 @@ class WorkViewController: UIViewController, TimerDelegate {
         taskButtonBackground.backgroundColor = #colorLiteral(red: 0.3408251405, green: 0.6305707097, blue: 0.718806088, alpha: 1)
         characterImage.image = UIImage(named: "takeyourtime-char1.png")
         
-        Database.shared.addToDone(task: Database.shared.deleteData(from: .doing, at: currentTask))
+        Database.shared.addToDone(task: Database.shared.deleteDoingTodayTask(at: currentTask))
         
         //print(Database.shared.loadData(from: .doing))
         
-        if Database.shared.loadData(from: .doing).isEmpty {
+        if Database.shared.loadTodayTasks(from: .doing).isEmpty {
             performSegue(withIdentifier: "goToFeedback", sender: nil)
         } else {
             currentTask = 0
-            currentTaskLabel.text = Database.shared.loadData(from: .doing)[0].title
+            currentTaskLabel.text = Database.shared.loadTodayTasks(from: .doing)[0].title
         }
         
         timecountLabel.isHidden = true
