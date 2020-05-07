@@ -71,27 +71,27 @@ class WorkViewController: UIViewController, TimerDelegate {
         finishedTask()
     }
     
-    @IBAction func changeTask(_ sender: UIButton) {
-        let senderName = sender.titleLabel?.text ?? "None"
-   
+    @IBAction func previousTask(_ sender: UIButton) {
         let doingTasks = Database.shared.loadData(from: .doing)
 
-        if senderName == "PLOM" {
-           if currentTask == doingTasks.count-1 {
-               currentTask = 0
-           } else {
-               currentTask += 1
-           }
+        if currentTask == 0 {
+            currentTask = doingTasks.count-1
+        } else {
+            currentTask -= 1
         }
+        
+        currentTaskLabel.text = doingTasks[currentTask].title
+    }
+    
+    @IBAction func nextTask(_ sender: UIButton) {
+        let doingTasks = Database.shared.loadData(from: .doing)
 
-        if senderName == "PLIM" {
-           if currentTask == 0 {
-               currentTask = doingTasks.count-1
-           } else {
-               currentTask -= 1
-           }
+        if currentTask == doingTasks.count-1 {
+            currentTask = 0
+        } else {
+            currentTask += 1
         }
-
+        
         currentTaskLabel.text = doingTasks[currentTask].title
     }
     

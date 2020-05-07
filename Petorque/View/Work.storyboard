@@ -43,7 +43,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="PLOM"/>
                                         <connections>
-                                            <action selector="changeTask:" destination="Pj9-iE-7qS" eventType="touchUpInside" id="V96-8P-sEp"/>
+                                            <action selector="nextTask:" destination="Pj9-iE-7qS" eventType="touchUpInside" id="dqH-Nz-YcJ"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UvE-Fp-sRT">
@@ -51,7 +51,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="PLIM"/>
                                         <connections>
-                                            <action selector="changeTask:" destination="Pj9-iE-7qS" eventType="touchUpInside" id="ScI-NY-dVy"/>
+                                            <action selector="previousTask:" destination="Pj9-iE-7qS" eventType="touchUpInside" id="yye-hD-phP"/>
                                         </connections>
                                     </button>
                                 </subviews>
