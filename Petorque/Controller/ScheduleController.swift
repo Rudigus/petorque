@@ -25,6 +25,7 @@ class ScheduleController: UIViewController, UITableViewDelegate, UITableViewData
     
     //Remember user decision about showing overwork alerts
     var showOverWorkMessageToday = UserDefaults.standard.integer(forKey: "todayOverwork")
+    
     var showOverWorkMessageTomorrow = UserDefaults.standard.integer(forKey: "tomorrowOverwork")
     
     @IBOutlet weak var dayControl: UISegmentedControl!
@@ -140,10 +141,14 @@ class ScheduleController: UIViewController, UITableViewDelegate, UITableViewData
             destination.location =
             allTasks.firstIndex(of: tasks[(scheduleTableView.indexPathForSelectedRow?.row)!])
             destination.editTaskScheduleDelegate = self
+            destination.workingTooMuch = totalWorkedHours(list: tasks)
+            destination.daySelected = daySelectedControl.selectedSegmentIndex
         }
         
         if let destination = segue.destination as? AddTaskScheduleViewController {
             destination.addTaskScheduleDelegate = self
+            destination.workingTooMuch = isWorkHoursTooMuch(list: tasks)
+            destination.daySelected = daySelectedControl.selectedSegmentIndex
         }
     }
 }
@@ -301,6 +306,15 @@ extension ScheduleController: AddTaskScheduleDelegate, EditTaskScheduleDelegate 
             return true
         }
         return false
+    }
+    
+    func totalWorkedHours(list: [Task]) -> Int {
+        var totalHours = 0
+        
+        for task in list {
+            totalHours += (task.cycleDuration) * (task.numberOfCycles)
+        }
+        return totalHours
     }
     
     func overWorkAlert(day: TodayOrTomorrow) {

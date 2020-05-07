@@ -12,4 +12,6 @@ protocol EditTaskScheduleDelegate: class {
     func updateTask(title: String, cycleDuration: Int, numberOfCycles: Int, location: Int)
     
     func deleteTask(location: Int)
+    
+    func overWorkAlert(day: TodayOrTomorrow)
 }

@@ -25,6 +25,10 @@ class EditTaskScheduleViewController: UITableViewController {
     
     weak var editTaskScheduleDelegate: EditTaskScheduleDelegate?
     
+    var workingTooMuch: Int?
+    
+    var daySelected: Int?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.tableFooterView = UIView()
@@ -42,6 +46,19 @@ class EditTaskScheduleViewController: UITableViewController {
         self.view.addGestureRecognizer(tapGesture)
         cycleDurationContent.configure(with: task!.cycleDuration)
     }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(true)
+        if let workingTooMuch = workingTooMuch, workingTooMuch > 360, let daySelected = daySelected {
+            if daySelected == 0 {
+                editTaskScheduleDelegate?.overWorkAlert(day: .today)
+            } else {
+                editTaskScheduleDelegate?.overWorkAlert(day: .tomorrow)
+            }
+        }
+    }
+    
+    
     @objc func dismissKeyboard (_ sender: UITapGestureRecognizer) {
         numberOfCyclesTextfield.resignFirstResponder()
     }
@@ -72,6 +89,11 @@ class EditTaskScheduleViewController: UITableViewController {
         alert.addAction(UIAlertAction(title: "Excluir", style: .destructive, handler: {
             action in
             self.editTaskScheduleDelegate?.deleteTask(location: self.location!)
+            let numberOfCycles = self.numberOfCyclesPicker.selectedRow(inComponent: 0) + 1
+            let cycleDuration = self.cycleDurationContent.durationCyclePicker.selectedRow(inComponent: 0) + 20
+            if let workingTooMuch = self.workingTooMuch {
+                self.workingTooMuch = workingTooMuch - (cycleDuration * numberOfCycles)
+            }
             self.dismiss(animated: true, completion: nil)
         }))
         self.present(alert, animated: true)
