@@ -34,6 +34,8 @@ class FeedbackTableController: UITableViewController {
         } else {
             fatalError("Tasks done not properly loaded on Feedback screen")
         }
+        
+        alertWorkHours()
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -84,6 +86,29 @@ class FeedbackTableController: UITableViewController {
         })
 
         return todayTasks
+    }
+    
+    func checkWorkHours () -> Int {
+        let todayTasks : [Task] = loadTodayTasks()
+        var totalTime = 0
+        
+        for task in todayTasks {
+            totalTime += task.cycleDuration * task.numberOfCycles
+        }
+        
+        return totalTime
+    }
+    
+    func alertWorkHours() {
+        if checkWorkHours() >= 600 {
+            let alert = UIAlertController(title: "Que cansaço...", message: "Tenha cuidado com o quanto você trabalha! Isso faz mal para você e seu parceiro.", preferredStyle: .alert)
+
+            alert.addAction(UIAlertAction(title: "Ver Parceiro", style: .default, handler: { action in
+                self.tabBarController?.selectedIndex = 0
+            }))
+
+            self.present(alert, animated: true)
+        }
     }
 
 }
