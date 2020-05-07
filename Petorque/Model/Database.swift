@@ -97,4 +97,48 @@ class Database {
         allDoneTasks.append(task)
         saveData(from: allDoneTasks, to: .done)
     }
+    
+    func loadTodayTasks() -> [Task] {
+        let allTasks = loadData(from: .doing)
+        let todayTasks = allTasks.filter({ task in
+            let todayDate = getDate(of: .today)
+            if task.date == todayDate {
+                return true
+            }
+            return false
+        })
+
+        return todayTasks
+    }
+    
+    func loadTomorrowTasks() -> [Task] {
+        let allTasks = loadData(from: .doing)
+        let tomorrowTasks = allTasks.filter({ task in
+            let tomorrowDate = getDate(of: .tomorrow)
+            if task.date == tomorrowDate {
+                return true
+            }
+            return false
+        })
+
+        return tomorrowTasks
+    }
+    
+    func getDate(of day: TodayOrTomorrow) -> Date{
+        let now = Calendar.current.dateComponents(in: .current, from: Date())
+        
+        switch day {
+        case .today:
+            let today = DateComponents(year: now.year, month: now.month, day: now.day)
+            let dateToday = Calendar.current.date(from: today)!
+            
+            return dateToday
+            
+        case .tomorrow:
+            let tomorrow = DateComponents(year: now.year, month: now.month, day: now.day! + 1)
+            let dateTomorrow = Calendar.current.date(from: tomorrow)!
+            
+            return dateTomorrow
+        }
+    }
 }
