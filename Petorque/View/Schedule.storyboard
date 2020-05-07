@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bordered" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Sxb-NV-oY2">
-                                <rect key="frame" x="137.66666666666666" y="116" width="138.99999999999997" height="32"/>
+                                <rect key="frame" x="137.66666666666666" y="124.33333333333331" width="138.99999999999997" height="32"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <segments>
                                     <segment title="Hoje"/>
@@ -30,13 +30,13 @@
                                 </connections>
                             </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="O que faremos hoje? " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EJd-wm-TtS">
-                                <rect key="frame" x="126.00000000000001" y="167" width="162.33333333333337" height="20.333333333333343"/>
+                                <rect key="frame" x="126.00000000000001" y="175.33333333333334" width="162.33333333333337" height="20.333333333333343"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="taU-VQ-ews">
-                                <rect key="frame" x="0.0" y="207.33333333333334" width="414" height="478.66666666666663"/>
+                                <rect key="frame" x="0.0" y="215.66666666666666" width="414" height="470.33333333333337"/>
                                 <color key="backgroundColor" red="0.99264425040000004" green="0.97758430240000005" blue="0.91070419550000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="sectionIndexBackgroundColor" red="0.99264425040000004" green="0.97758430240000005" blue="0.91070419550000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
@@ -67,10 +67,10 @@
                                 </prototypes>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8TQ-fT-nQ9" userLabel="Message View">
-                                <rect key="frame" x="0.0" y="187.33333333333331" width="414" height="548.66666666666674"/>
+                                <rect key="frame" x="0.0" y="195.66666666666669" width="414" height="540.33333333333326"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nenhuma Tarefa Agendada" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P6Y-iS-Iq3" userLabel="Message View Label">
-                                        <rect key="frame" x="66.666666666666686" y="189.99999999999997" width="281" height="28.666666666666657"/>
+                                        <rect key="frame" x="66.666666666666686" y="185.66666666666666" width="281" height="28.666666666666657"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                         <color key="textColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -442,7 +442,7 @@
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="yh3-NW-3VM">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="96"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="104.33333333333334"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
