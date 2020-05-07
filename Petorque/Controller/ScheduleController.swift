@@ -23,6 +23,10 @@ class ScheduleController: UIViewController, UITableViewDelegate, UITableViewData
     
     var allTasks:[Task] = []
     
+    //Remember user decision about showing overwork alerts
+    var showOverWorkMessageToday = false
+    var showOverWorkMessageTomorrow = false
+    
     @IBOutlet weak var dayControl: UISegmentedControl!
     
     @IBOutlet weak var scheduleTableView: UITableView! {
@@ -156,6 +160,7 @@ extension ScheduleController: AddTaskScheduleDelegate, EditTaskScheduleDelegate 
         scheduleTableView.reloadData()
         messageIsHidden()
     }
+    
     //edit task modal delegate
     func updateTask(title: String, cycleDuration: Int, numberOfCycles: Int, location: Int) {
 
@@ -183,6 +188,8 @@ extension ScheduleController: AddTaskScheduleDelegate, EditTaskScheduleDelegate 
         scheduleTableView.reloadData()
         messageIsHidden()
     }
+    
+    
     func deleteTask(location: Int) {
         var updatingTable: TodayOrTomorrow
         if daySelectedControl.selectedSegmentIndex == 1 {
@@ -202,6 +209,7 @@ extension ScheduleController: AddTaskScheduleDelegate, EditTaskScheduleDelegate 
         scheduleTableView.reloadData()
         messageIsHidden()
     }
+    
     //Utility function for getting the date
     func getDate(of day: TodayOrTomorrow) -> Date{
         let now = Calendar.current.dateComponents(in: .current, from: Date())
@@ -230,7 +238,7 @@ extension ScheduleController: AddTaskScheduleDelegate, EditTaskScheduleDelegate 
             }
             return false
         })
-
+        
         return todayTasks
     }
     
@@ -244,6 +252,20 @@ extension ScheduleController: AddTaskScheduleDelegate, EditTaskScheduleDelegate 
         })
 
         return tomorrowTasks
+    }
+    
+    func isWorkHoursTooMuch(list: [Task]) -> Bool{
+        
+        var totalHours = 0
+        
+        for task in list {
+            totalHours += (task.cycleDuration) * (task.numberOfCycles)
+        }
+        
+        if totalHours >= 360 {
+            return true
+        }
+        return false
     }
     
 }
