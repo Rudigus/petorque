@@ -86,12 +86,12 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.34082514050000001" green="0.63057070969999995" blue="0.71880608800000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
-                            <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="asset-timer-1" translatesAutoresizingMaskIntoConstraints="NO" id="Wao-nf-Nac">
-                                <rect key="frame" x="76" y="113" width="260" height="260"/>
+                            <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="AssetTimerPart" translatesAutoresizingMaskIntoConstraints="NO" id="Wao-nf-Nac">
+                                <rect key="frame" x="77" y="115" width="260" height="260"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bar0" translatesAutoresizingMaskIntoConstraints="NO" id="w7r-RO-k3w">
-                                <rect key="frame" x="77" y="51" width="260" height="260"/>
+                                <rect key="frame" x="77" y="115" width="260" height="260"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H4j-N3-k8l">
@@ -110,7 +110,7 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="t30-Ky-ai8">
-                                <rect key="frame" x="80" y="252" width="252" height="128"/>
+                                <rect key="frame" x="80" y="246" width="252" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.99265509839999999" green="0.97765082120000002" blue="0.90660375360000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
@@ -216,7 +216,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="asset-timer-1" width="400" height="400"/>
+        <image name="AssetTimerPart" width="400" height="400"/>
         <image name="back-50" width="50" height="50"/>
         <image name="bar0" width="400" height="400"/>
         <image name="briefcase" catalog="system" width="128" height="102"/>

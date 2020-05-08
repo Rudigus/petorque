@@ -75,7 +75,8 @@ class TimerModel {
             }
             
             let timeProgress : Double = Double(self.elapsedSeconds) / Double(min * 60)
-            let barFrame : Int = Int(floor(11 * timeProgress))
+            let barFrame : Int = Int(floor(12 * timeProgress))
+            //print(barFrame)
             self.delegate?.updateProgressBar(frame: barFrame, direction: timeDirection)
             self.delegate?.giveTimerLabel(timeText)
         }
