@@ -86,27 +86,36 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.34082514050000001" green="0.63057070969999995" blue="0.71880608800000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
+                            <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="asset-timer-1" translatesAutoresizingMaskIntoConstraints="NO" id="Wao-nf-Nac">
+                                <rect key="frame" x="76" y="113" width="260" height="260"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bar0" translatesAutoresizingMaskIntoConstraints="NO" id="w7r-RO-k3w">
+                                <rect key="frame" x="77" y="51" width="260" height="260"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H4j-N3-k8l">
-                                <rect key="frame" x="200" y="179" width="83" height="36"/>
+                                <rect key="frame" x="204" y="212" width="83" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <color key="textColor" red="0.34082514050000001" green="0.63057070969999995" blue="0.71880608800000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V6w-xe-QvP">
-                                <rect key="frame" x="140" y="181" width="30" height="30"/>
+                                <rect key="frame" x="137" y="215" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="pause-30"/>
                                 <connections>
                                     <action selector="timecountToggle:" destination="Pj9-iE-7qS" eventType="touchUpInside" id="nvJ-G2-5Jd"/>
                                 </connections>
                             </button>
-                            <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="asset-timer-2" translatesAutoresizingMaskIntoConstraints="NO" id="w7r-RO-k3w">
-                                <rect key="frame" x="20" y="108" width="72" height="221"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="t30-Ky-ai8">
+                                <rect key="frame" x="80" y="252" width="252" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
+                                <color key="backgroundColor" red="0.99265509839999999" green="0.97765082120000002" blue="0.90660375360000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="takeyourtime-char1" translatesAutoresizingMaskIntoConstraints="NO" id="MCg-A4-sAR">
-                                <rect key="frame" x="82" y="243" width="250" height="250"/>
+                                <rect key="frame" x="82" y="262" width="250" height="250"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
@@ -117,6 +126,7 @@
                     <connections>
                         <outlet property="characterImage" destination="MCg-A4-sAR" id="Ont-k5-h7p"/>
                         <outlet property="currentTaskLabel" destination="UZf-DV-59e" id="Gip-R0-t7z"/>
+                        <outlet property="emptyBarImage" destination="Wao-nf-Nac" id="vhW-G4-zAA"/>
                         <outlet property="finishTask" destination="K9z-s1-SAq" id="V0V-ol-sic"/>
                         <outlet property="fullBarImage" destination="w7r-RO-k3w" id="JrD-Zy-zIK"/>
                         <outlet property="nextTask" destination="xBS-16-NqA" id="0eh-YR-nYy"/>
@@ -206,8 +216,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="asset-timer-2" width="400" height="400"/>
+        <image name="asset-timer-1" width="400" height="400"/>
         <image name="back-50" width="50" height="50"/>
+        <image name="bar0" width="400" height="400"/>
         <image name="briefcase" catalog="system" width="128" height="102"/>
         <image name="briefcase.fill" catalog="system" width="128" height="102"/>
         <image name="forward-50" width="50" height="50"/>
