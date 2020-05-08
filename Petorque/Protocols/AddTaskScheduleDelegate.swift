@@ -10,4 +10,6 @@ import Foundation
 
 protocol AddTaskScheduleDelegate: class {
     func saveTask(title: String, cycleDuration: Int, numberOfCycles: Int)
+    
+    func overWorkAlert(day: TodayOrTomorrow)
 }

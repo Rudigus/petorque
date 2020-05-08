@@ -21,6 +21,10 @@ class AddTaskScheduleViewController: UITableViewController {
     let numberOfCyclesPickerData = [String](arrayLiteral: "1 ciclo", "2 ciclos", "3 ciclos", "4 ciclos", "5 ciclos")
     
     weak var addTaskScheduleDelegate: AddTaskScheduleDelegate?
+    
+    var workingTooMuch: Bool?
+    
+    var daySelected: Int?
 
     
     override func viewDidLoad() {
@@ -32,6 +36,17 @@ class AddTaskScheduleViewController: UITableViewController {
         numberOfCyclesPicker.center = view.center
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard (_:)))
         self.view.addGestureRecognizer(tapGesture)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(true)
+        if let workingTooMuch = workingTooMuch, workingTooMuch, let daySelected = daySelected {
+            if daySelected == 0 {
+                addTaskScheduleDelegate?.overWorkAlert(day: .today)
+            } else {
+                addTaskScheduleDelegate?.overWorkAlert(day: .tomorrow)
+            }
+        }
     }
     
     @objc func dismissKeyboard (_ sender: UITapGestureRecognizer) {
@@ -58,6 +73,8 @@ class AddTaskScheduleViewController: UITableViewController {
         
         self.dismiss(animated: true, completion: nil)
     }
+    
+    
     
 }
 
