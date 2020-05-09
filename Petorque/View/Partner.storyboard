@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="IJ4-2x-XZY">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -10,14 +11,30 @@
         <!--Parceiro-->
         <scene sceneID="ahl-iQ-tQs">
             <objects>
-                <viewController id="VyJ-Y7-npN" sceneMemberID="viewController">
+                <viewController id="VyJ-Y7-npN" customClass="PartnerViewController" customModule="Petorque" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="e2u-cY-dXW">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VCt-4o-djB">
+                                <rect key="frame" x="82" y="266.66666666666669" width="250" height="250.00000000000006"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="SP1-RT-6b0"/>
+                                    <constraint firstAttribute="height" constant="250" id="d41-ii-nWY"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" name="Background Yellow"/>
+                        <constraints>
+                            <constraint firstItem="VCt-4o-djB" firstAttribute="centerY" secondItem="2m0-Wz-lnR" secondAttribute="centerY" id="Igx-9s-apr"/>
+                            <constraint firstItem="VCt-4o-djB" firstAttribute="centerX" secondItem="2m0-Wz-lnR" secondAttribute="centerX" id="dSU-Il-wBr"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="2m0-Wz-lnR"/>
                     </view>
                     <navigationItem key="navigationItem" title="Parceiro" id="YIG-G0-eNb"/>
+                    <connections>
+                        <outlet property="partnerView" destination="VCt-4o-djB" id="ps5-C3-q1n"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q6Y-Ek-7dQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -27,11 +44,11 @@
         <scene sceneID="aLY-eF-M4c">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="IJ4-2x-XZY" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Parceiro" image="tortoise" catalog="system" selectedImage="tortoise.fill" id="95P-0x-iqe"/>
+                    <tabBarItem key="tabBarItem" title="Parceiro" image="partner" selectedImage="partner-fill" id="95P-0x-iqe"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="Cvk-9p-S3w">
-                        <rect key="frame" x="0.0" y="44" width="414" height="104.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -45,7 +62,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="tortoise" catalog="system" width="64" height="34"/>
-        <image name="tortoise.fill" catalog="system" width="64" height="32"/>
+        <image name="partner" width="30" height="30"/>
+        <image name="partner-fill" width="30" height="30"/>
+        <namedColor name="Background Yellow">
+            <color red="1" green="0.98431372549019602" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>
